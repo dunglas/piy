@@ -7,4 +7,4 @@ It is wrote in PHP using the Symfony web framework. It is modular and object ori
 
 This software is still in an early stage of developpement.
 
-_Publish It Yourself_ is covered by the The GNU Affero General Public License version 3. See the ```LICENSE`` file for futher informations.
+_Publish It Yourself_ is covered by the The GNU Affero General Public License version 3. See the ``LICENSE`` file for futher informations.
