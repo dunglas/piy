@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        <?php echoln(sfConfig::get('app_general_name')) ?>
+    description:  <?php echo sfConfig::get('app_general_name') ?>: <?php echoln(sfConfig::get('app_general_baseline')) ?>
+    keywords:     self publish, publication, self-management
+    language:     en
+    robots:       index, follow
+
+  stylesheets:    [main.css]
+
+  javascripts:    []
+
+  has_layout:     on
+  layout:         layout

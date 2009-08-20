@@ -1,0 +1,46 @@
+# # Populate this file with data to be loaded by your ORM's *:data-load task.
+# # You can create multiple files in this directory (i.e. 010_users.yml,
+# # 020_articles.yml, etc) which will be loaded in alphabetical order.
+# # 
+# # See documentation for your ORM's *:data-load task for more information.
+# 
+# User:
+#   fabien:
+#     username: fabien
+#     password: changeme
+#     name:     Fabien Potencier
+#     email:    fabien.potencier@symfony-project.com
+#   kris:
+#     username: Kris.Wallsmith
+#     password: changeme
+#     name:     Kris Wallsmith
+#     email:    kris.wallsmith@symfony-project.com
+
+sfGuardUser:
+  kevin:
+    username:       kevin
+    password:       azerty
+    is_super_admin: true
+  
+  aude:
+    username:       aude
+    password:       aude
+    is_super_admin: false
+
+sfGuardUserProfile:
+  kevin_profile:
+    user_id:        kevin
+    email:          dunglas@gmail.com
+    first_name:     Kévin
+    last_name:      Dunglas
+    bio:            Creator of Self Publish
+  
+  aude_profile:
+    user_id:        aude
+    email:          aude@example.org
+
+Article:
+  welcome:
+    title:            Welcome to Self Publish
+    body:             SelfPublish is a self-managed and auto moderated CMS. It allows to publish, rate and ban multimedia articles and news. It also includes a calendar, tags cloud, many SEO features (such as slugs based URL), Atom feeds and more !
+    author:           The Self Publish Team

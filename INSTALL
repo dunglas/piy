@@ -1,0 +1,14 @@
+Install dependencies 
+    # apt-get install php5-curl 
+  Services Twitter
+    # pear install http://servicestwitter.googlecode.com/files/Services_Twitter-x.y.z.tgz
+    
+Other dependencies are bundled with SelfPublished or set as SVN externals.
+
+Instructions
+  * Create a database for SelfPublish and a user with all rights on this database
+  * In the selfpublish/ directory type ./symfony configure:database "mysql:host=localhost;dbname=selfpublish" username password
+    (Here it's for MySQL, you can use any database type supported by PDO.)
+  * ln -s plugins/sfPropelActAsCommentableBehaviorPlugin/web/css/* web/css/
+  * ln -s plugins/sfPropelActAsCommentableBehaviorPlugin/web/images/* web/images/
+  * chmod -R 777 cache log plugins/sfXssSafePatchedPlugin/lib/vendor/htmlpurifier/HTMLPurifier/DefinitionCache/Serializer

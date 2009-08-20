@@ -1,0 +1,17 @@
+default:
+  is_secure: on
+
+index:
+  is_secure: off
+  
+top:
+  is_secure: off
+
+new:
+  is_secure: off
+
+create:
+  is_secure: off
+
+view:
+  is_secure: off

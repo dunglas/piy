@@ -1,0 +1,19 @@
+13,14d12
+< require_once(sfConfig::get('sf_plugins_dir').'/sfXssSafePlugin/lib/vendor/htmlpurifier/HTMLPurifier.auto.php');
+< 
+80c78
+<     if (SF_ENVIRONMENT == 'dev' || SF_ENVIRONMENT == 'test')
+---
+>     if (sfConfig::get('sf_environment') == 'dev' || sfConfig::get('sf_environment') == 'test')
+93c91
+<       $def =& $config->getHTMLDefinition(true);
+---
+>       $def = $config->getHTMLDefinition(true);
+101c99
+<           ${$name} =& $def->addElement(
+---
+>           ${$name} = $def->addElement(
+122c120
+<           ${$name} =& $def->addAttribute(
+---
+>           ${$name} = $def->addAttribute(

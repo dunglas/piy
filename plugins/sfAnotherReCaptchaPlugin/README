@@ -1,0 +1,68 @@
+sfAnotherReCaptchaPlugin
+========================
+
+sfAnotherReCaptchaPlugin is a Symfony plugin allowing you to uses the reCAPTCHA
+system in your forms.
+
+[reCAPTCHA](http://recaptcha.net) is a free CAPTCHA service that helps to digitize books, newspapers
+and old time radio shows.
+A CAPTCHA is a program that can tell whether its user is a human or a computer.
+CAPTCHAs are used by many websites to prevent abuse from "bots," or automated
+programs usually written to generate spam. No computer program can read
+distorted text as well as humans can, so bots cannot navigate sites protected by
+CAPTCHAs.
+
+This plugin is based on
+[sfReCaptchaPlugin](http://www.symfony-project.org/plugins/sfReCaptchaPlugin).
+Unlike sfReCaptchaPlugin, sfAnotherReCaptchaPlugin provides you a "new form"
+reCAPTCHA widget.
+
+It also provides a "mailhide" helper.
+
+Installation
+------------
+
+Put this directory under the `plugins` directory of your Symfony installation.
+Edit your `app.yml` config file and add:
+
+    recaptcha:
+      public_key:      <your public reCAPTCHA key>
+      private_key:     <your private reCAPTCHA key>
+
+Usage
+-----
+
+Create a reCAPTCHA widget with `new sfWidgetFormReCaptcha()`.
+
+For example, in a Propel form you can use the following code to add a CAPTCHA
+at the end of the generated form.
+
+    $this->widgetSchema['captcha'] = new sfAnotherWidgetFormReCaptcha();
+
+The validator is called `sfAnotherValidatorSchemaReCaptcha`. You can use it as Post
+validator like that:
+
+    $this->validatorSchema->setPostValidator(
+      new sfAnotherValidatorSchemaReCaptcha($this, 'captcha')
+    );
+
+For a real life example see the SelfPublish register form code.
+
+Mailhide installation
+---------------------
+
+Edit your `app.yml` config file and add:
+
+    mailhide:
+      public_key:      <your public reCAPTCHA key>
+      private_key:     <your private reCAPTCHA key>
+
+Mailhide usage
+--------------
+
+In a template:
+
+    <?php use_helper('recaptcha'); ?>
+
+    <?php echo recaptcha_mailhide_html(sfConfig::get('app_mailhide_public_key'), 
+      sfConfig::get('app_mailhide_private_key'), 'foo@bar.com'); ?>

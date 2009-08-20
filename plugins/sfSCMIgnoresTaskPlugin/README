@@ -1,0 +1,29 @@
+sfSCMIgnoresTaskPlugin
+================
+
+Description
+-----------
+
+Automatically generate and optionally add 'ignores' for your SCM.
+
+Usage
+-----
+    $ symfony util:generate-ignores [--add-ignores] scm
+
+Arguments:
+ scm         Which SCM you use, git or cvs
+
+Options:
+
+     --add-ignores       Add the ignore files automatically to your SCM
+
+Contact
+-------
+
+Feel free to contact me if you have any questions or requests.
+
+TODO
+----
+
+-Make the search through the directories a bit more efficient
+-Look into adding support for other SCMs.

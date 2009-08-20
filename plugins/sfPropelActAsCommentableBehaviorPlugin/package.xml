@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfPropelActAsCommentableBehaviorPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>Propel commentable behavior</summary>
+ <description>This behavior permits to attach comments to Propel objects. It provides a module for enabling comments in your application in less than 3 minutes.</description>
+ <lead>
+  <name>Xavier Lacot</name>
+  <user>xavier</user>
+  <email>xavier@lacot.org</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-01-16</date>
+ <time>13:20:10</time>
+ <version>
+  <release>1.2.0</release>
+  <api>1.2.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
+ <notes>* created a Symfony 1.2 version of the plugin. No more evolutions (apart from bugfixes) will be done for previous versions of Symfony.
+* removed support of ajax, since Symfony 1.2 is js framework agnostic
+* upgraded to HTMLPurifier 3.2.0</notes>
+ <contents>
+  <dir baseinstalldir="." name="/">
+   <file baseinstalldir="." md5sum="1863a8851c3d06c88fd924e89544e481" name="config/app.yml" role="data" />
+   <file baseinstalldir="." md5sum="e9d296b5c31879c8d3e59bd16e28e7bb" name="config/config.php" role="php" />
+   <file baseinstalldir="." md5sum="a2a6c9a6c2f8a082b5e6f9a5bed69f7d" name="config/schema.yml" role="data" />
+   <file baseinstalldir="." md5sum="340f5718d693bec98fe8ad0378f692c3" name="config/schemaConfig.php" role="php" />
+   <file baseinstalldir="." md5sum="5a6bfdc57261b27b3164dcf0ce50d3c6" name="config/sfPropelActAsCommentableBehaviorPlugin.yml.sample" role="data" />
+   <file baseinstalldir="." md5sum="3a6fb9bcc864e8ca31c88a0158deeccf" name="lib/sfPropelActAsCommentableBehavior.class.php" role="php" />
+   <file baseinstalldir="." md5sum="4206f01cf140423a2aed81500b1212a6" name="lib/sfPropelActAsCommentableBehaviorRouting.class.php" role="php" />
+   <file baseinstalldir="." md5sum="e9b19347220e5c3afc690636164db771" name="lib/sfPropelActAsCommentableStripper.class.php" role="php" />
+   <file baseinstalldir="." md5sum="468e6513389f50d2ced457fc22b4ed7c" name="lib/sfPropelActAsCommentableToolkit.class.php" role="php" />
+   <file baseinstalldir="." md5sum="43197adb9f9cc984b0c1f822052915cf" name="lib/filter/sfCommentFormFilter.class.php" role="php" />
+   <file baseinstalldir="." md5sum="a592efc5d546208daecb4f1a6584667d" name="lib/filter/base/BasesfCommentFormFilter.class.php" role="php" />
+   <file baseinstalldir="." md5sum="90dffc862eee580cb6405940c94cc596" name="lib/form/sfCommentForm.class.php" role="php" />
+   <file baseinstalldir="." md5sum="c6d05bc269f8d8f8cb512a9b994658bf" name="lib/form/sfCommentingForm.class.php" role="php" />
+   <file baseinstalldir="." md5sum="b1c18852f63145cb51828370a885254e" name="lib/form/base/BasesfCommentForm.class.php" role="php" />
+   <file baseinstalldir="." md5sum="ba0583d2f9b0495f9560cd434d187ea4" name="lib/htmlpurifier-3.2.0-lite/CREDITS" role="data" />
+   <file baseinstalldir="." md5sum="c282e480b6c868fa6548cc2f2e211359" name="lib/htmlpurifier-3.2.0-lite/INSTALL" role="data" />
+   <file baseinstalldir="." md5sum="fbc093901857fcd118f065f900982c24" name="lib/htmlpurifier-3.2.0-lite/LICENSE" role="data" />
+   <file baseinstalldir="." md5sum="59e6f9dc9f227bcd64ed42c32f92d2fe" name="lib/htmlpurifier-3.2.0-lite/NEWS" role="data" />
+   <file baseinstalldir="." md5sum="c186edb49d49e88597423c7b5951482e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.auto.php" role="php" />
+   <file baseinstalldir="." md5sum="17e5aeedd795cf7b27fd6f5bd4bce3fc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.autoload.php" role="php" />
+   <file baseinstalldir="." md5sum="db62167a162c6292df27507983821c34" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.func.php" role="php" />
+   <file baseinstalldir="." md5sum="82971bd105716e6921cee60ee9065283" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.includes.php" role="php" />
+   <file baseinstalldir="." md5sum="8acb3e46566fb1e8ba23f7fafe2690ff" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.kses.php" role="php" />
+   <file baseinstalldir="." md5sum="75f89c1f6ab1fdbf38bf956d1081c68a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.path.php" role="php" />
+   <file baseinstalldir="." md5sum="7407a9744328cdcd0b05652392bfaf25" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.php" role="php" />
+   <file baseinstalldir="." md5sum="fa2f58ce643b387ca19006837fc1bd6f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier.safe-includes.php" role="php" />
+   <file baseinstalldir="." md5sum="2e3a8697e6b957f5c8c1033cafb2a2f0" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrCollections.php" role="php" />
+   <file baseinstalldir="." md5sum="2a543228c976e6af505b803b62f8d4ea" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef.php" role="php" />
+   <file baseinstalldir="." md5sum="165623079bf36e069b990b43bb6c2bd1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform.php" role="php" />
+   <file baseinstalldir="." md5sum="456b654865490423003f1c98727563be" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTypes.php" role="php" />
+   <file baseinstalldir="." md5sum="14cc2da0a5b85c1f6c8f69973ae7047a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrValidator.php" role="php" />
+   <file baseinstalldir="." md5sum="3712f9f0bb900b892bdae1217a3ef675" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Bootstrap.php" role="php" />
+   <file baseinstalldir="." md5sum="ba722c8735030b114e60c427ba46e618" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef.php" role="php" />
+   <file baseinstalldir="." md5sum="4be060fcbf3304aebaab2b561834a479" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Config.php" role="php" />
+   <file baseinstalldir="." md5sum="9f4aaa04c5c0f3c61c4f39fb4d2aada5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema.php" role="php" />
+   <file baseinstalldir="." md5sum="aefaeef75ba11904003f99ac8038a6c2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ContentSets.php" role="php" />
+   <file baseinstalldir="." md5sum="64b2c5dc5ff38aa969e64055cf542440" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Context.php" role="php" />
+   <file baseinstalldir="." md5sum="cfbd2e9d94e8290ed3af40a55d9e11c1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/CSSDefinition.php" role="php" />
+   <file baseinstalldir="." md5sum="a63cde42c6721d3c045d7743474ec20e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Definition.php" role="php" />
+   <file baseinstalldir="." md5sum="679b1c584c93bb155e42b65d2dadc192" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache.php" role="php" />
+   <file baseinstalldir="." md5sum="9aa4f92e9d5b4f8040559f8e0773f9e4" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCacheFactory.php" role="php" />
+   <file baseinstalldir="." md5sum="a98079030581e7431f373a32266e1dbe" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Doctype.php" role="php" />
+   <file baseinstalldir="." md5sum="1335bb80305bcc4a0329a86fae69b370" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DoctypeRegistry.php" role="php" />
+   <file baseinstalldir="." md5sum="06f1a70a19e91626533a26bb25eb75e3" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ElementDef.php" role="php" />
+   <file baseinstalldir="." md5sum="2478e9e5c901bc1907997df3369a9d86" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Encoder.php" role="php" />
+   <file baseinstalldir="." md5sum="89249bcc6452811428547fda785c00be" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/EntityLookup.php" role="php" />
+   <file baseinstalldir="." md5sum="7c7f39c26c43bb301f71b7ebb8c408f2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/EntityParser.php" role="php" />
+   <file baseinstalldir="." md5sum="3c7e539ecd478d6609dc8b627c0a6233" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ErrorCollector.php" role="php" />
+   <file baseinstalldir="." md5sum="9ececb93f112bd032fd62391838211d8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ErrorStruct.php" role="php" />
+   <file baseinstalldir="." md5sum="30336a4c95bad6e8d6aebc58b9b962d5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Exception.php" role="php" />
+   <file baseinstalldir="." md5sum="7e9cbf729216384b3dc8e7cbe8e8d590" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Filter.php" role="php" />
+   <file baseinstalldir="." md5sum="5e35f0dac607150c3578f8828fe9e0f1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Generator.php" role="php" />
+   <file baseinstalldir="." md5sum="099e7e4730b2eedf2422198352168148" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLDefinition.php" role="php" />
+   <file baseinstalldir="." md5sum="67dd9db56e8f34aa6a4ebd103b0bd80b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule.php" role="php" />
+   <file baseinstalldir="." md5sum="2b3bca0cb56e0e5a13da4dfcb264f979" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModuleManager.php" role="php" />
+   <file baseinstalldir="." md5sum="5c9243a21350e8bd88b478e4d3c64893" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/IDAccumulator.php" role="php" />
+   <file baseinstalldir="." md5sum="81d1ea71d93b2c7f10bfb33c9b39ae5d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector.php" role="php" />
+   <file baseinstalldir="." md5sum="15c18754aa3d899bd43f853eafa54fab" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Language.php" role="php" />
+   <file baseinstalldir="." md5sum="27f90191fb9f580e55c4a5988d0223ec" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/LanguageFactory.php" role="php" />
+   <file baseinstalldir="." md5sum="d8617c2bb13b67c752ff5d5963f47841" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Length.php" role="php" />
+   <file baseinstalldir="." md5sum="04b38b964b0f2ef8c870dc77e3e420e6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Lexer.php" role="php" />
+   <file baseinstalldir="." md5sum="e9412657f788f59cc793df29adf85816" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/PercentEncoder.php" role="php" />
+   <file baseinstalldir="." md5sum="7bc372b4f976d26bc529359cc5d248ee" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Printer.php" role="php" />
+   <file baseinstalldir="." md5sum="4d9d59d5235855f4fe1782ab4fdd20d7" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy.php" role="php" />
+   <file baseinstalldir="." md5sum="482d0b439e55adc868839a1bb9e07858" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/StringHash.php" role="php" />
+   <file baseinstalldir="." md5sum="39421ea6b7d086d5be459fa8facb968a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/StringHashParser.php" role="php" />
+   <file baseinstalldir="." md5sum="0e3c9beca44b8d5bdc4d54a91a40d770" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/TagTransform.php" role="php" />
+   <file baseinstalldir="." md5sum="b701dfa532f40213d1578aebd239eb60" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token.php" role="php" />
+   <file baseinstalldir="." md5sum="ce5c3720c04d4739de1646d8a16eca56" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/TokenFactory.php" role="php" />
+   <file baseinstalldir="." md5sum="368e633c8170f5ae31b2a68380385c06" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/UnitConverter.php" role="php" />
+   <file baseinstalldir="." md5sum="8c448ea2133474c3315f5b6fc221bf74" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URI.php" role="php" />
+   <file baseinstalldir="." md5sum="b3a22b97f4e50d666801dc7ae6c2c47c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIDefinition.php" role="php" />
+   <file baseinstalldir="." md5sum="bb67bf8fbfeba1ac6a5cbc8c898731c6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIFilter.php" role="php" />
+   <file baseinstalldir="." md5sum="e285e47d580fbebda68ae26533be8b2b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIParser.php" role="php" />
+   <file baseinstalldir="." md5sum="76d263fdff907d0df9d9d88837ea4232" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme.php" role="php" />
+   <file baseinstalldir="." md5sum="f3891b526632f7a5a23cf3bb5a2edacd" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URISchemeRegistry.php" role="php" />
+   <file baseinstalldir="." md5sum="4a9ff4cb0a4b450c6a22f44abc042e87" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/VarParser.php" role="php" />
+   <file baseinstalldir="." md5sum="7e1874e1be2dbcd4e9d8fc7daf443fe8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/VarParserException.php" role="php" />
+   <file baseinstalldir="." md5sum="7ea23d84475ebaf3106b3d0591d11a6c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS.php" role="php" />
+   <file baseinstalldir="." md5sum="e3b495aee1131b1270c34fa52f52e763" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/Enum.php" role="php" />
+   <file baseinstalldir="." md5sum="eeac0f7786122a98810b68d752fb3c9d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/Integer.php" role="php" />
+   <file baseinstalldir="." md5sum="5496529ed90e9488cfe397eda1094a43" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/Lang.php" role="php" />
+   <file baseinstalldir="." md5sum="554d1afa48075b82016c1c5db0fb5e05" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/Switch.php" role="php" />
+   <file baseinstalldir="." md5sum="c8985d4363e2afaf4f3adb14b4d6a77b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/Text.php" role="php" />
+   <file baseinstalldir="." md5sum="bdc6d3ce70f4573560e5635ec6e6a0ed" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/URI.php" role="php" />
+   <file baseinstalldir="." md5sum="003f90ee145510d32d08b99912ab5cf6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/AlphaValue.php" role="php" />
+   <file baseinstalldir="." md5sum="3df912dc35fceed60656a6ebb4efe7e1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Background.php" role="php" />
+   <file baseinstalldir="." md5sum="090a752012711a25b1cfa9f719c94026" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/BackgroundPosition.php" role="php" />
+   <file baseinstalldir="." md5sum="deb726718bef700e8b3024b5ad687015" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Border.php" role="php" />
+   <file baseinstalldir="." md5sum="dc8debdd26d688050dcd3c570c46f8e3" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Color.php" role="php" />
+   <file baseinstalldir="." md5sum="d90e00e48898af16c71cebb1c8a6fb52" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Composite.php" role="php" />
+   <file baseinstalldir="." md5sum="219c789b1fd1d26c83a21bc2dab1de5e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/DenyElementDecorator.php" role="php" />
+   <file baseinstalldir="." md5sum="543cbd3c5906973cd3a5bcdccc27131b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Filter.php" role="php" />
+   <file baseinstalldir="." md5sum="1cb0b4f95aae057773366e9e8e3b2f96" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Font.php" role="php" />
+   <file baseinstalldir="." md5sum="85b5e2f1dfdbccc6b19bd0892039da82" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/FontFamily.php" role="php" />
+   <file baseinstalldir="." md5sum="95b08e1e31bc6e59eb8db33d4ba8b666" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/ImportantDecorator.php" role="php" />
+   <file baseinstalldir="." md5sum="b2d9d8ff79f2a3c027a7a4cb7f072798" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Length.php" role="php" />
+   <file baseinstalldir="." md5sum="41f98d7c310513c125497439f918ffbc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/ListStyle.php" role="php" />
+   <file baseinstalldir="." md5sum="078300d8a3d57b67fa0e359ee1507513" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Multiple.php" role="php" />
+   <file baseinstalldir="." md5sum="202dfc9728dacf86164c2d5dabb33ef7" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Number.php" role="php" />
+   <file baseinstalldir="." md5sum="ef02712d0ab74683b77ecfee02740d95" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/Percentage.php" role="php" />
+   <file baseinstalldir="." md5sum="e50ec62900a2b2837941079e8e023f2b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/TextDecoration.php" role="php" />
+   <file baseinstalldir="." md5sum="f167314a8eaf95ca334d5b754137e91f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/CSS/URI.php" role="php" />
+   <file baseinstalldir="." md5sum="0d612f5bee1186ae4ff21d9e8bd91571" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/Bool.php" role="php" />
+   <file baseinstalldir="." md5sum="ba65e3a3658f6fba641931a449752135" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/Color.php" role="php" />
+   <file baseinstalldir="." md5sum="7ce2e1e8e2a6ab0e256b1f545a4ccb62" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/FrameTarget.php" role="php" />
+   <file baseinstalldir="." md5sum="3a5f9b43b95486b35c4f07e6e6e7cc90" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/ID.php" role="php" />
+   <file baseinstalldir="." md5sum="4a5eec96d398ccfdda1638d3f1f9cf88" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/Length.php" role="php" />
+   <file baseinstalldir="." md5sum="4fe4728d96932c11da62415bd40f04eb" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/LinkTypes.php" role="php" />
+   <file baseinstalldir="." md5sum="94c374a48e5164b6da3c1418caf3ceea" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/MultiLength.php" role="php" />
+   <file baseinstalldir="." md5sum="cfca148b8b0734da3fb2ba8f123a2e9e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/Nmtokens.php" role="php" />
+   <file baseinstalldir="." md5sum="166eb76a918bb871120528222b039925" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/HTML/Pixels.php" role="php" />
+   <file baseinstalldir="." md5sum="34b3c54a42288a9f6b82cf6b571973cb" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/URI/Email.php" role="php" />
+   <file baseinstalldir="." md5sum="b62fb30b16c47999f508fd4e5ca64631" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/URI/Host.php" role="php" />
+   <file baseinstalldir="." md5sum="25d83d992f0287629c33e994bae38787" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/URI/IPv4.php" role="php" />
+   <file baseinstalldir="." md5sum="37ae98b0e050fb1670f86d3c8a445a39" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/URI/IPv6.php" role="php" />
+   <file baseinstalldir="." md5sum="5bb519ae5887072a0831ae9fb117eb27" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrDef/URI/Email/SimpleCheck.php" role="php" />
+   <file baseinstalldir="." md5sum="be69102fe5c5b18d0d0d38400e888505" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Background.php" role="php" />
+   <file baseinstalldir="." md5sum="c325b00299f09196db650e63bc3359da" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/BdoDir.php" role="php" />
+   <file baseinstalldir="." md5sum="2971f93190e864259e3f3eccf735dd7a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/BgColor.php" role="php" />
+   <file baseinstalldir="." md5sum="a0a4e4004988d57a1caf92f03effec42" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/BoolToCSS.php" role="php" />
+   <file baseinstalldir="." md5sum="dabe0840b074296794dc9120ad2f6f6c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Border.php" role="php" />
+   <file baseinstalldir="." md5sum="6e076dd6328068922d3ed0722bb6e7ce" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/EnumToCSS.php" role="php" />
+   <file baseinstalldir="." md5sum="021c5367fcd04266fd2250681db09d82" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/ImgRequired.php" role="php" />
+   <file baseinstalldir="." md5sum="cb747ede4e63188a687be268a0035ae2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/ImgSpace.php" role="php" />
+   <file baseinstalldir="." md5sum="6ce0d5618f34f2d04966e83992c141b6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Input.php" role="php" />
+   <file baseinstalldir="." md5sum="33ecf612368bd8fddc56d3e8bac81c49" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Lang.php" role="php" />
+   <file baseinstalldir="." md5sum="450673694884d0618adbc27ba8223b8f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Length.php" role="php" />
+   <file baseinstalldir="." md5sum="bbce9e096d83b44dadfb41a3e81b7bce" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Name.php" role="php" />
+   <file baseinstalldir="." md5sum="7a41e2309562a872c78f4263d2dc055e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/SafeEmbed.php" role="php" />
+   <file baseinstalldir="." md5sum="d35b8583d487f1721ea5784352273dfb" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/SafeObject.php" role="php" />
+   <file baseinstalldir="." md5sum="702e941920a5ca3d741406f4a6edac4f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/SafeParam.php" role="php" />
+   <file baseinstalldir="." md5sum="312bed188409818bbee9b3df055215ab" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/ScriptRequired.php" role="php" />
+   <file baseinstalldir="." md5sum="780406aaea1c9da1e6fbf58cc147a35b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/AttrTransform/Textarea.php" role="php" />
+   <file baseinstalldir="." md5sum="c91d7dcd576e0cd1ba38628ab5190298" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/Chameleon.php" role="php" />
+   <file baseinstalldir="." md5sum="4470667b793a0817dac7050471ba9597" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/Custom.php" role="php" />
+   <file baseinstalldir="." md5sum="efc446d6addcdc6469f622b08e6b6798" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/Empty.php" role="php" />
+   <file baseinstalldir="." md5sum="44f940625a3d64b85389fc7396746a09" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/Optional.php" role="php" />
+   <file baseinstalldir="." md5sum="02a9d39f3210eb5bf3b0641fd4c7092b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/Required.php" role="php" />
+   <file baseinstalldir="." md5sum="de2adf77c149efaa94ae03d4768959f2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/StrictBlockquote.php" role="php" />
+   <file baseinstalldir="." md5sum="ca4ce4e69bb730b2c52f7e94b39b942f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ChildDef/Table.php" role="php" />
+   <file baseinstalldir="." md5sum="d2a449ee759083730df6111eddf1cd88" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Exception.php" role="php" />
+   <file baseinstalldir="." md5sum="b08a628a77b77f4a47155c1eba7e9551" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Interchange.php" role="php" />
+   <file baseinstalldir="." md5sum="162a78aa8a4ebcf1b08559c7d71418b8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/InterchangeBuilder.php" role="php" />
+   <file baseinstalldir="." md5sum="82e47422ef2c2974a7228e9bcf239d58" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema.ser" role="data" />
+   <file baseinstalldir="." md5sum="8dfc82498a46b1a1a00a28c2f5f02197" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Validator.php" role="php" />
+   <file baseinstalldir="." md5sum="b77b33040315780fbe418fb8c468127b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/ValidatorAtom.php" role="php" />
+   <file baseinstalldir="." md5sum="90e7f5c0c78cc68f0b69f77527e6bb8b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Builder/ConfigSchema.php" role="php" />
+   <file baseinstalldir="." md5sum="54481cc765d70c46c01eb6a684252071" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Builder/Xml.php" role="php" />
+   <file baseinstalldir="." md5sum="bc895b6973da28c173622331b31169b7" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Interchange/Directive.php" role="php" />
+   <file baseinstalldir="." md5sum="3558e6c004fdaa1547b8ffdd1760356c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Interchange/Id.php" role="php" />
+   <file baseinstalldir="." md5sum="82f9619cb514f56ed6dc820f432152b2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/Interchange/Namespace.php" role="php" />
+   <file baseinstalldir="." md5sum="c3852117fe7b45a93f716a46eca15fef" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt" role="data" />
+   <file baseinstalldir="." md5sum="a02b2319469a012718f6ed53415e970a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt" role="data" />
+   <file baseinstalldir="." md5sum="dfd864b4e25500ee16a88fba37c35ec3" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt" role="data" />
+   <file baseinstalldir="." md5sum="f9a764e4ff7524a4d641ac40a3189071" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt" role="data" />
+   <file baseinstalldir="." md5sum="229a37bb6c799f6972a19cb4e21551fd" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt" role="data" />
+   <file baseinstalldir="." md5sum="8c98efd659688b666ea40fd16d14c3b6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt" role="data" />
+   <file baseinstalldir="." md5sum="29812e33620eb3dba69842448d38884e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt" role="data" />
+   <file baseinstalldir="." md5sum="9263027ebc8039ba1c74ea2e713a23ed" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt" role="data" />
+   <file baseinstalldir="." md5sum="f18783da86ef98fa087d60d9a9aca547" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt" role="data" />
+   <file baseinstalldir="." md5sum="7059f6ce966c4b8866b8b4944ba39f81" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt" role="data" />
+   <file baseinstalldir="." md5sum="a852ad73a212f88d9ead9a96e1941e5c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt" role="data" />
+   <file baseinstalldir="." md5sum="8f7be1251524a20cdb3b38d453955931" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt" role="data" />
+   <file baseinstalldir="." md5sum="54772136f369181a5df3047f852452a0" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Attr.txt" role="data" />
+   <file baseinstalldir="." md5sum="645e1e4dc822a7f4fb390281ce8a02b6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt" role="data" />
+   <file baseinstalldir="." md5sum="a226d4f1fa2056308b214a71560d4090" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt" role="data" />
+   <file baseinstalldir="." md5sum="1dd11fa78bff622dfc586a0da067207f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt" role="data" />
+   <file baseinstalldir="." md5sum="c29e276f62cd4fd4bd4ab6f87682ee72" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt" role="data" />
+   <file baseinstalldir="." md5sum="458e60b1c64caeab082d9c0909bfb5d8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt" role="data" />
+   <file baseinstalldir="." md5sum="93868cb25bcde5e7a9b42282fb8541d6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt" role="data" />
+   <file baseinstalldir="." md5sum="5a56bbfccfd01652031a8189da9ec8f9" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.txt" role="data" />
+   <file baseinstalldir="." md5sum="d9e16350aa1507f361fb0957bbf81caf" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormatParam.PurifierLinkifyDocURL.txt" role="data" />
+   <file baseinstalldir="." md5sum="8432c7f0941918d0a67050e34cdcde9a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/AutoFormatParam.txt" role="data" />
+   <file baseinstalldir="." md5sum="5aab92797b3925d8b7ac510c4653f3ba" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt" role="data" />
+   <file baseinstalldir="." md5sum="999d584a454a7908b4b3209c99110854" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt" role="data" />
+   <file baseinstalldir="." md5sum="6bdf960751d1b39f839e169f5e4a0a6a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Cache.txt" role="data" />
+   <file baseinstalldir="." md5sum="7e37dc98e61cfdd8afd99171d0ba2ffd" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt" role="data" />
+   <file baseinstalldir="." md5sum="6732cf78b254335b40e4fab505312b53" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt" role="data" />
+   <file baseinstalldir="." md5sum="d4250e6d3d8d795debb3d8b97d1b914b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt" role="data" />
+   <file baseinstalldir="." md5sum="dffe60a14785bff0c697ce05db200f30" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt" role="data" />
+   <file baseinstalldir="." md5sum="284944c18d6ee0ab70b88684020ed444" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt" role="data" />
+   <file baseinstalldir="." md5sum="8ac921bb97da04548e1e645a60bdff73" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt" role="data" />
+   <file baseinstalldir="." md5sum="189b573f74eb4beeca795fd78e6bf1b4" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt" role="data" />
+   <file baseinstalldir="." md5sum="c981e7ff6503e9e3340f4137e0d51b81" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt" role="data" />
+   <file baseinstalldir="." md5sum="e7c1d33140ea9b40ccd50cca6e8a4ec8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt" role="data" />
+   <file baseinstalldir="." md5sum="051627c42cce363b651534e009519d52" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt" role="data" />
+   <file baseinstalldir="." md5sum="ff9d47f322510489c8810a02a6d2f208" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.Language.txt" role="data" />
+   <file baseinstalldir="." md5sum="922508f699c30a3dd04e835397703ce6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt" role="data" />
+   <file baseinstalldir="." md5sum="ed08834d012e7c400dd04f118a30c676" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt" role="data" />
+   <file baseinstalldir="." md5sum="a2e33aad3318e8a03e1fc0e5aecc01bb" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt" role="data" />
+   <file baseinstalldir="." md5sum="efedebdfc128da690abf65d997593950" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt" role="data" />
+   <file baseinstalldir="." md5sum="2b46e310f4b7d8094310434e63db9c70" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Core.txt" role="data" />
+   <file baseinstalldir="." md5sum="526132d697a03650b71079f268688b5d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt" role="data" />
+   <file baseinstalldir="." md5sum="2a549c69bce5c40b35c43668b52140b2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt" role="data" />
+   <file baseinstalldir="." md5sum="4b00c92f62c0fd8b5dbb4fda496dff95" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt" role="data" />
+   <file baseinstalldir="." md5sum="0ba93d5f4a009f632fcc5fa6757a139f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt" role="data" />
+   <file baseinstalldir="." md5sum="ea65a2b0cc8f8a558f6a8fc8d433cbb1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt" role="data" />
+   <file baseinstalldir="." md5sum="6276e9765206d6b723abf55a26a04dc7" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt" role="data" />
+   <file baseinstalldir="." md5sum="392cfcbb3eea4976e30496dd895c7b5c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/CSS.txt" role="data" />
+   <file baseinstalldir="." md5sum="f31a84811081f6d39bfe1053ba91b763" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt" role="data" />
+   <file baseinstalldir="." md5sum="943897292cbfb48d9d13df75e5b5bb86" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt" role="data" />
+   <file baseinstalldir="." md5sum="ec5f0793df8dc4a0234177726f7a1a29" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Filter.txt" role="data" />
+   <file baseinstalldir="." md5sum="ba313ee1e19b7714f968e84482b6eb7e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt" role="data" />
+   <file baseinstalldir="." md5sum="fb3b54845940bb1e9c40d456990c23fa" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/FilterParam.ExtractStyleBlocksEscaping.txt" role="data" />
+   <file baseinstalldir="." md5sum="c75f5c00aaa68beb9c729eff0187d6ec" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/FilterParam.ExtractStyleBlocksScope.txt" role="data" />
+   <file baseinstalldir="." md5sum="73c0e7a8e6a63facab4d41b83123f819" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/FilterParam.ExtractStyleBlocksTidyImpl.txt" role="data" />
+   <file baseinstalldir="." md5sum="d3abda1b34ce655bab4f93776d40097a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/FilterParam.txt" role="data" />
+   <file baseinstalldir="." md5sum="927cc3349e05a0745ebd3bf6cde9d03c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt" role="data" />
+   <file baseinstalldir="." md5sum="27d847d9a79374d0c64e8488d823217b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt" role="data" />
+   <file baseinstalldir="." md5sum="807564d5cfe5851251058911399b2fd1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt" role="data" />
+   <file baseinstalldir="." md5sum="b97d09d5afcd8eb1c872d4d58b180447" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt" role="data" />
+   <file baseinstalldir="." md5sum="539d485bc79ec6c01876ecc3ba217be9" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt" role="data" />
+   <file baseinstalldir="." md5sum="ddf73847a1680626f2009fe54876a0dd" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt" role="data" />
+   <file baseinstalldir="." md5sum="0c57f88977e80644d637c197ed0bb86f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt" role="data" />
+   <file baseinstalldir="." md5sum="9f5616a6959da986e94f16db5b7adb23" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt" role="data" />
+   <file baseinstalldir="." md5sum="8a91af7968a1ec344c03744a7a3c4653" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt" role="data" />
+   <file baseinstalldir="." md5sum="05c211d6efd36f282e5881fbb570f9e4" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt" role="data" />
+   <file baseinstalldir="." md5sum="ac4e2748f657492d62022284f40c3e64" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt" role="data" />
+   <file baseinstalldir="." md5sum="4c0522482da5949cb419a9e6d93ba19e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt" role="data" />
+   <file baseinstalldir="." md5sum="7b3c5373952d7fd49f8698a105427aae" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt" role="data" />
+   <file baseinstalldir="." md5sum="b4150de2ca1c9d19e302a8bd6c41eb41" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt" role="data" />
+   <file baseinstalldir="." md5sum="fe0f4c63b4da814d7f67808a3326cf77" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt" role="data" />
+   <file baseinstalldir="." md5sum="4ed9c1ae1fcd792028ac0b86b2da3fac" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt" role="data" />
+   <file baseinstalldir="." md5sum="5b3531ba6c977cd7827c7462e2f247e3" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt" role="data" />
+   <file baseinstalldir="." md5sum="012bc61ac15c2e52fb9f50d7a486e76a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt" role="data" />
+   <file baseinstalldir="." md5sum="9d837bbd189a4a33c28cdcaa4db69673" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt" role="data" />
+   <file baseinstalldir="." md5sum="4bd4fc5abcad85bfbf8b3e37e1f63928" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt" role="data" />
+   <file baseinstalldir="." md5sum="c7ec304b30bcbafe9b9d2d24ee824a07" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt" role="data" />
+   <file baseinstalldir="." md5sum="2ab3ac95813019e678eccbbc7d6204e5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt" role="data" />
+   <file baseinstalldir="." md5sum="e5daa6575c61922d75fb89d42be5fc9e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.txt" role="data" />
+   <file baseinstalldir="." md5sum="3a3ef52ef31879595d86c849e88950de" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt" role="data" />
+   <file baseinstalldir="." md5sum="4e132e554a109384a0cd3fca4fb931d5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/info.ini" role="data" />
+   <file baseinstalldir="." md5sum="0e73fc79abc014faa05f82725c03f12a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt" role="data" />
+   <file baseinstalldir="." md5sum="2a4aea126d725c25ee895d9500ecf53c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Output.Newline.txt" role="data" />
+   <file baseinstalldir="." md5sum="1b958d430b1a19a8c89a4fc50bbeffcc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Output.SortAttr.txt" role="data" />
+   <file baseinstalldir="." md5sum="51fdc4f7535db75c3317310cd55440ae" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Output.TidyFormat.txt" role="data" />
+   <file baseinstalldir="." md5sum="e353ccb37bb7f2f0279a644821ee7536" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Output.txt" role="data" />
+   <file baseinstalldir="." md5sum="b3ca825f3cf6bc70fe7a8ecceefb53c3" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Test.ForceNoIconv.txt" role="data" />
+   <file baseinstalldir="." md5sum="b358242622ab7cee0815de729bd62f8d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/Test.txt" role="data" />
+   <file baseinstalldir="." md5sum="49b2be0af910c7e87053eda337d5a70d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.AllowedSchemes.txt" role="data" />
+   <file baseinstalldir="." md5sum="83286f80916af5631e669670aeb03c5d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.Base.txt" role="data" />
+   <file baseinstalldir="." md5sum="1f2306d9cc7ba1e0c8052edd3e7b7403" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.DefaultScheme.txt" role="data" />
+   <file baseinstalldir="." md5sum="6360305b12721ffe5f5b466cd5f48c1b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.DefinitionID.txt" role="data" />
+   <file baseinstalldir="." md5sum="2bb7ef6b81baf954123fcbd39ec92022" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.DefinitionRev.txt" role="data" />
+   <file baseinstalldir="." md5sum="f89ff1e7df25d93b0720f66c7258e249" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.Disable.txt" role="data" />
+   <file baseinstalldir="." md5sum="d3d1a3b3520eec76a9e72312f62267df" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.DisableExternal.txt" role="data" />
+   <file baseinstalldir="." md5sum="4069f3858b5ce60b42187ac06efead81" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.DisableExternalResources.txt" role="data" />
+   <file baseinstalldir="." md5sum="4f6c61c5f079b9f127ed7b0c74335b99" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.DisableResources.txt" role="data" />
+   <file baseinstalldir="." md5sum="a96a8a9ee5b21d9050602a4c1c5b20a8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.Host.txt" role="data" />
+   <file baseinstalldir="." md5sum="c8b4c096eb1aaeaaea53e3c65fc9c208" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.HostBlacklist.txt" role="data" />
+   <file baseinstalldir="." md5sum="822b2d9b9fe45b6c5e3e93a1a67822ff" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.MakeAbsolute.txt" role="data" />
+   <file baseinstalldir="." md5sum="c5ce63fa24b6b9ac2f3648dd759af043" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.Munge.txt" role="data" />
+   <file baseinstalldir="." md5sum="1c562e33633ee9dc4c5f83370e2c8ab5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.MungeResources.txt" role="data" />
+   <file baseinstalldir="." md5sum="517ab521d4d19e5f634b1ae50725cf6b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.MungeSecretKey.txt" role="data" />
+   <file baseinstalldir="." md5sum="61567e80e6f7655f5819a8a8aaf99bb3" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.OverrideAllowedSchemes.txt" role="data" />
+   <file baseinstalldir="." md5sum="687d0acd5a369a791603ff6f16379d96" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/ConfigSchema/schema/URI.txt" role="data" />
+   <file baseinstalldir="." md5sum="3ed2338a73cec33298c088e78f644c01" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Decorator.php" role="php" />
+   <file baseinstalldir="." md5sum="daec60d4d35a6e176fb5f365dccc2b8c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Null.php" role="php" />
+   <file baseinstalldir="." md5sum="baa1ff94406984347b6e5e21c3c50a22" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Serializer.php" role="php" />
+   <file baseinstalldir="." md5sum="9cce7a2496854a943ca024af415065af" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Decorator/Cleanup.php" role="php" />
+   <file baseinstalldir="." md5sum="f50c630cbe2bdd0dcaa0304af19acdb6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Decorator/Memory.php" role="php" />
+   <file baseinstalldir="." md5sum="4904e8ab80109be41a44c99c7409af3c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Decorator/Template.php.in" role="data" />
+   <file baseinstalldir="." md5sum="ef0a340b9e46192d440bdb7dcf3ccffd" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Serializer/README" role="data" />
+   <file baseinstalldir="." md5sum="0f9d7d4438731bcabe0b8a9aa0851bbc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/DefinitionCache/Serializer/HTML/3.2.0,9b0a0ddd7a641e12ca0a2f60a0b0edfb,1.ser" role="data" />
+   <file baseinstalldir="." md5sum="5e2066baba7c0c0de8ff0ecc38ce2a5c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/EntityLookup/entities.ser" role="data" />
+   <file baseinstalldir="." md5sum="cef8d423ec4338034df27b761a55b65d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Filter/ExtractStyleBlocks.php" role="php" />
+   <file baseinstalldir="." md5sum="b204bd1af6cac961f73d8fae2e383452" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Filter/YouTube.php" role="php" />
+   <file baseinstalldir="." md5sum="7cf628ce2e7647ad2a0536672a0400f5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Bdo.php" role="php" />
+   <file baseinstalldir="." md5sum="b783bec6b06467b80ddb7b5a24f9dc21" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/CommonAttributes.php" role="php" />
+   <file baseinstalldir="." md5sum="abef0c1adbe7378227ba26eb3ff45989" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Edit.php" role="php" />
+   <file baseinstalldir="." md5sum="328933844a11bbc8e69dd8b92aca3c35" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Forms.php" role="php" />
+   <file baseinstalldir="." md5sum="6eebb4eaf7a9fde8994c0c3ac3357a3c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Hypertext.php" role="php" />
+   <file baseinstalldir="." md5sum="0875a7958188337a38cbb217924117d2" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Image.php" role="php" />
+   <file baseinstalldir="." md5sum="2dfcd9d933b0f17504e09adf08b1dacb" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Legacy.php" role="php" />
+   <file baseinstalldir="." md5sum="aa952c4f2ed2dc9c9f53048f2205acc1" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/List.php" role="php" />
+   <file baseinstalldir="." md5sum="51e6d7ed75cd38a65a77ccc0860e0367" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Name.php" role="php" />
+   <file baseinstalldir="." md5sum="f43c43702656ccb8cbb3a0e2bfb9ea72" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/NonXMLCommonAttributes.php" role="php" />
+   <file baseinstalldir="." md5sum="ec2db995f76acb2fca48fe43f0dcbb1a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Object.php" role="php" />
+   <file baseinstalldir="." md5sum="010a7b58e60f3dbf25f572922279ef8e" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Presentation.php" role="php" />
+   <file baseinstalldir="." md5sum="83f50fc6b0890ef052edcf0b1ac6888a" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Proprietary.php" role="php" />
+   <file baseinstalldir="." md5sum="3e1d07248d375754587c3d08d22f6da6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Ruby.php" role="php" />
+   <file baseinstalldir="." md5sum="def7621fafbeffc9b39d130b8a4b5977" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/SafeEmbed.php" role="php" />
+   <file baseinstalldir="." md5sum="fec302effa75efe36376641561a5a988" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/SafeObject.php" role="php" />
+   <file baseinstalldir="." md5sum="c9256e251e9bef8f9be7ace2dd98f5cc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Scripting.php" role="php" />
+   <file baseinstalldir="." md5sum="66d008a0f8cf02a6bd7f34131da9705c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/StyleAttribute.php" role="php" />
+   <file baseinstalldir="." md5sum="934bb3bf105d6fb5e13f98ef28b9b4b8" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tables.php" role="php" />
+   <file baseinstalldir="." md5sum="8a672f676488d0d5932761494165a8e0" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Target.php" role="php" />
+   <file baseinstalldir="." md5sum="381e19fbda0cece87ccf1258b82517ce" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Text.php" role="php" />
+   <file baseinstalldir="." md5sum="e2b16b96274c8581e3c4f3421c1b3b42" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy.php" role="php" />
+   <file baseinstalldir="." md5sum="6ded768c70390702bd3963f48411e93b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/XMLCommonAttributes.php" role="php" />
+   <file baseinstalldir="." md5sum="7ae1d5116d95f574fa70c73120b27152" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy/Name.php" role="php" />
+   <file baseinstalldir="." md5sum="b7fb3061607fbb10b84c2a5d7a877fdc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy/Proprietary.php" role="php" />
+   <file baseinstalldir="." md5sum="92872d8e385b59b9e4cbf729e7e61759" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy/Strict.php" role="php" />
+   <file baseinstalldir="." md5sum="09c9337421ba36247d1b2fc57bb478e0" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy/Transitional.php" role="php" />
+   <file baseinstalldir="." md5sum="65b50bace4072bb36ef2faadae5ac4dc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy/XHTML.php" role="php" />
+   <file baseinstalldir="." md5sum="418d48e54219c2684fe3b75fdcc01813" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/HTMLModule/Tidy/XHTMLAndHTML4.php" role="php" />
+   <file baseinstalldir="." md5sum="a5784d55dabd9290bed65ede360ecd6d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector/AutoParagraph.php" role="php" />
+   <file baseinstalldir="." md5sum="1353b084a16ca8ffb3f2eba53cd0169d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector/DisplayLinkURI.php" role="php" />
+   <file baseinstalldir="." md5sum="147a0fe4b205db964b717c68c81c37e6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector/Linkify.php" role="php" />
+   <file baseinstalldir="." md5sum="0a1c6db671fcd82a7d8dd75261a6792b" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector/PurifierLinkify.php" role="php" />
+   <file baseinstalldir="." md5sum="117b09d8d81057dfde7d5a1b41deebcd" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector/RemoveEmpty.php" role="php" />
+   <file baseinstalldir="." md5sum="f9a277065b8679711bf0e82ce6bbd958" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Injector/SafeObject.php" role="php" />
+   <file baseinstalldir="." md5sum="671e1a13f9d884d0cbf65efee418eb92" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Language/classes/en-x-test.php" role="php" />
+   <file baseinstalldir="." md5sum="a36e86692502b90805052e80cdf8d75f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Language/messages/en-x-test.php" role="php" />
+   <file baseinstalldir="." md5sum="f37237fb6460245c203f9e3a876f097f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Language/messages/en-x-testmini.php" role="php" />
+   <file baseinstalldir="." md5sum="01fc9bf8a003d31bc37196d322fdea83" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Language/messages/en.php" role="php" />
+   <file baseinstalldir="." md5sum="42c9b61a582b6b623e4c692e0e89c45c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Lexer/DirectLex.php" role="php" />
+   <file baseinstalldir="." md5sum="975ab30621389e3348d16c001293566f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Lexer/DOMLex.php" role="php" />
+   <file baseinstalldir="." md5sum="a66db63fa3d338850843febf30f7d262" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Lexer/PEARSax3.php" role="php" />
+   <file baseinstalldir="." md5sum="0f6893d064ab38c573384140159dd275" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Lexer/PH5P.php" role="php" />
+   <file baseinstalldir="." md5sum="c59416405ed36f436cf79b24c0a92d11" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Printer/ConfigForm.css" role="data" />
+   <file baseinstalldir="." md5sum="fe4d12358a17a9b317d1eb90b6e7cf94" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Printer/ConfigForm.js" role="data" />
+   <file baseinstalldir="." md5sum="d63cf2f11a9c8f1d80ec847d7e2798cc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Printer/ConfigForm.php" role="php" />
+   <file baseinstalldir="." md5sum="94d9b2c8d6eb4956a4c3a988fe504dbc" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Printer/CSSDefinition.php" role="php" />
+   <file baseinstalldir="." md5sum="ad980092c80f40f28e656b2b2f215849" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Printer/HTMLDefinition.php" role="php" />
+   <file baseinstalldir="." md5sum="c10747616c9701af3323bf606eeaac30" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy/Composite.php" role="php" />
+   <file baseinstalldir="." md5sum="357531a7d08cc6789197bc3991dec7a6" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy/Core.php" role="php" />
+   <file baseinstalldir="." md5sum="67c174a1f8e5bfc3e48e64742d9e2727" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy/FixNesting.php" role="php" />
+   <file baseinstalldir="." md5sum="3c9dba744cb292796bf5d9a660a0fc36" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy/MakeWellFormed.php" role="php" />
+   <file baseinstalldir="." md5sum="ab749cb4b26520d8589d59f034fa56de" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy/RemoveForeignElements.php" role="php" />
+   <file baseinstalldir="." md5sum="f6a166358ba1665f9131bd9d4a5a8f36" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Strategy/ValidateAttributes.php" role="php" />
+   <file baseinstalldir="." md5sum="1e14b08be9b10d035b95347641293d3c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/TagTransform/Font.php" role="php" />
+   <file baseinstalldir="." md5sum="50d1e1bac13437fa3f07335ca0218251" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/TagTransform/Simple.php" role="php" />
+   <file baseinstalldir="." md5sum="71f57beda9443eeec0e4ab1b0ac4ffb5" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token/Comment.php" role="php" />
+   <file baseinstalldir="." md5sum="ffa22c6f811bf2d2345484956a3c005c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token/Empty.php" role="php" />
+   <file baseinstalldir="." md5sum="3e7ad955d16eb5885dc7c375a17aef66" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token/End.php" role="php" />
+   <file baseinstalldir="." md5sum="9a162743dd6d296ecf8db4b856c72410" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token/Start.php" role="php" />
+   <file baseinstalldir="." md5sum="34a0d0ffb5d053a592dc42cf7d604662" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token/Tag.php" role="php" />
+   <file baseinstalldir="." md5sum="4c53f8fe6e08d1d7f11a7d133b6ed427" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/Token/Text.php" role="php" />
+   <file baseinstalldir="." md5sum="2793524b7228455e2b465bb72971b692" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIFilter/DisableExternal.php" role="php" />
+   <file baseinstalldir="." md5sum="57fbc3b9cd1411f357a32b6f915edc29" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIFilter/DisableExternalResources.php" role="php" />
+   <file baseinstalldir="." md5sum="c8c6424e96f5ffc98c669d39f75a622c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIFilter/HostBlacklist.php" role="php" />
+   <file baseinstalldir="." md5sum="8f8f5702054d80f94b79c595d43a5f15" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIFilter/MakeAbsolute.php" role="php" />
+   <file baseinstalldir="." md5sum="94a3db666ddc0bf802573966b244b62d" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIFilter/Munge.php" role="php" />
+   <file baseinstalldir="." md5sum="278c7c41fecb3a8a6596ae9b897d4408" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme/ftp.php" role="php" />
+   <file baseinstalldir="." md5sum="ecb20fc1cd945e06c421f9f820eee5d4" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme/http.php" role="php" />
+   <file baseinstalldir="." md5sum="e14ea66a8e126a6afe5d7646d36f9a12" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme/https.php" role="php" />
+   <file baseinstalldir="." md5sum="1e6fca170ac5f4da8120d245f65c0940" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme/mailto.php" role="php" />
+   <file baseinstalldir="." md5sum="fb0621b1597248f72996b5e74435af6c" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme/news.php" role="php" />
+   <file baseinstalldir="." md5sum="3f8eeff3941bd828007a4f7cf169dcff" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/URIScheme/nntp.php" role="php" />
+   <file baseinstalldir="." md5sum="20a0d151f59cc787aa5cb4f17ef3d231" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/VarParser/Flexible.php" role="php" />
+   <file baseinstalldir="." md5sum="27f43f68c1bc5d1cefdd9649925f5c1f" name="lib/htmlpurifier-3.2.0-lite/library/HTMLPurifier/VarParser/Native.php" role="php" />
+   <file baseinstalldir="." md5sum="0da8fccf48560a7ce30b461d72ad384d" name="lib/model/sfComment.php" role="php" />
+   <file baseinstalldir="." md5sum="1634eef57f3d899d34bf39a2cd29fe2c" name="lib/model/sfCommentPeer.php" role="php" />
+   <file baseinstalldir="." md5sum="ad05e84da798eb7da323c9c939bca245" name="lib/model/map/sfCommentMapBuilder.php" role="php" />
+   <file baseinstalldir="." md5sum="8ccdc7e723c4b5941bd535c9c6252d3c" name="lib/model/om/BasesfComment.php" role="php" />
+   <file baseinstalldir="." md5sum="f70e253f742daabe21221d5fddc0fdab" name="lib/model/om/BasesfCommentPeer.php" role="php" />
+   <file baseinstalldir="." md5sum="49ada8fb3aaee15262cde4367ae1c75f" name="modules/sfComment/actions/actions.class.php" role="php" />
+   <file baseinstalldir="." md5sum="ce76ce00569dda9bf902a873623788d2" name="modules/sfComment/actions/components.class.php" role="php" />
+   <file baseinstalldir="." md5sum="0a268942a76f301c5b791e1149dac13f" name="modules/sfComment/config/cache.yml" role="data" />
+   <file baseinstalldir="." md5sum="df94ba7d6e0c7c31a849af53aa13d6cf" name="modules/sfComment/i18n/messages.fr.xml" role="data" />
+   <file baseinstalldir="." md5sum="a05c758625065a0bfde83f6ee1b4e759" name="modules/sfComment/lib/BasesfCommentActions.class.php" role="php" />
+   <file baseinstalldir="." md5sum="45ef379aff7a615a4df268a46130dfa9" name="modules/sfComment/lib/BasesfCommentComponents.class.php" role="php" />
+   <file baseinstalldir="." md5sum="6c55d7419a456dc54a89c3e1660ba8d4" name="modules/sfComment/templates/commentFormSuccess.php" role="php" />
+   <file baseinstalldir="." md5sum="27596eba98ac87c8025b70d44698fcc4" name="modules/sfComment/templates/commentSuccess.php" role="php" />
+   <file baseinstalldir="." md5sum="ecd5af581cc20e7604ee573a1f25dc69" name="modules/sfComment/templates/_author.php" role="php" />
+   <file baseinstalldir="." md5sum="1ffe6cea2efb5d9048082da3e03ad66d" name="modules/sfComment/templates/_commentForm.php" role="php" />
+   <file baseinstalldir="." md5sum="cfb0f8f651aa7177162f2e5b2d397d0a" name="modules/sfComment/templates/_commentList.php" role="php" />
+   <file baseinstalldir="." md5sum="23b3a31147fe2404fea08a3be6da1355" name="modules/sfComment/templates/_commentView.php" role="php" />
+   <file baseinstalldir="." md5sum="700032fe7b3b549982d9c8ceed7251a9" name="modules/sfComment/templates/_gravatar.php" role="php" />
+   <file baseinstalldir="." md5sum="292e162f67707a04eb5a96ac853e7151" name="modules/sfCommentAdmin/actions/actions.class.php" role="php" />
+   <file baseinstalldir="." md5sum="e323e59e08c49999e721e0b23d31b888" name="modules/sfCommentAdmin/config/generator.yml" role="data" />
+   <file baseinstalldir="." md5sum="748cb581de7389eeddef15850aee4bfd" name="modules/sfCommentAdmin/lib/sfCommentAdminGeneratorConfiguration.class.php" role="php" />
+   <file baseinstalldir="." md5sum="47d54641cf164818e2c51a83b5e77619" name="modules/sfCommentAdmin/lib/sfCommentAdminGeneratorHelper.class.php" role="php" />
+   <file baseinstalldir="." md5sum="f2a2fbe64b23ca1f67ac325776f1fabd" name="modules/sfCommentAdmin/templates/_author.php" role="php" />
+   <file baseinstalldir="." md5sum="cf27199da5e29cb242815a93ccd79c5f" name="modules/sfCommentAdmin/templates/_commented.php" role="php" />
+   <file baseinstalldir="." md5sum="cf4d8af426e7f75638fbf12f9095c6eb" name="test/unit/sfPropelActAsCommentableBehaviorTest.php" role="php" />
+   <file baseinstalldir="." md5sum="4b89fa4d81a61754181cfde0062d695a" name="web/css/sf_comment.css" role="data" />
+   <file baseinstalldir="." md5sum="97c3c261a4cd07e4ba142f62e499c605" name="web/images/gravatar_default.png" role="data" />
+   <file baseinstalldir="." md5sum="dd6b7b0bf5c3af22499abc0a9ee1e1b2" name="web/images/indicator.gif" role="data" />
+   <file baseinstalldir="." md5sum="607d2943e105b0b1457ba1dba0a4d4f4" name="web/images/input-shadow-required.gif" role="data" />
+   <file baseinstalldir="." md5sum="2684f279c42945c11e4ed306bc7d3b24" name="web/images/input-shadow.gif" role="data" />
+   <file baseinstalldir="." md5sum="ab59c6370c66598e5c50bbe64ed5b802" name="LICENSE" role="data" />
+   <file baseinstalldir="." md5sum="e2146f3942c92dc7d9929e587deaea90" name="README" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>1.3.0</max>
+    <exclude>1.3.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-09-13</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>Initial public release. Features comments attachment to heterogene Propel objects.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-09-26</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* added a Symfony module for posting and displaying comments
+  * ajax support
+  * authenticated users support
+  * form customization
+* added an administration module</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-10-08</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* added namespaces support
+* fixed bad index names (thanks to francois)
+* made getComments() more flexible (closes #2312, thanks to FrankStelzer)</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.4.0</release>
+    <api>0.4.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-12-10</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* compatibility with escaping=both mode
+* Added unique DOM id for each comment, in the form {{{sf_comment_$id}}}
+(Nicolas Perriault)
+* use a session token instead of passing the object id and model in the request
+(Nicolas Perriault)
+* bugfixes, based on a patch from Michael Nolan (closes #2595):
+  * fix anonymous posting (use the token)
+  * pre and post addition hooks</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-08-11</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
+   <notes>* fixed XSS bug (closes #3745)
+* switched documentation to the markdown syntax
+* added a &quot;website&quot; field
+* fixed &quot;duplication of DOM id sf_comment_list&quot; bug (closes #3258)
+* allowed formatting in comments (closes #2900):
+  * introduced a ``sfPropelActAsCommentableStripper`` class
+  * use of [HTMLPurifier](http://htmlpurifier.org/)
+* fixed &quot;title not saved&quot; bug (closes #3086)</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.0</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2009-01-16</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
+   <notes>* created a Symfony 1.2 version of the plugin. No more evolutions (apart from bugfixes) will be done for previous versions of Symfony.
+* removed support of ajax, since Symfony 1.2 is js framework agnostic
+* upgraded to HTMLPurifier 3.2.0</notes>
+  </release>
+ </changelog>
+</package>

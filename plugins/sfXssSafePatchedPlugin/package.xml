@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfXssSafePlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>Output Rich Text With Cross Site Scripting Protection</summary>
+ <description>An alternative between escaping raw and escaping entities.</description>
+ <lead>
+  <name>Alexandre Mogère</name>
+  <user>heristop</user>
+  <email>heristop@yahoo.fr</email>
+  <active>yes</active>
+ </lead>
+ <date>2008-11-07</date>
+ <time>17:24:16</time>
+ <version>
+  <release>0.8.0</release>
+  <api>0.8.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.symfony-project.com/license">MIT license</license>
+ <notes>-</notes>
+ <contents><dir name="/"><file name="README" role="data"/><dir name="test"><dir name="unit"><file name="XssSafeTest.php" role="data"/></dir></dir><dir name="config"><file name="app.sample.yml" role="data"/></dir><file name="LICENSE" role="data"/><dir name="lib"><dir name="helper"><file name="XssSafeHelper.php" role="data"/></dir><dir name="vendor"><dir name="htmlpurifier"><file name="HTMLPurifier.auto.php" role="data"/><file name="HTMLPurifier.path.php" role="data"/><file name="HTMLPurifier.includes.php" role="data"/><file name="HTMLPurifier.kses.php" role="data"/><dir name="HTMLPurifier"><file name="AttrDef.php" role="data"/><file name="Printer.php" role="data"/><file name="Injector.php" role="data"/><dir name="Lexer"><file name="DirectLex.php" role="data"/><file name="PEARSax3.php" role="data"/><file name="DOMLex.php" role="data"/><file name="PH5P.php" role="data"/></dir><file name="LanguageFactory.php" role="data"/><file name="Generator.php" role="data"/><dir name="URIScheme"><file name="nntp.php" role="data"/><file name="mailto.php" role="data"/><file name="ftp.php" role="data"/><file name="http.php" role="data"/><file name="news.php" role="data"/><file name="https.php" role="data"/></dir><file name="URIParser.php" role="data"/><file name="ErrorStruct.php" role="data"/><file name="Context.php" role="data"/><file name="Doctype.php" role="data"/><file name="UnitConverter.php" role="data"/><file name="PercentEncoder.php" role="data"/><file name="ErrorCollector.php" role="data"/><file name="Exception.php" role="data"/><file name="DoctypeRegistry.php" role="data"/><file name="Token.php" role="data"/><file name="URIDefinition.php" role="data"/><file name="TagTransform.php" role="data"/><file name="ConfigSchema.php" role="data"/><file name="URISchemeRegistry.php" role="data"/><file name="Definition.php" role="data"/><dir name="AttrTransform"><file name="Textarea.php" role="data"/><file name="EnumToCSS.php" role="data"/><file name="ImgSpace.php" role="data"/><file name="BoolToCSS.php" role="data"/><file name="ImgRequired.php" role="data"/><file name="Lang.php" role="data"/><file name="SafeObject.php" role="data"/><file name="BdoDir.php" role="data"/><file name="SafeParam.php" role="data"/><file name="Input.php" role="data"/><file name="Name.php" role="data"/><file name="ScriptRequired.php" role="data"/><file name="SafeEmbed.php" role="data"/><file name="Border.php" role="data"/><file name="BgColor.php" role="data"/><file name="Length.php" role="data"/><file name="Background.php" role="data"/></dir><dir name="Language"><dir name="classes"><file name="en-x-test.php" role="data"/></dir><dir name="messages"><file name="en.php" role="data"/><file name="en-x-testmini.php" role="data"/><file name="en-x-test.php" role="data"/></dir></dir><file name="ElementDef.php" role="data"/><file name="HTMLModule.php" role="data"/><file name="ChildDef.php" role="data"/><file name="AttrTransform.php" role="data"/><file name="IDAccumulator.php" role="data"/><file name="StringHashParser.php" role="data"/><dir name="Printer"><file name="ConfigForm.js" role="data"/><file name="ConfigForm.css" role="data"/><file name="ConfigForm.php" role="data"/><file name="HTMLDefinition.php" role="data"/><file name="CSSDefinition.php" role="data"/></dir><dir name="Strategy"><file name="ValidateAttributes.php" role="data"/><file name="Core.php" role="data"/><file name="MakeWellFormed.php" role="data"/><file name="RemoveForeignElements.php" role="data"/><file name="Composite.php" role="data"/><file name="FixNesting.php" role="data"/></dir><file name="EntityParser.php" role="data"/><dir name="Token"><file name="Text.php" role="data"/><file name="Comment.php" role="data"/><file name="Empty.php" role="data"/><file name="Tag.php" role="data"/><file name="Start.php" role="data"/><file name="End.php" role="data"/></dir><dir name="EntityLookup"><file name="entities.ser" role="data"/></dir><file name="HTMLModuleManager.php" role="data"/><file name="AttrCollections.php" role="data"/><file name="Encoder.php" role="data"/><file name="ContentSets.php" role="data"/><dir name="AttrDef"><file name="Integer.php" role="data"/><dir name="URI"><dir name="Email"><file name="SimpleCheck.php" role="data"/></dir><file name="IPv6.php" role="data"/><file name="IPv4.php" role="data"/><file name="Host.php" role="data"/><file name="Email.php" role="data"/></dir><file name="Text.php" role="data"/><file name="Enum.php" role="data"/><file name="Switch.php" role="data"/><file name="Lang.php" role="data"/><dir name="HTML"><file name="Pixels.php" role="data"/><file name="MultiLength.php" role="data"/><file name="Bool.php" role="data"/><file name="LinkTypes.php" role="data"/><file name="FrameTarget.php" role="data"/><file name="ID.php" role="data"/><file name="Nmtokens.php" role="data"/><file name="Length.php" role="data"/><file name="Color.php" role="data"/></dir><dir name="CSS"><file name="AlphaValue.php" role="data"/><file name="Percentage.php" role="data"/><file name="TextDecoration.php" role="data"/><file name="ImportantDecorator.php" role="data"/><file name="ListStyle.php" role="data"/><file name="Font.php" role="data"/><file name="Filter.php" role="data"/><file name="FontFamily.php" role="data"/><file name="Number.php" role="data"/><file name="Composite.php" role="data"/><file name="Multiple.php" role="data"/><file name="BackgroundPosition.php" role="data"/><file name="DenyElementDecorator.php" role="data"/><file name="Border.php" role="data"/><file name="URI.php" role="data"/><file name="Length.php" role="data"/><file name="Background.php" role="data"/><file name="Color.php" role="data"/></dir><file name="CSS.php" role="data"/><file name="URI.php" role="data"/></dir><file name="AttrValidator.php" role="data"/><file name="URIFilter.php" role="data"/><file name="EntityLookup.php" role="data"/><file name="Filter.php" role="data"/><file name="StringHash.php" role="data"/><file name="DefinitionCacheFactory.php" role="data"/><file name="HTMLDefinition.php" role="data"/><dir name="Injector"><file name="PurifierLinkify.php" role="data"/><file name="DisplayLinkURI.php" role="data"/><file name="Linkify.php" role="data"/><file name="RemoveEmpty.php" role="data"/><file name="SafeObject.php" role="data"/><file name="AutoParagraph.php" role="data"/></dir><file name="VarParserException.php" role="data"/><file name="Lexer.php" role="data"/><dir name="DefinitionCache"><dir name="Decorator"><file name="Template.php.in" role="data"/><file name="Cleanup.php" role="data"/><file name="Memory.php" role="data"/></dir><file name="Serializer.php" role="data"/><dir name="Serializer"><file name="README" role="data"/></dir><file name="Decorator.php" role="data"/><file name="Null.php" role="data"/></dir><dir name="ConfigSchema"><file name="ValidatorAtom.php" role="data"/><file name="Validator.php" role="data"/><file name="Exception.php" role="data"/><dir name="Builder"><file name="ConfigSchema.php" role="data"/><file name="Xml.php" role="data"/></dir><file name="schema.ser" role="data"/><file name="InterchangeBuilder.php" role="data"/><dir name="Interchange"><file name="Id.php" role="data"/><file name="Namespace.php" role="data"/><file name="Directive.php" role="data"/></dir><file name="Interchange.php" role="data"/><dir name="schema"><file name="Attr.IDPrefixLocal.txt" role="data"/><file name="Output.SortAttr.txt" role="data"/><file name="HTML.TidyAdd.txt" role="data"/><file name="info.ini" role="data"/><file name="HTML.CustomDoctype.txt" role="data"/><file name="HTML.XHTML.txt" role="data"/><file name="Core.RemoveInvalidImg.txt" role="data"/><file name="URI.OverrideAllowedSchemes.txt" role="data"/><file name="Attr.DefaultInvalidImage.txt" role="data"/><file name="URI.Munge.txt" role="data"/><file name="URI.txt" role="data"/><file name="HTML.DefinitionRev.txt" role="data"/><file name="URI.DefinitionID.txt" role="data"/><file name="HTML.SafeEmbed.txt" role="data"/><file name="URI.Base.txt" role="data"/><file name="URI.Host.txt" role="data"/><file name="URI.DisableExternalResources.txt" role="data"/><file name="HTML.ForbiddenAttributes.txt" role="data"/><file name="Core.EscapeInvalidTags.txt" role="data"/><file name="Attr.txt" role="data"/><file name="Filter.Custom.txt" role="data"/><file name="AutoFormat.PurifierLinkify.txt" role="data"/><file name="HTML.DefinitionID.txt" role="data"/><file name="HTML.AllowedAttributes.txt" role="data"/><file name="HTML.SafeObject.txt" role="data"/><file name="Core.ConvertDocumentToFragment.txt" role="data"/><file name="AutoFormatParam.txt" role="data"/><file name="Attr.IDBlacklistRegexp.txt" role="data"/><file name="HTML.Strict.txt" role="data"/><file name="CSS.MaxImgLength.txt" role="data"/><file name="HTML.ForbiddenElements.txt" role="data"/><file name="Core.RemoveScriptContents.txt" role="data"/><file name="HTML.AllowedModules.txt" role="data"/><file name="Core.EscapeNonASCIICharacters.txt" role="data"/><file name="Test.txt" role="data"/><file name="URI.MungeSecretKey.txt" role="data"/><file name="FilterParam.txt" role="data"/><file name="URI.DefinitionRev.txt" role="data"/><file name="HTML.CoreModules.txt" role="data"/><file name="Filter.ExtractStyleBlocks.txt" role="data"/><file name="Core.HiddenElements.txt" role="data"/><file name="Attr.AllowedRev.txt" role="data"/><file name="HTML.Trusted.txt" role="data"/><file name="Cache.SerializerPath.txt" role="data"/><file name="HTML.MaxImgLength.txt" role="data"/><file name="FilterParam.ExtractStyleBlocksEscaping.txt" role="data"/><file name="Output.CommentScriptContents.txt" role="data"/><file name="Test.ForceNoIconv.txt" role="data"/><file name="Core.MaintainLineNumbers.txt" role="data"/><file name="Attr.AllowedFrameTargets.txt" role="data"/><file name="HTML.TidyLevel.txt" role="data"/><file name="Cache.DefinitionImpl.txt" role="data"/><file name="Attr.DefaultImageAlt.txt" role="data"/><file name="Core.DirectLexLineNumberSyncInterval.txt" role="data"/><file name="Filter.YouTube.txt" role="data"/><file name="HTML.TidyRemove.txt" role="data"/><file name="HTML.AllowedElements.txt" role="data"/><file name="Attr.EnableID.txt" role="data"/><file name="Core.LexerImpl.txt" role="data"/><file name="CSS.Proprietary.txt" role="data"/><file name="HTML.Doctype.txt" role="data"/><file name="URI.AllowedSchemes.txt" role="data"/><file name="AutoFormat.RemoveEmpty.txt" role="data"/><file name="FilterParam.ExtractStyleBlocksTidyImpl.txt" role="data"/><file name="AutoFormat.AutoParagraph.txt" role="data"/><file name="Attr.DefaultTextDir.txt" role="data"/><file name="Output.TidyFormat.txt" role="data"/><file name="HTML.Allowed.txt" role="data"/><file name="Output.Newline.txt" role="data"/><file name="Attr.AllowedRel.txt" role="data"/><file name="Cache.txt" role="data"/><file name="AutoFormatParam.PurifierLinkifyDocURL.txt" role="data"/><file name="URI.MakeAbsolute.txt" role="data"/><file name="URI.Disable.txt" role="data"/><file name="FilterParam.ExtractStyleBlocksScope.txt" role="data"/><file name="Core.CollectErrors.txt" role="data"/><file name="AutoFormat.Custom.txt" role="data"/><file name="URI.HostBlacklist.txt" role="data"/><file name="Core.ColorKeywords.txt" role="data"/><file name="URI.DisableExternal.txt" role="data"/><file name="Filter.txt" role="data"/><file name="CSS.DefinitionRev.txt" role="data"/><file name="Core.txt" role="data"/><file name="Core.Language.txt" role="data"/><file name="CSS.AllowTricky.txt" role="data"/><file name="AutoFormat.Linkify.txt" role="data"/><file name="URI.DisableResources.txt" role="data"/><file name="Core.Encoding.txt" role="data"/><file name="CSS.AllowImportant.txt" role="data"/><file name="Core.EscapeInvalidChildren.txt" role="data"/><file name="HTML.txt" role="data"/><file name="AutoFormat.txt" role="data"/><file name="AutoFormat.DisplayLinkURI.txt" role="data"/><file name="CSS.txt" role="data"/><file name="HTML.Proprietary.txt" role="data"/><file name="Output.txt" role="data"/><file name="URI.MungeResources.txt" role="data"/><file name="URI.DefaultScheme.txt" role="data"/><file name="CSS.AllowedProperties.txt" role="data"/><file name="Attr.IDPrefix.txt" role="data"/><file name="Attr.DefaultInvalidImageAlt.txt" role="data"/><file name="HTML.BlockWrapper.txt" role="data"/><file name="HTML.Parent.txt" role="data"/><file name="Attr.IDBlacklist.txt" role="data"/><file name="Core.AggressivelyFixLt.txt" role="data"/></dir></dir><file name="Config.php" role="data"/><file name="CSSDefinition.php" role="data"/><file name="VarParser.php" role="data"/><file name="Strategy.php" role="data"/><file name="URIScheme.php" role="data"/><file name="Language.php" role="data"/><file name="TokenFactory.php" role="data"/><file name="DefinitionCache.php" role="data"/><file name="URI.php" role="data"/><dir name="TagTransform"><file name="Simple.php" role="data"/><file name="Font.php" role="data"/></dir><dir name="URIFilter"><file name="DisableExternalResources.php" role="data"/><file name="Munge.php" role="data"/><file name="MakeAbsolute.php" role="data"/><file name="HostBlacklist.php" role="data"/><file name="DisableExternal.php" role="data"/></dir><dir name="VarParser"><file name="Flexible.php" role="data"/><file name="Native.php" role="data"/></dir><dir name="HTMLModule"><file name="Bdo.php" role="data"/><file name="Presentation.php" role="data"/><file name="Object.php" role="data"/><file name="Tables.php" role="data"/><file name="Forms.php" role="data"/><file name="Ruby.php" role="data"/><file name="Text.php" role="data"/><file name="Image.php" role="data"/><file name="CommonAttributes.php" role="data"/><file name="Edit.php" role="data"/><file name="Proprietary.php" role="data"/><dir name="Tidy"><file name="Transitional.php" role="data"/><file name="Proprietary.php" role="data"/><file name="XHTML.php" role="data"/><file name="Strict.php" role="data"/><file name="XHTMLAndHTML4.php" role="data"/><file name="Name.php" role="data"/></dir><file name="SafeObject.php" role="data"/><file name="Tidy.php" role="data"/><file name="Hypertext.php" role="data"/><file name="NonXMLCommonAttributes.php" role="data"/><file name="Legacy.php" role="data"/><file name="Name.php" role="data"/><file name="SafeEmbed.php" role="data"/><file name="StyleAttribute.php" role="data"/><file name="Target.php" role="data"/><file name="List.php" role="data"/><file name="XMLCommonAttributes.php" role="data"/><file name="Scripting.php" role="data"/></dir><file name="Length.php" role="data"/><file name="AttrTypes.php" role="data"/><dir name="Filter"><file name="YouTube.php" role="data"/><file name="ExtractStyleBlocks.php" role="data"/></dir><file name="Bootstrap.php" role="data"/><dir name="ChildDef"><file name="Required.php" role="data"/><file name="Custom.php" role="data"/><file name="Table.php" role="data"/><file name="Empty.php" role="data"/><file name="Optional.php" role="data"/><file name="Chameleon.php" role="data"/><file name="StrictBlockquote.php" role="data"/></dir></dir><file name="HTMLPurifier.func.php" role="data"/><file name="HTMLPurifier.php" role="data"/><file name="HTMLPurifier.autoload.php" role="data"/><file name="HTMLPurifier.safe-includes.php" role="data"/></dir></dir><file name="sfXssSafeObject.class.sample.php" role="data"/></dir></dir></contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>0.8.1</min>
+    <max>1.1.0</max>
+    <exclude>1.1.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+
+ <phprelease>
+ </phprelease>
+
+  <changelog>
+    <release>
+      <version>
+        <release>0.8.0</release>
+        <api>0.8.0</api>
+      </version>
+      <stability>
+       <release>stable</release>
+       <api>stable</api>
+      </stability>
+      <license uri="http://www.symfony-project.com/license">MIT license</license>
+      <date>2008-11-07</date>
+      <license>MIT</license>
+      <notes>
+        * heristop : Migration to HTML Purifier 3.2
+      </notes>
+    </release>
+    <release>
+      <version>
+        <release>0.6.1</release>
+        <api>0.6.1</api>
+      </version>
+      <stability>
+       <release>beta</release>
+       <api>beta</api>
+      </stability>
+      <license uri="http://www.symfony-project.com/license">MIT license</license>
+      <date>2008-06-27</date>
+      <license>MIT</license>
+      <notes>
+        * heristop : Migration to HTML Purifier 3.1.1
+      </notes>
+    </release>
+    <release>
+      <version>
+        <release>0.6.0</release>
+        <api>0.6.0</api>
+      </version>
+      <stability>
+       <release>beta</release>
+       <api>beta</api>
+      </stability>
+      <license uri="http://www.symfony-project.com/license">MIT license</license>
+      <date>2008-06-20</date>
+      <license>MIT</license>
+      <notes>
+        * heristop : Adding customizable elements
+      </notes>
+    </release>
+    <release>
+      <version>
+        <release>0.5.0</release>
+        <api>0.5.0</api>
+      </version>
+      <stability>
+       <release>beta</release>
+       <api>beta</api>
+      </stability>
+      <license uri="http://www.symfony-project.com/license">MIT license</license>
+      <date>2008-05-19</date>
+      <license>MIT</license>
+      <notes>
+        * heristop : Initial version
+      </notes>
+    </release>
+ </changelog>
+</package>

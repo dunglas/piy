@@ -1,0 +1,8 @@
+newSuccess:
+  javascripts:    [tiny_mce/tiny_mce.js]
+
+editSuccess:
+  javascripts:    [tiny_mce/tiny_mce.js]
+  
+viewSuccess:
+  javascripts:    [tiny_mce/tiny_mce.js]

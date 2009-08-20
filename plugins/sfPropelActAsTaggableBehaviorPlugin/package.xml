@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfPropelActAsTaggableBehaviorPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>Propel taggable behavior</summary>
+ <description>This behavior permits to attach tags to Propel objects. It includes tag-clouds generation and helpers to display these clouds.</description>
+ <lead>
+  <name>Xavier Lacot</name>
+  <user>xavier</user>
+  <email>xavier@lacot.org</email>
+  <active>yes</active>
+ </lead>
+ <date>2008-12-22</date>
+ <time>12:52:10</time>
+ <version>
+  <release>0.9.0</release>
+  <api>0.9.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.symfony-project.com/license">MIT license</license>
+ <notes>* upgraded to Symfony 1.2
+  * created the plugin&apos;s configuration class
+  * added the form filter classes
+  * added documentation for running the code coverage test
+ * fixed bugs in Propel 1.3 support
+ * added a unit test for sfPropelActAsTaggableBehavior::preloadTags()</notes>
+ <contents>
+  <dir baseinstalldir="." name="/">
+   <file baseinstalldir="." md5sum="3b4ca0b9f40b9838a7cfb2319fa69dcc" name="config/config.php" role="data" />
+   <file baseinstalldir="." md5sum="b6ccfa0333ba80a6bbee625c380e8fc7" name="config/schema.yml" role="data" />
+   <file baseinstalldir="." md5sum="51ec90ab6db4b519f0c734d860402d28" name="config/sfPropelActAsTaggableBehaviorPluginConfiguration.class.php" role="data" />
+   <file baseinstalldir="." md5sum="98b5007b01405192d0913c017dabd11f" name="lib/sfPropelActAsTaggableBehavior.class.php" role="data" />
+   <file baseinstalldir="." md5sum="a58b5c39e5de18cfa0c8115b52d6fea4" name="lib/sfPropelActAsTaggableToolkit.class.php" role="data" />
+   <file baseinstalldir="." md5sum="cda103c54ce79025cbb029d13a0a6c19" name="lib/filter/TagFormFilter.class.php" role="php" />
+   <file baseinstalldir="." md5sum="6cba84afbcd5c2a575ad93d1effca6db" name="lib/filter/TaggingFormFilter.class.php" role="php" />
+   <file baseinstalldir="." md5sum="89f847de0da637ea9732d0d066ad3c9c" name="lib/form/TagForm.class.php" role="data" />
+   <file baseinstalldir="." md5sum="e88651f33e332d255ed1f5cf5147c1ca" name="lib/form/TaggingForm.class.php" role="data" />
+   <file baseinstalldir="." md5sum="5607efcaeb4defc9bb4dcf86137d4f68" name="lib/helper/TagsHelper.php" role="data" />
+   <file baseinstalldir="." md5sum="0203cccea749b8ee5e58089bc78c1159" name="lib/model/Tag.php" role="data" />
+   <file baseinstalldir="." md5sum="d69ba5a606d39ec6f9d524b13a016f78" name="lib/model/Tagging.php" role="data" />
+   <file baseinstalldir="." md5sum="21fc5a0fcf74ca5506845e1944488c80" name="lib/model/TaggingPeer.php" role="data" />
+   <file baseinstalldir="." md5sum="8c7d6a385fcc4614eb78993e53f1788b" name="lib/model/TagPeer.php" role="data" />
+   <file baseinstalldir="." md5sum="2b7ee0d41d9664f1f0ac7cd2ae88cb98" name="test/unit/sfPropelActAsTaggableBehaviorTest.php" role="data" />
+   <file baseinstalldir="." md5sum="c82aac9ad4c11c37161927f67a00e637" name="LICENSE" role="data" />
+   <file baseinstalldir="." md5sum="f29d14276a475fb4ac219a1d58ef33cc" name="README" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.0.0</min>
+    <max>1.3.0</max>
+    <exclude>1.3.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-05-21</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>Initial public release
+ * add/remove tag(s) on an object
+ * multi-tags object search
+ * multi-models selection
+ * tag cloud generation
+ * related tags handling
+ * unit-tested</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-06-27</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* indexes on tags model
+ * bugfixes
+ * thanks to Nicolas Perriault for his useful comments</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-07-02</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* fixed bug in tags removal (thanks to Alexander Alexandrov)</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.4.0</release>
+    <api>0.4.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-12-11</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* added machine tags support (also called &quot;triple tags&quot;) (thanks to Michael Nolan)</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-03-21</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* compatibility with Symfony 1.1
+ * added setTags() method
+ * renamed table names in order to use the sf_ prefix</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.6.0</release>
+    <api>0.6.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-05-10</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* added &quot;nb_common_tags&quot; option, that permits to select objects having a certain number of tags within a given tags list
+ * added the possibility to retrieve the triple tags of an object that meet certain constraints (namespace, etc.)
+ * added &quot;separator&quot; option in the tag_list() helper
+ * improved preloadTags() performance, in case all the objects don&apos;t have a tag</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7.0</release>
+    <api>0.7.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-07-16</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* added the &quot;ordered&quot; option to the {{{tag_list()}}} helper
+ * allowed triple tags to be unique for a given object, namespace and key, using a plugin&apos;s setting
+ * fixed bug in tags removal. Whan calling {{{removeAllTags()}}} or {{{setTags()}}} twice before saving an object, the tags were not removed. A big thank to Tom Boutell
+ * BC break: the definition of the maximal number of tags to be retrieved with {{{TagPeer::getPopulars()}}} is now defined with {{{app_sfPropelActAsTaggableBehaviorPlugin_limit}}} (previously with {{{app_tags_limit}}})</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.0</release>
+    <api>0.8.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-09-22</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* Added support for Propel 1.3 (thanks to fullo)
+ * fixed typo in the documentation</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-12-22</date>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <notes>* upgraded to Symfony 1.2
+  * created the plugin&apos;s configuration class
+  * added the form filter classes
+  * added documentation for running the code coverage test
+ * fixed bugs in Propel 1.3 support
+ * added a unit test for sfPropelActAsTaggableBehavior::preloadTags()</notes>
+  </release>
+ </changelog>
+</package>
