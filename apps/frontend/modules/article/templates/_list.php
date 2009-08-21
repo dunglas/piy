@@ -1,7 +1,14 @@
-<?php use_helper('Date') ?>
+<?php
+/**
+ * List partial
+ *
+ * @package piy
+ * @subpackage article
+ * @author Kévin Dunglas <dunglas@gmail.com>
+ */
 
-<h1><?php echo __('Articles') ?></h1>
-
+use_helper('Date')
+?>
 <?php if ($article_pager->getNbResults()): ?>
 	<div class="hfeed">
 	<?php foreach ($article_pager->getResults() as $article): ?>
@@ -13,7 +20,7 @@
 	<?php include_partial('global/pager', array('pager' => $article_pager, 'route' => $route, 'param' => $params)) ?>
 	</div>
 <?php else: ?>
-	<p><?php echo __('No article since this time.'); ?></p>
+	<p><?php echo __('No article match your selection.'); ?></p>
 <?php endif ?>
 
 <p><?php echo link_to(__('New article'), '@article_new') ?></p>

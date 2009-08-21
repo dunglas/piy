@@ -1,32 +1,50 @@
 <?php
 
 /**
- * article actions.
+ * Article actions
  *
- * @package    selfpublish
+ * @package    piy
  * @subpackage article
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12474 2008-10-31 10:41:27Z fabien $
+ * @author     Kévin Dunglas <dunglas@gmail.com>
  */
 class articleActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  /**
+   * Displays most recents articles
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeMostRecent(sfWebRequest $request)
   {
     $this->article_pager = ArticlePeer::getMostRecent($request->getParameter('page', 1));
   }
-  
-  public function executeTop(sfWebRequest $request) {
+
+  /**
+   * Displays most rated articles for a given period
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeTop(sfWebRequest $request)
+  {
   	$start = $this->processTimeArg($request);
-  	$this->article_pager = ArticlePeer::getMostVoted($start, time(), true, $request->getParameter('page', 1));
-  	
-  	$this->setTemplate('index');
+  	$this->article_pager = ArticlePeer::getMostRated($start, time(), true, $request->getParameter('page', 1));
   }
 
+  /**
+   * Displays the form to create a new article
+   *
+   * @param sfWebRequest $request
+   */
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new ArticleForm(null, array('user' => $this->getUser()->getGuardUser()));
   }
 
+  /**
+   * Creates a new article
+   *
+   * @param sfWebRequest $request
+   */
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod('post'));
@@ -38,6 +56,11 @@ class articleActions extends sfActions
     $this->setTemplate('new');
   }
 
+  /**
+   * Displays the form to edit an article
+   *
+   * @param sfWebRequest $request
+   */
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless(
@@ -47,6 +70,11 @@ class articleActions extends sfActions
     $this->form = new ArticleForm($article, array('user' => $this->getUser()->getGuardUser()));
   }
 
+  /**
+   * Updates an article
+   *
+   * @param sfWebRequest $request
+   */
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless(
@@ -59,12 +87,23 @@ class articleActions extends sfActions
 
     $this->setTemplate('edit');
   }
-  
+
+  /**
+   * Views an article
+   *
+   * @param sfWebRequest $request
+   */
   public function executeView(sfWebRequest $request) {
   	$this->forward404Unless($this->article = ArticlePeer::retrieveBySlug($request->getParameter('slug')));
   }
-  
-  public function executeVote(sfWebRequest $request) {
+
+  /**
+   * Votes for an article
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeVote(sfWebRequest $request)
+  {
   	$this->forward404Unless($article = ArticlePeer::retrieveBySlug($request->getParameter('slug')));
   	
   	$this->getUser()->getGuardUser()->voteFor($article);
@@ -72,8 +111,14 @@ class articleActions extends sfActions
   	
   	$this->redirect('@article_view?slug='.$article->getSlug());
   }
-  
-	public function executeUnvote(sfWebRequest $request) {
+
+  /**
+   * Removes a vote for an article
+   *
+   * @param sfWebRequest $request
+   */
+	public function executeUnvote(sfWebRequest $request)
+  {
     $this->forward404Unless($article = ArticlePeer::retrieveBySlug($request->getParameter('slug')));
     
     $vote = $this->getUser()->getGuardUser()->getVoteFor($article);
@@ -82,17 +127,29 @@ class articleActions extends sfActions
     
     $this->redirect('@article_view?slug='.$article->getSlug());
   }
-  
-  public function executeTopTag(sfWebRequest $request) {
+
+  /**
+   * Displays most rated articles for some tags
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeTopTag(sfWebRequest $request)
+  {
     $start = $this->processTimeArg($request);
     $tags = $request->getParameter('tags');
     
-    $this->article_pager = ArticlePeer::getMostVotedTaggedWith($tags, $start, time(), true, $request->getParameter('page', 1));
+    $this->article_pager = ArticlePeer::getMostRatedTaggedWith($tags, $start, time(), true, $request->getParameter('page', 1));
     
     $this->setTemplate('index');
   }
-  
-    protected function processForm(sfWebRequest $request, sfForm $form)
+
+  /**
+   * Processes an article form
+   *
+   * @param sfWebRequest $request
+   * @param sfForm $form
+   */
+  protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
@@ -102,9 +159,15 @@ class articleActions extends sfActions
       $this->redirect('@article_view?slug='.$article->getSlug());
     }
   }
-  
+
+  /**
+   * Transforms the parameters to a time
+   *
+   * @param sfWebRequest $request
+   * @return int
+   */
   protected function processTimeArg(sfWebRequest $request) {
-    if ($request->getParameter('time') == 'everytime') $start = null;
+    if ($request->getParameter('time') == 'ever') $start = null;
     else $start = strtotime('-'.str_replace('-', ' ', $request->getParameter('time', '24-hours')));
     
     $this->forward404Unless($start !== false);

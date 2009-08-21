@@ -1,7 +1,7 @@
 default:
   is_secure: on
 
-index:
+mostRecent:
   is_secure: off
   
 top:

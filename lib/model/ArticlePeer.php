@@ -62,7 +62,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Get a pager of the most recent articles tagger with the supplyed tags
+	 * Get a pager of the most recent articles with the supplyed tags
 	 * 
 	 * @param string $tags
 	 * @param int $page
@@ -78,7 +78,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Create a Criteria to select the most voted articles
+	 * Create a Criteria to select the most rated articles
 	 * 
 	 * @param string $start A valid strtotime() parameter
 	 * @param string $end A valid strtotime() parameter
@@ -86,7 +86,7 @@ class ArticlePeer extends BaseArticlePeer
 	 * @param Criteria $criteria
 	 * @return Criteria
 	 */
-	protected static function getMostVotedCriteria($start = null, $end = null, $active = true, $criteria = null) {
+	protected static function getMostRatedCriteria($start = null, $end = null, $active = true, $criteria = null) {
 		if (is_null($criteria)) $criteria = new Criteria();
 		
 		if (!is_null($active)) $criteria->add(self::IS_ACTIVE, $active);
@@ -105,7 +105,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
   
 	/**
-	 * Get a pager of the most voted articles
+	 * Get a pager of the most rated articles
 	 * 
 	 * @param string $start A valid strtotime() parameter
 	 * @param string $end A valid strtotime() parameter
@@ -114,14 +114,14 @@ class ArticlePeer extends BaseArticlePeer
 	 * @param boolean $active Boolean or null for both
 	 * @return sfPropelPager
 	 */
-	public static function getMostVoted($start = null, $end = null, $page = 1, $nb = 10, $active = true) {		
-		$criteria = self::getMostVotedCriteria($start, $end, $active);
+	public static function getMostRated($start = null, $end = null, $page = 1, $nb = 10, $active = true) {
+		$criteria = self::getMostRatedCriteria($start, $end, $active);
     		
     return self::getPager($criteria, $page, $nb);
 	}
 	
   /**
-   * Get a pager of the most voted articles tagger with the supplyed tags
+   * Get a pager of the most rated articles tagger with the supplyed tags
    * 
    * @param string $tags
    * @param string $start A valid strtotime() parameter
@@ -131,9 +131,9 @@ class ArticlePeer extends BaseArticlePeer
    * @param boolean $active Boolean or null for both
    * @return sfPropelPager
    */
-  public static function getMostVotedTaggedWith($tags, $start = null, $end = null, $page = 1, $nb = 10, $active = true, $options = array()) { 
+  public static function getMostRatedTaggedWith($tags, $start = null, $end = null, $page = 1, $nb = 10, $active = true, $options = array()) {
   	$criteria = TagPeer::getTaggedWithCriteria('Article', $tags, null, $options);
-    $criteria = self::getMostVotedCriteria($start, $end, $active, $criteria);
+    $criteria = self::getMostRatedCriteria($start, $end, $active, $criteria);
         
     return self::getPager($criteria, $page, $nb);
   }

@@ -1,11 +1,21 @@
-<?php use_helper('XssSafe') ?>
+<?php
+/**
+ * Excerpt partial
+ *
+ * @package piy
+ * @subpackage article
+ * @author Kévin Dunglas <dunglas@gmail.com>
+ */
+
+use_helper('XssSafe')
+?>
 
 <h2 class="entry-title"><?php echo link_to($article->getTitle(), '@article_view?slug='.$article->getSlug(), array('rel' => 'bookmark')) ?></h2>
   
 <div class="entry-content"><?php echo $article->getBody(ESC_XSSSAFE) ?></div>
   
 <?php if ($article->getUserId()): ?>
-  <?php $author = $article->getsfGuardUser()->__toString() ?>
+  <?php $author = $article->getsfGuardUser() ?>
 <?php else: ?>
   <?php $author = $article->getAuthor() ?>
 <?php endif ?>

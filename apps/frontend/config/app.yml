@@ -1,6 +1,6 @@
 all:
   general:
-    name: Self Publish
+    name: Publish It Yourself
     baseline: A self-managed publication system
     
   sf_guard_plugin:

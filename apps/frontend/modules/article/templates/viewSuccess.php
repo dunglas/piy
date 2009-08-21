@@ -1,4 +1,18 @@
-<?php use_helper('Date', 'Number', 'XssSafe') ?>
+<?php
+/**
+ * HTML view page
+ *
+ * @package piy
+ * @subpackage article
+ * @author Kévin Dunglas <dunglas@gmail.com>
+ */
+
+use_helper('Date', 'Number', 'XssSafe')
+?>
+
+<?php slot('atom') ?>
+  <link rel="alternate" type="application/atom+xml" title="<?php echo __('"%1%" and comments', array('%1%' => $article->getTitle())) ?>" href="<?php echo url_for('@article_view?slug='.$article->getSlug().'&sf_format=atom', true) ?>" />
+<?php end_slot() ?>
 
 <div class="hentry<?php if ($article->getCalendarDate ()): ?> vevent<?php endif ?>">
 	<h1 class="entry-title"><?php echo $article->getTitle() ?></h1>
@@ -41,12 +55,10 @@
 		<?php endif ?>
 		  
 		<?php else: ?>
-		  <p><?php echo __('Signin or <a href="%1%">register</a> to promote or demote this article.', array('%1%' => '@sf_guard_register')) ?></p>
+		  <p><?php echo __('Signin or <a href="%1%">register</a> to promote or demote this article.', array('%1%' => url_for('@sf_guard_register'))) ?></p>
 		<?php endif ?>
 	</div>
 	
-	<?php
-	include_component('sfComment', 'commentList', array('object' => $article));
-	include_component('sfComment', 'commentForm', array('object' => $article));
-	?>
+	<?php	include_component('sfComment', 'commentList', array('object' => $article)) ?>
+	<?php include_component('sfComment', 'commentForm', array('object' => $article)) ?>
 </div>

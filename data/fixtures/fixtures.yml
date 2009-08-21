@@ -33,7 +33,7 @@ sfGuardUserProfile:
     email:          dunglas@gmail.com
     first_name:     Kévin
     last_name:      Dunglas
-    bio:            Creator of Self Publish
+    bio:            Creator of Publish It Yourself
   
   aude_profile:
     user_id:        aude
@@ -41,6 +41,6 @@ sfGuardUserProfile:
 
 Article:
   welcome:
-    title:            Welcome to Self Publish
-    body:             SelfPublish is a self-managed and auto moderated CMS. It allows to publish, rate and ban multimedia articles and news. It also includes a calendar, tags cloud, many SEO features (such as slugs based URL), Atom feeds and more !
+    title:            Welcome to Publish It Yourself
+    body:             <strong><a href="http://dunglas.github.com/piy">Publish It Yourself</a></strong> is a self-managed and auto moderated CMS. It allows to publish, rate and ban multimedia articles and news. It also includes a calendar, tags cloud, many SEO features (such as slugs based URL), Atom feeds and more !
     author:           The Self Publish Team

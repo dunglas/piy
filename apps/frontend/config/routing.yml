@@ -22,10 +22,10 @@ article_create:
   requirements: { sf_method: post }
   
 article_view:
-  url:          /articles/:slug
-  param:        { module: article, action: view }
+  url:          /articles/:slug.:sf_format
+  param:        { module: article, action: view, sf_format: html }
   class:        sfRequestRoute
-  requirements: { sf_method: get }
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
 
 article_update:
   url:          /articles/:slug
@@ -33,17 +33,29 @@ article_update:
   class:        sfRequestRoute
   requirements: { sf_method: put }
 
-article_top:
-  url:          /top/:time/:page
-  param:        { module: article, action: top, page: 1, time: 24-hours }
+article_top_one_page:
+  url:          /top/:time.:sf_format
+  param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
   class:        sfRequestRoute
-  requirements: { sf_method: get }
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
 
-article_index:
-  url:          /articles/:page
-  param:        { module: article, action: index, page: 1 }
+article_top:
+  url:          /top/:time/:page.:sf_format
+  param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
   class:        sfRequestRoute
-  requirements: { sf_method: get }
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
+
+article_most_recent_one_page:
+  url:          /articles.:sf_format
+  param:        { module: article, action: mostRecent, page: 1, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
+
+article_most_recent:
+  url:          /articles/:page.:sf_format
+  param:        { module: article, action: mostRecent, page: 1, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
 
 article_new:
   url:          /new-article
@@ -81,7 +93,7 @@ sf_guard_password:
 # default rules
 homepage:
   url:          /
-  param:        { module: article, action: index }
+  param:        { module: article, action: top, page: 1, time: 24-hours }
 
 default_index:
   url:          /:module

@@ -2,14 +2,7 @@
 
 <div class="comment" id="comment_<?php echo $comment['Id'] ?>">
   <?php if (sfConfig::get('app_sfPropelActAsCommentableBehaviorPlugin_use_gravatar', true)): ?>
-    <?php if (!is_null($comment['AuthorId'])): ?>
-      <?php
-      include_component('sfComment',
-                        'gravatar',
-                        array('author_id'    => $comment['AuthorId'],
-                              'sf_cache_key' => $comment['AuthorId']));
-      ?>
-    <?php else: ?>
+    <?php if (is_null($comment['AuthorId'])): ?>
       <?php
       include_component('sfComment',
                         'gravatar',
@@ -17,25 +10,28 @@
                               'author_email' => $comment['AuthorEmail'],
                               'sf_cache_key'   => $comment['AuthorEmail']));
       ?>
-    <?php endif; ?>
+    <?php else: ?>
+      <?php
+      include_component('sfComment',
+                        'gravatar',
+                        array('author_id'    => $comment['AuthorId'],
+                              'sf_cache_key' => $comment['AuthorId']));
+      ?>
+      <?php endif; ?>
   <?php endif; ?>
   <p class="comment_info">
     <?php
-    if (!is_null($comment['AuthorId']))
-    {
-      $author = get_component('sfComment',
-                              'author',
-                              array('author_id'    => $comment['AuthorId'],
-                                    'sf_cache_key' => $comment['AuthorId']));
-    }
-    else
-    {
+    if (is_null($comment['AuthorId']))
       $author = get_component('sfComment',
                               'author',
                               array('author_name'    => $comment['AuthorName'],
                                     'author_website' => $comment['AuthorWebsite']));
-    }
-
+    else
+      $author = get_component('sfComment',
+                              'author',
+                              array('author_id'    => $comment['AuthorId'],
+                                    'sf_cache_key' => $comment['AuthorId']));
+    
     $date_format = sfConfig::get('app_sfPropelActAsCommentableBehaviorPlugin_date_format', 'words');
     if ('words' == $date_format)
     {
