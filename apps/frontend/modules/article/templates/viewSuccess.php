@@ -36,26 +36,22 @@ use_helper('Date', 'Number', 'XssSafe')
 	<?php if ($article->getUpdatedAt() != $article->getCreatedAt()): ?>
 	<abbr class="updated" title="<?php echo date(DATE_ISO8601, strtotime($article->getUpdatedAt())); ?>"><?php echo __('Updated %1% ago', array('%1%' => time_ago_in_words(strtotime($article->getUpdatedAt()), true))) ?></abbr>
 	<?php endif ?>
-	
-	<div id="tags">
-	<?php foreach ($article->getTags() as $tag): ?>
-    <?php echo link_to($tag, '@homepage', array('rel' => 'tag')) ?>
-  <?php endforeach ?>
-	</div>
+
+  <?php include_partial('article/tags', array('tags' => $article->getTags())) ?>
 	
 	<div id="vote">
-	  <h2><?php echo __('Promotion') ?></h2>
-	  <p><?php echo format_number_choice('[0]This article has not been promoted.|[1]This article has been promoted one time.|(1,+Inf]This article has been demoted %1% times.', array('%1%' => format_number($article->countVotes())), $article->countVotes()) ?>
+	  <h2><?php echo __('Vote') ?></h2>
+	  <p><?php echo format_number_choice('[0]This article has not been rated.|[1]This article has been rated one time.|(1,+Inf]This article has been rated %1% times.', array('%1%' => format_number($article->countVotes())), $article->countVotes()) ?>
 		<?php if ($sf_user->isAuthenticated()): ?>
 		  <?php if ($vote = $sf_user->getGuardUser()->getVoteFor($article->getRawValue())): ?>
-		    <p><?php echo __('You have promoted this article.') ?></p>		  
+		    <p><?php echo __('You voted this article.') ?></p>
 		    <p><?php echo link_to(__('Remove your vote'), '@article_unvote?slug='.$article->getSlug()) ?></p>
 	  <?php else: ?>
-	      <p><?php echo link_to(__('Promote'), '@article_vote?slug='.$article->getSlug()) ?></p>
+	      <p><?php echo link_to(__('Vote'), '@article_vote?slug='.$article->getSlug()) ?></p>
 		<?php endif ?>
 		  
 		<?php else: ?>
-		  <p><?php echo __('Signin or <a href="%1%">register</a> to promote or demote this article.', array('%1%' => url_for('@sf_guard_register'))) ?></p>
+		  <p><?php echo __('Signin or <a href="%1%">register</a> to vote this article.', array('%1%' => url_for('@sf_guard_register'))) ?></p>
 		<?php endif ?>
 	</div>
 	

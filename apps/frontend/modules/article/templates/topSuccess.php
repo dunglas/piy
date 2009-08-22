@@ -29,4 +29,4 @@
   <?php echo __('Most rated articles %1%', array('%1%' => __($sf_params->get('time') == 'ever' ? __('ever') : __('for ' . str_replace('-', ' ', $sf_params->get('time')))))) ?>
 </h1>
 
-<?php include_partial('article/list', array('article_pager' => $article_pager, 'route' => '@article_index', 'params' => array())) ?>
+<?php include_partial('article/list', array('article_pager' => $article_pager)) ?>

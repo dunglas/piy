@@ -115,7 +115,7 @@ class ArticlePeer extends BaseArticlePeer
 	 * @return sfPropelPager
 	 */
 	public static function getMostRated($start = null, $end = null, $page = 1, $nb = 10, $active = true) {
-		$criteria = self::getMostRatedCriteria($start, $end, $active);
+    $criteria = self::getMostRatedCriteria($start, $end, $active);
     		
     return self::getPager($criteria, $page, $nb);
 	}

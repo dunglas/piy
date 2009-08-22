@@ -17,7 +17,7 @@ use_helper('Date')
 	  </div>
 	<?php endforeach; ?>
 	
-	<?php include_partial('global/pager', array('pager' => $article_pager, 'route' => $route, 'param' => $params)) ?>
+	<?php include_component('utils', 'pager', array('pager' => $article_pager)) ?>
 	</div>
 <?php else: ?>
 	<p><?php echo __('No article match your selection.'); ?></p>

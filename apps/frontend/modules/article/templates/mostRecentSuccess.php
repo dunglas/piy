@@ -9,4 +9,4 @@
 ?>
   <h1><?php echo __('Articles') ?></h1>
 
-<?php include_partial('article/list', array('article_pager' => $article_pager, 'route' => '@article_index', 'params' => array())) ?>
+<?php include_partial('article/list', array('article_pager' => $article_pager, 'route' => sfContext::getInstance()->getRouting()->getCurrentRouteName(), 'params' => array())) ?>

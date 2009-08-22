@@ -33,26 +33,26 @@ article_update:
   class:        sfRequestRoute
   requirements: { sf_method: put }
 
-article_top_one_page:
-  url:          /top/:time.:sf_format
-  param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
-  class:        sfRequestRoute
-  requirements: { sf_method: get, sf_format: (?:html|atom) }
-
 article_top:
   url:          /top/:time/:page.:sf_format
   param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
-article_most_recent_one_page:
-  url:          /articles.:sf_format
-  param:        { module: article, action: mostRecent, page: 1, sf_format: html }
+article_top_one_page:
+  url:          /top/:time.:sf_format
+  param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
 article_most_recent:
   url:          /articles/:page.:sf_format
+  param:        { module: article, action: mostRecent, page: 1, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
+
+article_most_recent_one_page:
+  url:          /articles.:sf_format
   param:        { module: article, action: mostRecent, page: 1, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }

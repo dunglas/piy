@@ -13,6 +13,8 @@ use_helper('XssSafe')
 <h2 class="entry-title"><?php echo link_to($article->getTitle(), '@article_view?slug='.$article->getSlug(), array('rel' => 'bookmark')) ?></h2>
   
 <div class="entry-content"><?php echo $article->getBody(ESC_XSSSAFE) ?></div>
+
+<?php include_partial('article/tags', array('tags' => $article->getTags())) ?>
   
 <?php if ($article->getUserId()): ?>
   <?php $author = $article->getsfGuardUser() ?>

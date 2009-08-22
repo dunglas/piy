@@ -27,7 +27,7 @@ class articleActions extends sfActions
   public function executeTop(sfWebRequest $request)
   {
   	$start = $this->processTimeArg($request);
-  	$this->article_pager = ArticlePeer::getMostRated($start, time(), true, $request->getParameter('page', 1));
+  	$this->article_pager = ArticlePeer::getMostRated($start, time(), $request->getParameter('page', 1));
   }
 
   /**
