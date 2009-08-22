@@ -31,6 +31,27 @@ class articleActions extends sfActions
   }
 
   /**
+   * Displays most recents articles for a given tags
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeMostRecentWithTags(sfWebRequest $request)
+  {
+    $this->article_pager = ArticlePeer::getMostRecentTaggedWith($request->getParameter('tags'), $request->getParameter('page', 1));
+  }
+
+  /**
+   * Displays most rated articles for a given period and tags
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeTopWithTags(sfWebRequest $request)
+  {
+  	$start = $this->processTimeArg($request);
+  	$this->article_pager = ArticlePeer::getMostRatedTaggedWith($request->getParameter('tags'), $start, time(), $request->getParameter('page', 1));
+  }
+
+  /**
    * Displays the form to create a new article
    *
    * @param sfWebRequest $request

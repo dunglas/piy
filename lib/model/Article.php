@@ -10,6 +10,16 @@ class Article extends BaseArticle
 	public function __toString() {
 		return $this->getTitle();
 	}
+
+  public function getAuthor() {
+    if ($this->getsfGuardUser())
+      return $this->getsfGuardUser()->__toString();
+
+    if (parent::getAuthor())
+      return parent::getAuthor();
+
+    return sfContext::getInstance()->getI18N()->__('Anonymous');
+  }
 }
 
 $columns_map = array('from'   => ArticlePeer::TITLE,

@@ -25,14 +25,8 @@ use_helper('Date', 'Number', 'XssSafe')
 	  <div class="dstart"><?php echo format_date($article->getCalendarDate()) ?></div>
 	  <div class="location"><?php echo $article->getCalendarLocation() ?></div>
 	<?php endif ?>
-	  
-	<?php if ($article->getUserId()): ?>
-	  <?php $author = $article->getsfGuardUser()->__toString() ?>
-	<?php else: ?>
-	  <?php $author = $article->getAuthor() ?>
-	<?php endif ?>
 	
-	<abbr class="published" title="<?php echo date(DATE_ISO8601, strtotime($article->getCreatedAt())); ?>"><?php echo __('Published by <span class="vcard"><span class="fn nickname">%2%</span></span> %1% ago', array('%1%' => time_ago_in_words(strtotime($article->getCreatedAt()), true), '%2%' => $author)) ?></abbr>
+	<abbr class="published" title="<?php echo date(DATE_ISO8601, strtotime($article->getCreatedAt())); ?>"><?php echo __('Published by %1% %2% ago', array('%1%' => '<span class="vcard"><span class="fn nickname">'.$article->getAuthor().'</span></span>', '%2%' => time_ago_in_words(strtotime($article->getCreatedAt()), true))) ?></abbr>
 	<?php if ($article->getUpdatedAt() != $article->getCreatedAt()): ?>
 	<abbr class="updated" title="<?php echo date(DATE_ISO8601, strtotime($article->getUpdatedAt())); ?>"><?php echo __('Updated %1% ago', array('%1%' => time_ago_in_words(strtotime($article->getUpdatedAt()), true))) ?></abbr>
 	<?php endif ?>

@@ -1,12 +1,4 @@
 # Article rules
-article_tags:
-  url:          /tags/:tag/:page
-  param:        { module: article, action: tag, page: 1 }
-
-article_top_tags:
-  url:          /top/tag/:tags/:time
-  param:        { moudle: article, action: topTag, page: 1, time: 24-hours }
-
 article_vote:
   url:          /vote/:slug
   param:        { module: article, action: vote }
@@ -37,23 +29,47 @@ article_top:
   url:          /top/:time/:page.:sf_format
   param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
   class:        sfRequestRoute
-  requirements: { sf_method: get, sf_format: (?:html|atom) }
+  requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
 
 article_top_one_page:
   url:          /top/:time.:sf_format
   param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
   class:        sfRequestRoute
-  requirements: { sf_method: get, sf_format: (?:html|atom) }
+  requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
 
 article_most_recent:
   url:          /articles/:page.:sf_format
   param:        { module: article, action: mostRecent, page: 1, sf_format: html }
   class:        sfRequestRoute
-  requirements: { sf_method: get, sf_format: (?:html|atom) }
+  requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
 
 article_most_recent_one_page:
   url:          /articles.:sf_format
   param:        { module: article, action: mostRecent, page: 1, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
+
+article_tags_top:
+  url:          /tags/:tags/:time/:page.:sf_format
+  param:        { module: article, action: topWithTags, page: 1, time: 24-hours, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
+
+article_tags_top_one_page:
+  url:          /tags/:tags/:time.:sf_format
+  param:        { module: article, action: topWithTags, page: 1, time: 24-hours, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
+
+article_tags_most_recent:
+  url:          /tags/:tags/:page.:sf_format
+  param:        { module: article, action: mostRecentWithTags, page: 1, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
+
+article_tags_most_recent_one_page:
+  url:          /tags/:tags.:sf_format
+  param:        { module: article, action: mostRecentWithTags, page: 1, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 

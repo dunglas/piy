@@ -26,18 +26,20 @@
 	    <div id="content">
 	      <?php echo $sf_content ?>
 	    </div>
-	    
-	    <?php include_component('article', 'mostRecent') ?>
-	    
+
+      <div id="sidebar">
+        <?php include_component_slot('sidebar') ?>
+      </div>
+
 	    <div id="user">
 		    <?php if ($sf_user->isAuthenticated()): ?>
-		    <p><?php echo __('Welcome <strong>%1%</strong> !', array('%1%' => $sf_user)) ?></p>
-		    <ul>
-		      <li><?php echo link_to(__('Sign out'), '@sf_guard_signout') ?></li>
-		    </ul>
+		      <p><?php echo __('Welcome %1% !', array('%1%' => '<strong>'.$sf_user.'</strong>')) ?></p>
+		      <ul>
+		        <li><?php echo link_to(__('Sign out'), '@sf_guard_signout') ?></li>
+		      </ul>
 		    <?php else: ?>
-		    <h3><?php echo __('Sign in') ?></h3>
-		    <?php include_component('sfGuardAuth', 'signin') ?>
+		      <h3><?php echo __('Sign in') ?></h3>
+		      <?php include_component('sfGuardAuth', 'signin') ?>
 				<?php endif ?>
 	    </div>
     </div>

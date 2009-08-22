@@ -12,6 +12,6 @@
 <div id="tags">
 <strong><?php echo __('Tags:') ?></strong>
 <?php foreach ($tags as $tag): ?>
-  <?php echo link_to($tag, '@homepage', array('rel' => 'tag')) ?>
+  <?php echo link_to($tag, '@article_tags_top?tags='.$tag, array('rel' => 'tag')) ?>
 <?php endforeach ?>
 </div>

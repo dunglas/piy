@@ -3,8 +3,14 @@ default:
 
 mostRecent:
   is_secure: off
+
+mostRecentWithTags:
+  is_seucre: off
   
 top:
+  is_secure: off
+
+topWithTags:
   is_secure: off
 
 new:
