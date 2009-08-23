@@ -15,3 +15,6 @@ default:
 
   has_layout:     on
   layout:         layout
+
+  components:
+    sidebar: [article, sidebar]

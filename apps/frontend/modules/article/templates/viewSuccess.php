@@ -14,7 +14,7 @@ use_helper('Date', 'Number', 'XssSafe')
   <link rel="alternate" type="application/atom+xml" title="<?php echo __('"%1%" and comments', array('%1%' => $article->getTitle())) ?>" href="<?php echo url_for('@article_view?slug='.$article->getSlug().'&sf_format=atom', true) ?>" />
 <?php end_slot() ?>
 
-<div class="hentry<?php if ($article->getCalendarDate ()): ?> vevent<?php endif ?>">
+<article class="hentry<?php if ($article->getCalendarDate ()): ?> vevent<?php endif ?>">
 	<h1 class="entry-title"><?php echo $article->getTitle() ?></h1>
 	  
 	<div class="entry-content<?php if ($article->getCalendarDate ()): ?> summary<?php endif ?>">
@@ -33,10 +33,10 @@ use_helper('Date', 'Number', 'XssSafe')
 
   <?php include_partial('article/tags', array('tags' => $article->getTags())) ?>
 	
-	<div id="vote">
-	  <h2><?php echo __('Vote') ?></h2>
-	  <p><?php echo format_number_choice('[0]This article has not been rated.|[1]This article has been rated one time.|(1,+Inf]This article has been rated %1% times.', array('%1%' => format_number($article->countVotes())), $article->countVotes()) ?>
-		<?php if ($sf_user->isAuthenticated()): ?>
+	<section id="vote">
+	  <p class="votes"><?php echo format_number_choice('[0]No votes.|[1]One vote.|(1,+Inf]%1% votes.', array('%1%' => format_number($article->countVotes())), $article->countVotes()) ?>
+
+    <?php if ($sf_user->isAuthenticated()): ?>
 		  <?php if ($vote = $sf_user->getGuardUser()->getVoteFor($article->getRawValue())): ?>
 		    <p><?php echo __('You voted this article.') ?></p>
 		    <p><?php echo link_to(__('Remove your vote'), '@article_unvote?slug='.$article->getSlug()) ?></p>
@@ -45,10 +45,10 @@ use_helper('Date', 'Number', 'XssSafe')
 		<?php endif ?>
 		  
 		<?php else: ?>
-		  <p><?php echo __('Signin or <a href="%1%">register</a> to vote this article.', array('%1%' => url_for('@sf_guard_register'))) ?></p>
+		  <p><?php echo __('Signin or <a href="%1%">register</a> to rate this article.', array('%1%' => url_for('@sf_guard_register'))) ?></p>
 		<?php endif ?>
-	</div>
+	</section>
 	
 	<?php	include_component('sfComment', 'commentList', array('object' => $article)) ?>
 	<?php include_component('sfComment', 'commentForm', array('object' => $article)) ?>
-</div>
+</article>

@@ -1,38 +1,16 @@
 <?php
 require_once dirname(__FILE__).'/../../bootstrap/propel.php';
-$t = new lime_test(7, new lime_output_color());
+$t = new lime_test(4, new lime_output_color());
 
-$article = ArticlePeer::retrieveBySlug('welcome-to-self-publish');
-$t->is($article->__toString(), $article->getTitle(), '::toString() return the title');
+$article1 = ArticlePeer::retrieveBySlug('welcome-to-publish-it-yourself');
+$article2 = ArticlePeer::retrieveBySlug('anonymous-author');
+$article3 = ArticlePeer::retrieveBySlug('not-registered-author');
 
 $user1 = sfGuardUserPeer::retrieveByUsername('kevin');
 $user2 = sfGuardUserPeer::retrieveByUsername('aude');
 
-$init_nb_promo = $article->countPromotions();
-$article->promote($user1);
-$end_nb_promo = $article->countPromotions();
-$t->is($end_nb_promo, $init_nb_promo + 1, '::promote() add a promotion and ::countPromotions() works');
-
-$article->promote($user1);
-$one_time = $article->countPromotions();
-$t->is($one_time, $end_nb_promo, '::promote() A user can promote an article only one time');
-
-$init_nb_demo = $article->countDemotions();
-$article->demote($user1);
-$end_nb_demo = $article->countDemotions();
-$t->is($init_nb_demo, $end_nb_demo, '::demote() A user cannot demote if he has already promoted');
-
-$init_nb_demo = $article->countDemotions();
-$article->demote($user2);
-$end_nb_demo = $article->countDemotions();
-$t->is($end_nb_promo, $init_nb_promo + 1, '::demote() add a demotion and ::countDemotions() works');
-
-$article->demote($user2);
-$one_time = $article->countDemotions();
-$t->is($one_time, $end_nb_demo, '::demote() A user can demote an article only one time');
-
-$init_nb_promo = $article->countPromotions();
-$article->promote($user2);
-$end_nb_promo = $article->countPromotions();
-$t->is($init_nb_promo, $end_nb_promo, '::promote() A user cannot promote if he has already demoted');
+$t->is($article1->__toString(), $article1->getTitle(), '::toString() returns the title');
+$t->is($article1->getAuthor(), $article1->getsfGuardUser()->__toString(), '::getAuthor() returns the sfGuardUser name if the author was registered');
+$t->is($article2->getAuthor(), 'Anonymous', '::getAuthor() returns anonymous if the user is anonymous');
+$t->is($article3->getAuthor(), 'Not registered', '::getAuthor() returns the author name if filled and not registered');
 ?>

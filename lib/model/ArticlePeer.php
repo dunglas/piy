@@ -3,7 +3,7 @@
 class ArticlePeer extends BaseArticlePeer
 {
 	/**
-	 * Create a Propel pager
+	 * Creates a Propel pager
 	 * 
 	 * @param Criteria $criteria
 	 * @param int $page
@@ -20,7 +20,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Retrieve an article by its slug
+	 * Retrieves an article by its slug
 	 *
 	 * @param string $slug
 	 * @param boolean $active
@@ -35,7 +35,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Create a Criteria to select the most recent articles
+	 * Creates a Criteria to select the most recent articles
 	 * 
 	 * @param Criteria $criteria
 	 * @param mixed $active Boolean or null for both
@@ -50,7 +50,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Get a pager of the most recent articles
+	 * Gets a pager of the most recent articles
 	 * 
 	 * @param int $page
 	 * @param int $nb
@@ -62,7 +62,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Get a pager of the most recent articles with the supplyed tags
+	 * Gets a pager of the most recent articles with the supplyed tags
 	 * 
 	 * @param string $tags
 	 * @param int $page
@@ -78,7 +78,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
 	/**
-	 * Create a Criteria to select the most rated articles
+	 * Creates a Criteria to select the most rated articles
 	 * 
 	 * @param string $start A valid strtotime() parameter
 	 * @param string $end A valid strtotime() parameter
@@ -105,7 +105,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
   
 	/**
-	 * Get a pager of the most rated articles
+	 * Gets a pager of the most rated articles
 	 * 
 	 * @param string $start A valid strtotime() parameter
 	 * @param string $end A valid strtotime() parameter
@@ -121,7 +121,7 @@ class ArticlePeer extends BaseArticlePeer
 	}
 	
   /**
-   * Get a pager of the most rated articles tagger with the supplyed tags
+   * Gets a pager of the most rated articles tagger with the supplyed tags
    * 
    * @param string $tags
    * @param string $start A valid strtotime() parameter
@@ -135,6 +135,21 @@ class ArticlePeer extends BaseArticlePeer
   	$criteria = TagPeer::getTaggedWithCriteria('Article', $tags, null, $options);
     $criteria = self::getMostRatedCriteria($start, $end, $active, $criteria);
         
+    return self::getPager($criteria, $page, $nb);
+  }
+
+  /**
+   * Gets a pager of articles published by an user
+   *
+   * @param sfGuardUser $user
+   * @param int $page
+   * @param int $nb
+   * @param boolean $active Boolean or null for both
+   */
+  public static function getPublishedBy(sfGuardUser $user, $page = 1, $nb = 10, $active = true) {
+    $criteria = self::getMostRecentCriteria($active);
+    $criteria->add(self::USER_ID, $user->getId());
+    
     return self::getPager($criteria, $page, $nb);
   }
 }

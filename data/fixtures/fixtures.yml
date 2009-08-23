@@ -45,3 +45,14 @@ Article:
     body:             <strong><a href="http://dunglas.github.com/piy">Publish It Yourself</a></strong> is a self-managed and auto moderated CMS. It allows to publish, rate and ban multimedia articles and news. It also includes a calendar, tags cloud, many SEO features (such as slugs based URL), Atom feeds and more !
     user_id:          kevin
     tags:             piy, opensource
+
+  anonymous:
+    title:            Anonymous author
+    body:             This article has been published by an Anonymous user.
+    tags:             piy, anonymous, privacy
+
+  not_registered:
+    title:            Not registered author
+    body:             Authors without accounts also can publish articles !
+    tags:             piy, privacy
+    author:           Not registered
