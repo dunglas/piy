@@ -15,7 +15,13 @@ class userActions extends sfActions
    * @param sfWebRequest $request
    */
   public function executeArticles(sfWebRequest $request) {
-    
+    $this->forward404Unless(
+      $this->user = sfGuardUserPeer::retrieveByUsername(
+        $request->getParameter('username')
+      )
+    );
+
+    $this->article_pager = ArticlePeer::getMostRecentPublishedBy($this->user, $request->getParameter('page', 1));
   }
 
   /**

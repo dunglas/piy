@@ -13,7 +13,7 @@ use_helper('Date')
 	<div class="hfeed">
 	<?php foreach ($article_pager->getResults() as $article): ?>
 	  <div class="hentry">
-	  <?php include_partial('excerpt', array('article' => $article)) ?>
+	  <?php include_partial('article/excerpt', array('article' => $article)) ?>
 	  </div>
 	<?php endforeach; ?>
 	

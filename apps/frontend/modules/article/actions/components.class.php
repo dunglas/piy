@@ -34,15 +34,29 @@ class articleComponents extends sfComponents {
   public function executeSidebar(sfWebRequest $request) {
   }
 
+  /**
+   * Displays related tags
+   *
+   * @param sfWebRequest $request
+   */
   public function executeRelatedTags(sfWebRequest $request) {
     $this->tags = TagPeer::getRelatedTags($request->getParameter('tags'));
   }
 
+  /**
+   * Displays most recent articles with a tag
+   *
+   * @param sfWebRequest $request
+   */
   public function executeMostRecentWithTags(sfWebRequest $request) {
 		$this->article_pager = ArticlePeer::getMostRecentTaggedWith($request->getParameter('tags'));
 	}
 
+  /**
+   * Displays the sidebar for tags pages
+   *
+   * @param sfWebRequest $request
+   */
   public function executeTagsSidebar(sfWebRequest $request) {
-
   }
 }

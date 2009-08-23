@@ -14,6 +14,6 @@ $t->isa_ok(ArticlePeer::getMostRecent(), 'sfPropelPager', '::getMostRecent() ret
 $t->isa_ok(ArticlePeer::getMostRecentTaggedWith('piy'), 'sfPropelPager', '::getMostRecentTaggedWith() returns a pager');
 $t->isa_ok(ArticlePeer::getMostRated(), 'sfPropelPager', '::getMostRated() returns a pager');
 $t->isa_ok(ArticlePeer::getMostRatedTaggedWith('piy'), 'sfPropelPager', '::getMostRatedTaggedWith() returns a pager');
-$t->isa_ok(ArticlePeer::getPublishedBy($user1), 'sfPropelPager', '::getPublishedBy() returns a pager');
-$t->isa_ok(ArticlePeer::getPublishedByTaggedWith($user1, 'piy'), 'sfPropelPager', '::getPublishedBy() returns a pager');
+$t->isa_ok(ArticlePeer::getMostRecentPublishedBy($user1), 'sfPropelPager', '::getMostRecentPublishedBy() returns a pager');
+$t->isa_ok(ArticlePeer::getMostRecentPublishedByTaggedWith($user1, 'piy'), 'sfPropelPager', '::getMostRecentPublishedBy() returns a pager');
 ?>

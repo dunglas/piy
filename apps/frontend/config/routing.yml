@@ -1,12 +1,12 @@
 # User rules
 user_articles:
-  url:          /user/:username.:sf_format
+  url:          /users/:username.:sf_format
   param:        { module: user, action: articles, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
 user_comments:
-  url:          /user/:username/comments.:sf_format
+  url:          /users/:username/comments.:sf_format
   param:        { module: user, action: comments, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }

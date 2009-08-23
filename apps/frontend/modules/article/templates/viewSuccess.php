@@ -21,21 +21,9 @@ use_helper('Date', 'Number', 'XssSafe')
 	  <?php echo $article->getBody(ESC_XSSSAFE) ?>
 	</div>
 	
-	<?php if ($article->getCalendarDate ()): ?>
-	  <div class="dstart"><?php echo format_date($article->getCalendarDate()) ?></div>
-	  <div class="location"><?php echo $article->getCalendarLocation() ?></div>
-	<?php endif ?>
-	
-	<abbr class="published" title="<?php echo date(DATE_ISO8601, strtotime($article->getCreatedAt())); ?>"><?php echo __('Published by %1% %2% ago', array('%1%' => '<span class="vcard"><span class="fn nickname">'.$article->getAuthor().'</span></span>', '%2%' => time_ago_in_words(strtotime($article->getCreatedAt()), true))) ?></abbr>
-	<?php if ($article->getUpdatedAt() != $article->getCreatedAt()): ?>
-	<abbr class="updated" title="<?php echo date(DATE_ISO8601, strtotime($article->getUpdatedAt())); ?>"><?php echo __('Updated %1% ago', array('%1%' => time_ago_in_words(strtotime($article->getUpdatedAt()), true))) ?></abbr>
-	<?php endif ?>
+	<?php include_partial('article/details', array('article' => $article)) ?>
 
-  <?php include_partial('article/tags', array('tags' => $article->getTags())) ?>
-	
 	<section id="vote">
-	  <p class="votes"><?php echo format_number_choice('[0]No votes.|[1]One vote.|(1,+Inf]%1% votes.', array('%1%' => format_number($article->countVotes())), $article->countVotes()) ?>
-
     <?php if ($sf_user->isAuthenticated()): ?>
 		  <?php if ($vote = $sf_user->getGuardUser()->getVoteFor($article->getRawValue())): ?>
 		    <p><?php echo __('You voted this article.') ?></p>

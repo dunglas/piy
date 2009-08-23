@@ -160,7 +160,7 @@ class ArticlePeer extends BaseArticlePeer
    * @param int $nb
    * @param boolean $active Boolean or null for both
    */
-  public static function getPublishedBy(sfGuardUser $user, $page = 1, $nb = 10, $active = true) {
+  public static function getMostRecentPublishedBy(sfGuardUser $user, $page = 1, $nb = 10, $active = true) {
     $criteria = self::getMostRecentCriteria($active);
     $criteria = self::getPublishedByCriteria($user, $criteria);
     
@@ -178,7 +178,7 @@ class ArticlePeer extends BaseArticlePeer
    * @param array $options
    * @return sfPropelPager
    */
-  public static function getPublishedByTaggedWith(sfGuardUser $user, $tags, $page = 1, $nb = 10, $active = true, $options = array()) {
+  public static function getMostRecentPublishedByTaggedWith(sfGuardUser $user, $tags, $page = 1, $nb = 10, $active = true, $options = array()) {
     $criteria = TagPeer::getTaggedWithCriteria('Article', $tags, null, $options);
     $criteria = self::getMostRecentCriteria($active);
     $criteria = self::getPublishedByCriteria($user, $criteria);
