@@ -30,6 +30,12 @@ class userActions extends sfActions
    * @param sfWebRequest $request
    */
   public function executeComments(sfWebRequest $request) {
+    $this->forward404Unless(
+      $this->user = sfGuardUserPeer::retrieveByUsername(
+        $request->getParameter('username')
+      )
+    );
     
+    $this->comments_pager = sfCommentPeer::getPublishedBy($this->user);
   }
 }

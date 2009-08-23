@@ -7,9 +7,9 @@
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 
-use_helper('Number', 'XssSafe')
+use_helper('XssSafe')
 ?>
-<article id="article-<?php echo $article->getSlug() ?>">
+<article id="article-<?php echo $article->getSlug() ?>" class="hentry">
   <h1 class="entry-title">
     <?php echo link_to($article->getTitle(), '@article_view?slug='.$article->getSlug(), array('rel' => 'bookmark')) ?>
   </h1>

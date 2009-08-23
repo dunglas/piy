@@ -9,6 +9,6 @@
 
 use_helper('XssSafe')
 ?>
-<?php $i = 1; foreach ($comments as $comment): ?>
-  <?php include_partial('sfComment/commentView', array('number' => $i, 'comment' => $comment)) ?>
-<?php $i++; endforeach ?>
+<?php foreach ($comments as $comment): ?>
+  <?php include_partial('sfComment/commentView', array('comment' => $comment)) ?>
+<?php endforeach ?>

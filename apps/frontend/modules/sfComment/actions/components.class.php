@@ -64,4 +64,14 @@ class sfCommentComponents extends BasesfCommentComponents
       ));
     }
   }
+
+  /**
+   * Displays the author hcard
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeAuthorHcard(sfWebRequest $request)
+  {
+    $this->guardUser = sfGuardUserPeer::retrieveByPK($this->comment['AuthorId']);
+  }
 }

@@ -7,6 +7,7 @@
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 
+use_helper('Date', 'Number')
 ?>
   <section class="details">
     <?php if ($article->getCalendarDate()): ?>
@@ -17,8 +18,10 @@
 	  <?php endif ?>
 
     <?php include_partial('article/tags', array('tags' => $article->getTags())) ?>
-      
-    <?php echo __('By %1%.', array('%1%' => get_partial('article/authorHcard', array('article' => $article)))) ?>
+
+    <?php if (!$sf_params->get('username')): ?>
+      <?php include_partial('article/authorHcard', array('article' => $article)) ?>
+    <?php endif ?>
     
     <abbr class="updated" title="<?php echo date(DATE_ISO8601, strtotime($article->getUpdatedAt())); ?>">
       <?php echo __('Published %1% ago.', array('%1%' => time_ago_in_words(strtotime($article->getUpdatedAt()), true))) ?>

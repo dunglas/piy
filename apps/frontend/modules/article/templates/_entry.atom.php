@@ -17,7 +17,7 @@
     <?php if ($article->getUserId()): ?>
     <author>
       <name><?php echo $article->getsfGuardUser() ?></name>
-      <uri><?php echo url_for('@user_view?username='.$$article->getsfGuardUser()->getUsername(), true) ?></uri>
+      <uri><?php echo url_for('@user_articles?username='.$$article->getsfGuardUser()->getUsername(), true) ?></uri>
     </author>
     <?php else: ?>
     <author>

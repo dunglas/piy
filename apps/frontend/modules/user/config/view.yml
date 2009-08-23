@@ -1,3 +1,7 @@
-default:
+articlesSuccess:
   components:
-    sidebar: [user, sidebar]
+    sidebar: [user, sidebarArticles]
+
+commentsSuccess:
+  components:
+    sidebar: [user, sidebarComments]
