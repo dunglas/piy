@@ -11,7 +11,7 @@ use_helper('Date', 'Number', 'XssSafe')
 ?>
 
 <?php slot('atom') ?>
-  <link rel="alternate" type="application/atom+xml" title="<?php echo __('"%1%" and comments', array('%1%' => $article->getTitle())) ?>" href="<?php echo url_for('@article_view?slug='.$article->getSlug().'&sf_format=atom', true) ?>" />
+  <link rel="alternate" type="application/atom+xml" title="<?php echo __('%1% and comments', array('%1%' => $article->getTitle())) ?>" href="<?php echo url_for('@article_view?slug='.$article->getSlug().'&sf_format=atom', true) ?>" />
 <?php end_slot() ?>
 
 <article class="hentry<?php if ($article->getCalendarDate ()): ?> vevent<?php endif ?>">

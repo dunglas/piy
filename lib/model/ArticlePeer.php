@@ -129,6 +129,7 @@ class ArticlePeer extends BaseArticlePeer
    * @param int $page
    * @param int $nb
    * @param boolean $active Boolean or null for both
+   * @param array $options
    * @return sfPropelPager
    */
   public static function getMostRatedTaggedWith($tags, $start = null, $end = null, $page = 1, $nb = 10, $active = true, $options = array()) {
@@ -136,6 +137,19 @@ class ArticlePeer extends BaseArticlePeer
     $criteria = self::getMostRatedCriteria($start, $end, $active, $criteria);
         
     return self::getPager($criteria, $page, $nb);
+  }
+
+  /**
+   *
+   * @param sfGuardUser $user
+   * @param Criteria $criteria
+   * @return Criteria
+   */
+  public static function getPublishedByCriteria(sfGuardUser $user, $criteria = null) {
+    if (is_null($criteria)) $criteria = new Criteria();
+    $criteria->add(self::USER_ID, $user->getId());
+    
+    return $criteria;
   }
 
   /**
@@ -148,8 +162,27 @@ class ArticlePeer extends BaseArticlePeer
    */
   public static function getPublishedBy(sfGuardUser $user, $page = 1, $nb = 10, $active = true) {
     $criteria = self::getMostRecentCriteria($active);
-    $criteria->add(self::USER_ID, $user->getId());
+    $criteria = self::getPublishedByCriteria($user, $criteria);
     
+    return self::getPager($criteria, $page, $nb);
+  }
+
+  /**
+   * Gets articles published by an user and with the given tags
+   *
+   * @param sfGuardUser $user
+   * @param string $tags
+   * @param int $page
+   * @param int $nb
+   * @param boolean $active Boolean or null for both
+   * @param array $options
+   * @return sfPropelPager
+   */
+  public static function getPublishedByTaggedWith(sfGuardUser $user, $tags, $page = 1, $nb = 10, $active = true, $options = array()) {
+    $criteria = TagPeer::getTaggedWithCriteria('Article', $tags, null, $options);
+    $criteria = self::getMostRecentCriteria($active);
+    $criteria = self::getPublishedByCriteria($user, $criteria);
+
     return self::getPager($criteria, $page, $nb);
   }
 }

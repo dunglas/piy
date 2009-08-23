@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../../bootstrap/propel.php';
-$t = new lime_test(7, new lime_output_color());
+$t = new lime_test(8, new lime_output_color());
 
 $slug = 'welcome-to-publish-it-yourself';
 $article1 = ArticlePeer::retrieveBySlug($slug);
@@ -15,4 +15,5 @@ $t->isa_ok(ArticlePeer::getMostRecentTaggedWith('piy'), 'sfPropelPager', '::getM
 $t->isa_ok(ArticlePeer::getMostRated(), 'sfPropelPager', '::getMostRated() returns a pager');
 $t->isa_ok(ArticlePeer::getMostRatedTaggedWith('piy'), 'sfPropelPager', '::getMostRatedTaggedWith() returns a pager');
 $t->isa_ok(ArticlePeer::getPublishedBy($user1), 'sfPropelPager', '::getPublishedBy() returns a pager');
+$t->isa_ok(ArticlePeer::getPublishedByTaggedWith($user1, 'piy'), 'sfPropelPager', '::getPublishedBy() returns a pager');
 ?>

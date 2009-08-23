@@ -9,7 +9,7 @@
 
 ?>
 <entry>
-    <title><?php echo __('Comment #%1%', array('%1%' => $number)) ?></title>
+    <title><?php echo $comment['Title'] ?></title>
     <updated><?php echo gmstrftime('%Y-%m-%dT%H:%M:%SZ', strtotime($comment['CreatedAt'])) ?></updated>
 
     <?php if ($comment['AuthorId']): ?>
