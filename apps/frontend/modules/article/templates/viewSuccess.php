@@ -14,10 +14,10 @@ use_helper('Date', 'Number', 'XssSafe')
   <link rel="alternate" type="application/atom+xml" title="<?php echo __('%1% and comments', array('%1%' => $article->getTitle())) ?>" href="<?php echo url_for('@article_view?slug='.$article->getSlug().'&sf_format=atom', true) ?>" />
 <?php end_slot() ?>
 
-<article class="hentry<?php if ($article->getCalendarDate ()): ?> vevent<?php endif ?>">
+<article class="hentry<?php if ($article->getDate ()): ?> vevent<?php endif ?>">
 	<h1 class="entry-title"><?php echo $article->getTitle() ?></h1>
 	  
-	<div class="entry-content<?php if ($article->getCalendarDate ()): ?> summary<?php endif ?>">
+	<div class="entry-content<?php if ($article->getDate ()): ?> summary<?php endif ?>">
 	  <?php echo $article->getBody(ESC_XSSSAFE) ?>
 	</div>
 	

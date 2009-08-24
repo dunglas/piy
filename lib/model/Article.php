@@ -20,6 +20,24 @@ class Article extends BaseArticle
 
     return sfContext::getInstance()->getI18N()->__('Anonymous');
   }
+
+  /**
+   * Is this article dated ?
+   *
+   * @return boolean
+   */
+  public function isDated() {
+    return false;
+  }
+
+  /**
+   * Is this article located ?
+   *
+   * @return boolean
+   */
+  public function isLocated() {
+    return false;
+  }
 }
 
 $columns_map = array('from'   => ArticlePeer::TITLE,

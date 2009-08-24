@@ -31,9 +31,6 @@ sfGuardUserProfile:
   kevin_profile:
     user_id:        kevin
     email:          dunglas@gmail.com
-    first_name:     Kévin
-    last_name:      Dunglas
-    bio:            Creator of Publish It Yourself
   
   aude_profile:
     user_id:        aude

@@ -34,3 +34,5 @@ class sfGuardUser extends PluginsfGuardUser {
 	  $vote->save($con);
   }
 }
+
+sfPropelBehavior::add('sfGuardUser', array('sfPropelActAsCommentableBehavior'));

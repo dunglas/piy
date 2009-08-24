@@ -6,10 +6,6 @@ propel:
     body:               { type: longvarchar, required: true }
     user_id:            { type: integer, foreignTable: sf_guard_user, foreignReference: id }
     author:             { type: varchar, size: 50 }
-    calendar_date:      { type: date }
-    calendar_location:  { type: varchar, size: 255 }
-    calendar_latitude:  float
-    calendar_longitude: float
     sf_comment_count:   integer
     is_active:          { type: boolean, default: true }
     created_at:
@@ -23,17 +19,3 @@ propel:
     id:
     user_id:           { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
     email:             { type: varchar(255), required: true }
-    first_name:        varchar(255)
-    last_name:         varchar(255)
-    birth_date:        date
-    location:          { type: varchar, size: 255 }
-    latitude:          float
-    longitude:         float
-    bio:               longvarchar
-    jabber:            { type: varchar, size: 255 }
-    live:              { type: varchar, size: 255 }
-    aim:               { type: varchar, size: 255 }
-    twitter:           { type: varchar, size: 255 }
-    homepage:          { type: varchar, size: 255 }
-    rss:               { type: varchar, size: 255 }
-    phone:             { type: varchar, size: 20 }

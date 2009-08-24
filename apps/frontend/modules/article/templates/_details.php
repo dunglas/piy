@@ -10,10 +10,10 @@
 use_helper('Date', 'Number')
 ?>
   <section class="details">
-    <?php if ($article->getCalendarDate()): ?>
+    <?php if ($article->getDate()): ?>
       <section class="calendar">
-	      <div class="dstart"><?php echo format_date($article->getCalendarDate()) ?></div>
-	      <div class="location"><?php echo $article->getCalendarLocation() ?></div>
+	      <div class="dstart"><?php echo format_date($article->getDate()) ?></div>
+	      <div class="location"><?php echo $article->getLocation() ?></div>
       </section>
 	  <?php endif ?>
 
