@@ -10,12 +10,12 @@
 use_helper('Date', 'Number')
 ?>
   <section class="details">
-    <?php if ($article->getDate()): ?>
+    <?php /*if ($article->getDate()): ?>
       <section class="calendar">
 	      <div class="dstart"><?php echo format_date($article->getDate()) ?></div>
 	      <div class="location"><?php echo $article->getLocation() ?></div>
       </section>
-	  <?php endif ?>
+	  <?php endif*/ ?>
 
     <?php include_partial('article/tags', array('tags' => $article->getTags())) ?>
 

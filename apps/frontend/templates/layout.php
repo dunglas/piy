@@ -10,6 +10,7 @@
     <link rel="alternate" type="application/atom+xml" title="<?php echo __('Homepage articles') ?>" href="<?php echo url_for('@article_top_one_page?sf_format=atom', true) ?>" />
     <link rel="alternate" type="application/atom+xml" title="<?php echo __('Most recent articles') ?>" href="<?php echo url_for('@article_most_recent_one_page?sf_format=atom', true) ?>" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    <?php include_javascripts() ?>
   </head>
   <body>
     <div id="container">
