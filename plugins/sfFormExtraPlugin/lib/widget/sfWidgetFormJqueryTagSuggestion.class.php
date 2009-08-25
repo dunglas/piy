@@ -22,7 +22,7 @@
  * @subpackage widget
  * @author     Kévin Dunglas <dunglas@gmail.com>
  */
-class sfWidgetFormJqueryTagSuggestion extends sfWidgetFormInput
+class sfWidgetFormJQueryTagSuggestion extends sfWidgetFormInput
 {
   /**
    * Configures the current widget.
