@@ -12,6 +12,10 @@ user_comments:
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
 # Article rules
+article_select_tag:
+  url:          /select-tag
+  param:        { module: article, action: selectTag }
+
 article_vote:
   url:          /vote/:slug
   param:        { module: article, action: vote }

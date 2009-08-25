@@ -58,7 +58,12 @@ class articleActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new ArticleForm(null, array('user' => $this->getUser()->getGuardUser()));
+    $this->form = new ArticleForm(null,
+      array(
+        'user' => $this->getUser()->getGuardUser(),
+        'url' => $this->generateUrl('article_select_tag')
+      )
+    );
   }
 
   /**
@@ -70,7 +75,12 @@ class articleActions extends sfActions
   {
     $this->forward404Unless($request->isMethod('post'));
 
-    $this->form = new ArticleForm(null, array('user' => $this->getUser()->getGuardUser()));
+    $this->form = new ArticleForm(null,
+      array(
+        'user' => $this->getUser()->getGuardUser(),
+        'url' => $this->generateUrl('article_select_tag')
+      )
+    );
 
     $this->processForm($request, $this->form);
 
@@ -88,7 +98,12 @@ class articleActions extends sfActions
       ($article = ArticlePeer::retrieveBySlug($request->getParameter('slug')))
       && $article->getUserId() == $this->getUser()->getGuardUser()->getUserId()
     );
-    $this->form = new ArticleForm($article, array('user' => $this->getUser()->getGuardUser()));
+    $this->form = new ArticleForm($article,
+      array(
+        'user' => $this->getUser()->getGuardUser(),
+        'url' => $this->generateUrl('article_select_tag')
+      )
+    );
   }
 
   /**
@@ -102,7 +117,12 @@ class articleActions extends sfActions
       ($article = ArticlePeer::retrieveBySlug($request->getParameter('slug')))
       && $article->getUserId() == $this->getUser()->getGuardUser()->getUserId()
     );
-    $this->form = new ArticleForm($article, array('user' => $this->getUser()->getGuardUser()));
+    $this->form = new ArticleForm($article,
+      array(
+        'user' => $this->getUser()->getGuardUser(),
+        'url' => $this->generateUrl('article_select_tag')
+      )
+    );
 
     $this->processForm($request, $this->form);
 
@@ -163,6 +183,20 @@ class articleActions extends sfActions
     
     $this->setTemplate('index');
   }
+
+  /**
+   * Displays a JSON encoded tags array
+   *
+   * @param sfWebRequest $request
+   * @return string
+   */
+  public function executeSelectTag(sfWebRequest $request)
+  {
+    $this->getResponse()->setContentType('application/json');
+    $tags = piyTagPeer::retrieveForSelect($request->getParameter('tag'));
+
+    return $this->renderText(json_encode($tags));
+}
 
   /**
    * Processes an article form

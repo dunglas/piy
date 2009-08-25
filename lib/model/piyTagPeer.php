@@ -17,16 +17,22 @@ class piyTagPeer extends TagPeer {
    */
   static public function retrieveForSelect($q, $limit = 10)
   {
-    $criteria = new Criteria();
-    $criteria->add(TagPeer::NAME, '%'.$q.'%', Criteria::LIKE);
-    $criteria->addAscendingOrderByColumn(TagPeer::NAME);
-    $criteria->setLimit($limit);
+    if ($q) {
+      $criteria = new Criteria();
+      $criteria->add(TagPeer::NAME, '%'.$q.'%', Criteria::LIKE);
+      $criteria->addAscendingOrderByColumn(TagPeer::NAME);
+      $criteria->setLimit($limit);
 
-    $tags = array();
-    foreach (TagPeer::doSelect($criteria) as $tag)
-    {
-      $tags[] = $tag->getName();
-    }
+      $tags = array();
+      foreach (TagPeer::doSelect($criteria) as $tag) {
+        $tags[] = $tag->getName();
+      }
+    } else {
+      $tags = array();
+      foreach (self::getPopulars() as $key => $value) {
+        $tags[] = $key;
+      }
+    }    
 
     return $tags;
   }

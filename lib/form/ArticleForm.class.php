@@ -38,7 +38,9 @@ class ArticleForm extends BaseArticleForm
       'config' => 'theme_advanced_disable: "anchor,image,cleanup,help"',
       ),
       array('class' => 'article_body')
-    );    
+    );
+
+    $this->widgetSchema['tags'] = new sfWidgetFormJqueryTagSuggestion(array('url' => $this->getOption('url'), 'separator' => ', '));
   }
   
   public function updateObject($values = null) {
