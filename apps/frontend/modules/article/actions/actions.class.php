@@ -196,7 +196,7 @@ class articleActions extends sfActions
     $tags = piyTagPeer::retrieveForSelect($request->getParameter('tag'));
 
     return $this->renderText(json_encode($tags));
-}
+  }
 
   /**
    * Processes an article form
