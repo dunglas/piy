@@ -17,6 +17,10 @@ class articleActions extends sfActions
   public function executeMostRecent(sfWebRequest $request)
   {
     $this->article_pager = ArticlePeer::getMostRecent($request->getParameter('page', 1));
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Most recent articles')
+    ));
   }
 
   /**
@@ -28,6 +32,11 @@ class articleActions extends sfActions
   {
   	$start = $this->processTimeArg($request);
   	$this->article_pager = ArticlePeer::getMostRated($start, time(), $request->getParameter('page', 1));
+
+    $this->title = $this->getContext()->getI18N()->__('Most rated articles %1%', array('%1%' => $this->timeToText($request)));
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->title
+    ));
   }
 
   /**
@@ -49,6 +58,10 @@ class articleActions extends sfActions
   {
   	$start = $this->processTimeArg($request);
   	$this->article_pager = ArticlePeer::getMostRatedTaggedWith($request->getParameter('tags'), $start, time(), $request->getParameter('page', 1));
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $request->getParameter('tags')
+    ));
   }
 
   /**
@@ -64,6 +77,10 @@ class articleActions extends sfActions
         'url' => $this->generateUrl('article_select_tag')
       )
     );
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('New article')
+    ));
   }
 
   /**
@@ -84,6 +101,9 @@ class articleActions extends sfActions
 
     $this->processForm($request, $this->form);
 
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('New article')
+    ));
     $this->setTemplate('new');
   }
 
@@ -104,6 +124,10 @@ class articleActions extends sfActions
         'url' => $this->generateUrl('article_select_tag')
       )
     );
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Edit %1%', array('%1%' => $article))
+    ));
   }
 
   /**
@@ -126,6 +150,9 @@ class articleActions extends sfActions
 
     $this->processForm($request, $this->form);
 
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Edit %1%', array('%1%' => $article))
+    ));
     $this->setTemplate('edit');
   }
 
@@ -136,6 +163,10 @@ class articleActions extends sfActions
    */
   public function executeView(sfWebRequest $request) {
   	$this->forward404Unless($this->article = ArticlePeer::retrieveBySlug($request->getParameter('slug')));
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->article
+    ));
   }
 
   /**
@@ -167,21 +198,6 @@ class articleActions extends sfActions
     $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your vote has been deleted'));
     
     $this->redirect('@article_view?slug='.$article->getSlug());
-  }
-
-  /**
-   * Displays most rated articles for some tags
-   *
-   * @param sfWebRequest $request
-   */
-  public function executeTopTag(sfWebRequest $request)
-  {
-    $start = $this->processTimeArg($request);
-    $tags = $request->getParameter('tags');
-    
-    $this->article_pager = ArticlePeer::getMostRatedTaggedWith($tags, $start, time(), true, $request->getParameter('page', 1));
-    
-    $this->setTemplate('index');
   }
 
   /**
@@ -228,5 +244,18 @@ class articleActions extends sfActions
     $this->forward404Unless($start !== false);
     
     return $start;
+  }
+
+  /**
+   * Converts the time parameter to human readable text
+   *
+   * @param sfWebRequest $request
+   * @return string
+   */
+  protected function timeToText(sfWebRequest $request) {
+    if ($request->getParameter('time') == 'ever')
+      return $this->getContext()->getI18N()->__('ever');
+
+    return $this->getContext()->getI18N()->__('for '.str_replace('-', ' ', $request->getParameter('time')));
   }
 }

@@ -9,7 +9,7 @@
 ?>
 <?php if ($sf_params->get('time') != '24-hours'): ?>
   <?php slot('atom') ?>
-    <link rel="alternate" type="application/atom+xml" title="<?php echo __('Most rated articles %1%', array('%1%' => $sf_params->get('time') == 'ever' ? __('ever') : __('for '.str_replace('-', ' ', $sf_params->get('time'))))) ?>" href="<?php echo url_for('@article_top_one_page?time='.$sf_params->get('time').'&sf_format=atom', true) ?>" />
+    <link rel="alternate" type="application/atom+xml" title="<?php echo $title ?>" href="<?php echo url_for('@article_top_one_page?time='.$sf_params->get('time').'&sf_format=atom', true) ?>" />
   <?php end_slot() ?>
 <?php endif ?>
 

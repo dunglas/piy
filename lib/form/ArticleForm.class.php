@@ -40,7 +40,7 @@ class ArticleForm extends BaseArticleForm
       array('class' => 'article_body')
     );
 
-    $this->widgetSchema['tags'] = new sfWidgetFormJqueryTagSuggestion(array('url' => $this->getOption('url'), 'separator' => ', '));
+    $this->widgetSchema['tags'] = new sfWidgetFormJQueryTagSuggestion(array('url' => $this->getOption('url'), 'separator' => ', '));
   }
   
   public function updateObject($values = null) {

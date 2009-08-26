@@ -20,5 +20,9 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         $this->redirect('@homepage');
       }
     }
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Create an account')
+    ));
   }
 }

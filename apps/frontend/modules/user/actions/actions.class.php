@@ -22,6 +22,10 @@ class userActions extends sfActions
     );
 
     $this->article_pager = ArticlePeer::getMostRecentPublishedBy($this->user, $request->getParameter('page', 1));
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Articles of %1%', array('%1%' => $this->user))
+    ));
   }
 
   /**
@@ -37,5 +41,9 @@ class userActions extends sfActions
     );
     
     $this->comments_pager = sfCommentPeer::getPublishedBy($this->user);
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Comments of %1%', array('%1%' => $this->user))
+    ));
   }
 }
