@@ -5,25 +5,16 @@ class sfGuardRegisterForm extends sfGuardUserForm
   {
   	parent::configure();
 
-    unset(
-      $this['first_name'],
-      $this['last_name'],
-      $this['birth_date'],
-      $this['location'],
-      $this['latitude'],
-      $this['longitude'],
-      $this['bio'],
-      $this['jabber'],
-      $this['live'],
-      $this['aim'],
-      $this['twitter'],
-      $this['homepage'],
-      $this['rss'],
-      $this['phone']
-    );
     
     $this->validatorSchema['password'] = new sfValidatorString(
       array('min_length' => 6, 'max_length' => 128)
+    );
+
+    $this->validatorSchema['email'] = new sfValidatorAnd(
+      array(
+        $this->validatorSchema['email'],
+        new sfPropelUniqueValidator(array('class' => 'SfGuardUserProfile', 'column' => 'email'))
+      )
     );
     
     $this->widgetSchema['captcha'] = new sfAnotherWidgetFormReCaptcha();

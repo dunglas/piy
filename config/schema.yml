@@ -1,13 +1,13 @@
 propel:
   article:
     id:
-    slug:               { type: varchar, size: 255, index: unique }
-    title:              { type: varchar, size: 140, required: true }
-    body:               { type: longvarchar, required: true }
-    user_id:            { type: integer, foreignTable: sf_guard_user, foreignReference: id }
-    author:             { type: varchar, size: 50 }
-    sf_comment_count:   integer
-    is_active:          { type: boolean, default: true }
+    slug:              { type: varchar, size: 255, index: unique }
+    title:             { type: varchar, size: 140, required: true }
+    body:              { type: longvarchar, required: true }
+    user_id:           { type: integer, foreignTable: sf_guard_user, foreignReference: id }
+    author:            { type: varchar, size: 50 }
+    sf_comment_count:  integer
+    is_active:         { type: boolean, default: true }
     created_at:
     updated_at:
    
@@ -19,3 +19,5 @@ propel:
     id:
     user_id:           { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
     email:             { type: varchar(255), required: true }
+    hash:              longvarchar
+    hash_created_at:   timestamp

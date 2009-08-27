@@ -1,9 +1,14 @@
 <?php
 class sfGuardUser extends PluginsfGuardUser {
+  /**
+   * Gets the user email
+   *
+   * @return string
+   */
 	public function getEmail() {
 		return $this->getProfile()->getEmail();
 	}
-	
+  
  /**
    * Return the Vote object related with this article.
    * 

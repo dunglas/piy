@@ -1,3 +1,13 @@
+<?php
+/**
+ * HTML register file
+ *
+ * @package piy
+ * @subpackage sfGuardAuth
+ * @author Kévin Dunglas <dunglas@gmail.com>
+ */
+
+?>
 <h1><?php echo __('Create an account'); ?></h1>
 
 <form action="<?php echo url_for('@sf_guard_register') ?>" method="POST">

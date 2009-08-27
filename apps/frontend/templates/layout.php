@@ -14,6 +14,10 @@
   </head>
   <body>
     <div id="container">
+      <?php if ($sf_user->hasFlash('message')): ?>
+        <p class="message"><?php echo $sf_user->getFlash('message') ?></p>
+      <?php endif ?>
+
 	    <div id="title">
 	      <strong><?php echo link_to(sfConfig::get('app_general_name'), '@homepage') ?></strong>
 	      <div class="baseline"><?php echo sfConfig::get('app_general_baseline') ?></div>

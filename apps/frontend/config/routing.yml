@@ -99,7 +99,6 @@ article_edit:
   param:        { module: article, action: edit }
   
 # sfComment rules
-
 sf_comment_comment:
   url:          /comments
   param:        { module: sfComment, action: comment }
@@ -122,6 +121,10 @@ sf_guard_signout:
 sf_guard_password:
   url:          /request-password
   param:        { module: sfGuardAuth, action: password }
+
+sf_guard_change_password:
+  url:          /change-password/:hash
+  param:        { module: sfGuardAuth, action: changePassword }
 
 # default rules
 homepage:
