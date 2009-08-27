@@ -1,6 +1,6 @@
 <?php
 /**
- * HTML recover password file
+ * HTML change password file
  *
  * @package piy
  * @subpackage sfGuardAuth
@@ -10,7 +10,9 @@
 ?>
 <h1><?php echo __('Change your password'); ?></h1>
 
-<form action="<?php echo url_for('@sf_guard_change_password') ?>" method="POST">
+<p><?php echo __('You are changing the password associated with the username %1%.', array('%1%' => '<strong>'.$user.'</strong>')) ?></p>
+
+<form action="<?php echo url_for('@sf_guard_recover_password?hash='.$sf_params->get('hash')) ?>" method="POST">
   <table>
     <?php echo $form ?>
     <tr>

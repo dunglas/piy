@@ -38,7 +38,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
    *
    * @param sfWebRequest $request
    */
-  public function executePassword()
+  public function executeRequestPassword()
   {
     $this->form = new sfGuardUserProfileEmailForm();
 
@@ -76,7 +76,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
    *
    * @param sfWebRequest $request
    */
-  public function executeChangePassword(sfWebRequest $request) {
+  public function executeRecoverPassword(sfWebRequest $request) {
     $profile = SfGuardUserProfilePeer::retrieveByHash($request->getParameter('hash'));
     if (!$profile) return sfView::ERROR;
     $this->user = $profile->getsfGuardUser();
@@ -95,5 +95,56 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         $this->redirect('@homepage');
       }
     }
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Change your password')
+    ));
+  }
+
+  /**
+   * Edits the profile
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeEditProfile(sfWebRequest $request) {
+    $this->form = new sfGuardUserProfileForm($this->getUser()->getGuardUser()->getProfile());
+
+    if ($request->isMethod('post')) {
+      $this->form->bind(
+        $request->getParameter('sf_guard_user_profile')
+      );
+
+      if ($this->form->isValid()) {
+        $profile = $this->form->save();
+
+        $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your profile has been edited.'));
+        $this->redirect('@homepage');
+      }
+    }
+
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Edit your profile')
+    ));
+  }
+
+  public function executeChangePassword(sfWebRequest $request) {
+    $this->form = new sfGuardUserChangePasswordForm($this->getUser()->getGuardUser());
+
+    if ($request->isMethod('post')) {
+      $this->form->bind(
+        $request->getParameter('sf_guard_user')
+      );
+
+      if ($this->form->isValid()) {
+        $sf_guard_user = $this->form->save();
+
+        $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your password has been changed.'));
+        $this->redirect('@homepage');
+      }
+    }
+    
+    $this->getResponse()->setTitle(SEOUtils::createTitle(
+      $this->getContext()->getI18N()->__('Change your password')
+    ));
   }
 }

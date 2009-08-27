@@ -12,6 +12,12 @@ class sfGuardUserProfileForm extends BaseSfGuardUserProfileForm
 {
   public function configure()
   {
+    unset(
+      $this['user_id'],
+      $this['hash'],
+      $this['hash_created_at']
+    );
+
     $this->mergePostValidator(
       new sfValidatorPropelUnique(array('model' => 'SfGuardUserProfile', 'column' => array('email')))
     );

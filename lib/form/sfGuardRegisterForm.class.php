@@ -18,7 +18,6 @@ class sfGuardRegisterForm extends sfGuardUserForm
     );*/
 
     $profileForm = new sfGuardUserProfileForm($this->getObject()->getProfile());
-    unset($profileForm['user_id'], $profileForm['hash'], $profileForm['hash_created_at']);
     $this->embedForm('sf_guard_user_profile', $profileForm);
     
     $this->widgetSchema['captcha'] = new sfAnotherWidgetFormReCaptcha();

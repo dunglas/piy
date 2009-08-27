@@ -124,14 +124,21 @@ sf_guard_signout:
   url:          /logout
   param:        { module: sfGuardAuth, action: signout }
  
-sf_guard_password:
+sf_guard_request_password:
   url:          /request-password
-  param:        { module: sfGuardAuth, action: password }
+  param:        { module: sfGuardAuth, action: requestPassword }
+
+sf_guard_recover_password:
+  url:          /recover-password/:hash
+  param:        { module: sfGuardAuth, action: recoverPassword }
+
+sf_guard_edit_profile:
+  url:          /edit-profile
+  param:        { module: sfGuardAuth, action: editProfile }
 
 sf_guard_change_password:
-  url:          /change-password/:hash
+  url:          /change-password
   param:        { module: sfGuardAuth, action: changePassword }
-
 #default_index:
 #  url:          /:module
 #  param:        { action: index }

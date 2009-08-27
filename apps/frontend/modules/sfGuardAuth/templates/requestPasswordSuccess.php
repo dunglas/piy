@@ -10,7 +10,7 @@
 ?>
 <h1><?php echo __('Retrieve your password'); ?></h1>
 
-<form action="<?php echo url_for('@sf_guard_password') ?>" method="POST">
+<form action="<?php echo url_for('@sf_guard_request_password') ?>" method="POST">
   <table>
     <?php echo $form ?>
     <tr>

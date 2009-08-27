@@ -4,7 +4,7 @@
   </table>
 
   <input type="submit" value="<?php echo __('Sign in') ?>" />
-  <?php echo link_to(__('Forgot your password?'), '@sf_guard_password') ?>
+  <?php echo link_to(__('Forgot your password?'), '@sf_guard_request_password') ?>
 </form>
 
 <?php echo link_to(__('Create an account'), '@sf_guard_register') ?>

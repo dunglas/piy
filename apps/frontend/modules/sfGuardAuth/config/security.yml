@@ -1,2 +1,8 @@
 default:
   is_secure: off
+
+editProfile:
+  is_secure: on
+
+changePassword:
+  is_secure: on
