@@ -1,10 +1,15 @@
 Publish It Yourself
 ===================
 
-_Publish It Yourself_ is a self-managed and auto moderated CMS. It allows to publish, rate and ban multimedia articles and news. It also includes a calendar, tags cloud, many SEO features (such as slugs based URL), Atom feeds and more !
+_Publish It Yourself_ is a self-managed CMS.
+It is designed to create autonomous communities where users can directly create and manage content.
+It is a mix between blogs and blogs platforms, digg-likes and open publishing websites such as (the Indymedia network)[http://www.indymedia.org].
 
-It is wrote in PHP using the Symfony web framework. It is modular and object oriented.
+It allows to publish and promote rich text articles and news. It includes a tagging system, a comment system, a registration system, a spam protection system, peronnal users pages, Atom feeds, microformats and more!
+Every pages are optimized for search engines, including expressives URLs and uniques titles.
 
+It is wrote in PHP using the (symfony framework)[http://www.symfony-project.org]. It is modular and object oriented.
+The Javascript part of the code uses (jQuery)[http://www.jquery.com], the built-in theme is (x)HTML 5 compliant.
 This software is still in an early stage of developpement.
 
-_Publish It Yourself_ is covered by the The GNU Affero General Public License version 3. See the ``LICENSE`` file for futher informations.
+_Publish It Yourself_ is a free software covered by the (GNU Affero General Public License version 3)[http://www.fsf.org/licensing/licenses/agpl-3.0.html]. See the ``LICENSE`` file for futher informations.
