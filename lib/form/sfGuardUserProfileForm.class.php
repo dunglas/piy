@@ -12,5 +12,8 @@ class sfGuardUserProfileForm extends BaseSfGuardUserProfileForm
 {
   public function configure()
   {
+    $this->mergePostValidator(
+      new sfValidatorPropelUnique(array('model' => 'SfGuardUserProfile', 'column' => array('email')))
+    );
   }
 }

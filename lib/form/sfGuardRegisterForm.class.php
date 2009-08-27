@@ -10,12 +10,16 @@ class sfGuardRegisterForm extends sfGuardUserForm
       array('min_length' => 6, 'max_length' => 128)
     );
 
-    $this->validatorSchema['email'] = new sfValidatorAnd(
+    /*$this->validatorSchema['email'] = new sfValidatorAnd(
       array(
         $this->validatorSchema['email'],
         new sfPropelUniqueValidator(array('class' => 'SfGuardUserProfile', 'column' => 'email'))
       )
-    );
+    );*/
+
+    $profileForm = new sfGuardUserProfileForm($this->getObject()->getProfile());
+    unset($profileForm['user_id'], $profileForm['hash'], $profileForm['hash_created_at']);
+    $this->embedForm('sf_guard_user_profile', $profileForm);
     
     $this->widgetSchema['captcha'] = new sfAnotherWidgetFormReCaptcha();
     $this->mergePostValidator(

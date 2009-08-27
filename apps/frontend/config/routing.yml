@@ -1,3 +1,8 @@
+# default rules
+homepage:
+  url:          /
+  param:        { module: article, action: top, page: 1, time: 24-hours }
+
 # User rules
 user_articles:
   url:          /users/:username.:sf_format
@@ -11,6 +16,7 @@ user_comments:
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
+user_edit_profile:
 # Article rules
 article_select_tag:
   url:          /select-tag
@@ -126,14 +132,9 @@ sf_guard_change_password:
   url:          /change-password/:hash
   param:        { module: sfGuardAuth, action: changePassword }
 
-# default rules
-homepage:
-  url:          /
-  param:        { module: article, action: top, page: 1, time: 24-hours }
+#default_index:
+#  url:          /:module
+#  param:        { action: index }
 
-default_index:
-  url:          /:module
-  param:        { action: index }
-
-default:
-  url:          /:module/:action/*
+#default:
+#  url:          /:module/:action/*
