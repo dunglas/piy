@@ -1,0 +1,5 @@
+signin:
+  is_secure: off
+
+verify:
+  is_secure: off

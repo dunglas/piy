@@ -65,9 +65,11 @@ CREATE TABLE `sf_guard_user_profile`
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`user_id` INTEGER  NOT NULL,
 	`email` VARCHAR(255)  NOT NULL,
-	`hash` TEXT,
+	`hash` VARCHAR(255),
 	`hash_created_at` DATETIME,
 	PRIMARY KEY (`id`),
+	UNIQUE KEY `sf_guard_user_profile_U_1` (`email`),
+	UNIQUE KEY `sf_guard_user_profile_U_2` (`hash`),
 	INDEX `sf_guard_user_profile_FI_1` (`user_id`),
 	CONSTRAINT `sf_guard_user_profile_FK_1`
 		FOREIGN KEY (`user_id`)

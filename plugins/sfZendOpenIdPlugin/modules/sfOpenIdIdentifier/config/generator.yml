@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfOpenIdIdentifier
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_openid_identifier
+    with_propel_route:     1
+
+    config:
+      fields:
+
+      list:
+        title:   OpenId Identifiers
+        display: [ =sfGuardUser, identifier, last_login ]
+
+      form:
+        class: sfOpenIdIdentifierForm
+        display: ~
+
+      edit:
+        title: Editing Identifier
+
+      new:
+        title: New Identifier

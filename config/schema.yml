@@ -19,5 +19,5 @@ propel:
     id:
     user_id:           { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
     email:             { type: varchar(255), required: true, index: unique }
-    hash:              { type: longvarchar, index: unique }
+    hash:              { type: varchar(255), index: unique }
     hash_created_at:   timestamp

@@ -1,0 +1,4 @@
+sfOpenIdIdentifier:
+  admin:
+    identifier:     http://your.identi.fier/
+    user_id:        admin

@@ -1,0 +1,101 @@
+sfZendOpenId plugin
+===================
+
+
+REQUIREMENTS
+------------
+
+- Zend Framework
+  Make sure the framework is installed and enabled in your application.
+  <a href="http://www.symfony-project.org/book/1_1/17-Extending-Symfony#Integrating with Other Framework's Components">Read official installation instructions</a>
+- sfGuardPlugin
+  Make sure the plugin is installed and working correctly 
+ 
+
+INSTALLATION
+------------
+
+  * Install the plugin, as there are no stable releases yet you have 
+    to go for the PEAR package
+
+  * Rebuild your model
+
+        $ symfony propel:build-model
+        $ symfony propel:build-sql
+
+  * Update you database tables by starting from scratch (it will delete all
+    the existing tables, then re-create them)
+
+        $ symfony propel:insert-sql
+
+    or you can just create the new table by using the generated SQL
+    statements in `data/sql/plugins.sfZendOpenIdAuth.lib.model.schema.sql`
+
+  * Link your OpenID to an existing user (optional)
+
+      $ symfony guard:link-identifier [app] [identifier] [username]
+
+   Be sure that the [identifier] is written as http://[identifier]/
+   (or whatever the official notation of your identifier is)
+
+            
+INSTALLATION FRONTEND
+---------------------
+
+  * Enable plugin in [app]/config/settings.yml:
+
+        [yml]
+        enabled_modules:      [default, sfZendOpenIdAuth, sfGuardAuth]
+
+  * Clear your cache
+
+        $ symfony cc
+
+  * Go to http://[url]/openid_login and login
+
+
+INSTALLATION BACKEND
+--------------------
+
+  * Enable plugin in [app]/config/settings.yml:
+
+        [yml]
+        enabled_modules:      [default, sfZendOpenIdIdentifier]
+
+  * Clear your cache
+
+        $ symfony cc
+
+  * Go to http://[url]/sfZendOpenIdIdentifier
+
+
+INSTALLATION OF ZEND FRAMEWORK
+------------------------------
+
+Please note that there is an error in the instructions from the Symfony
+Book. When editing you [app]/config/[app]Configuration.php, you should add 
+the following code:
+
+        public function initialize()
+        {
+          parent::initialize(); // load symfony autoloading first
+       
+          // Integrate Zend Framework
+          if ($sf_zend_lib_dir = sfConfig::get('app_zend_lib_dir'))
+          {
+            set_include_path($sf_zend_lib_dir.PATH_SEPARATOR.get_include_path());
+            require_once($sf_zend_lib_dir.'/Zend/Loader.php');
+            spl_autoload_register(array('Zend_Loader', 'autoload'));
+          }
+        }
+
+
+
+TODO
+----
+
+  * create single form for username / OpenID login
+  * allow registration using an OpenID
+  * only allow correct identifiers when linking (guard:link-identifier) 
+  * complete package.xml (dependencies: Zend Framework)
+  * validate input in backend

@@ -1,0 +1,10 @@
+propel:
+  _attributes:      { package: plugins.sfZendOpenIdPlugin.lib.model }
+  
+  sf_openid_identifier:
+    _attributes:    { phpName: sfOpenIdIdentifier }
+    id:             ~
+    identifier:     { type: varchar, size: 255, required: true, index: unique }
+    user_id:        { type: integer, foreignTable: sf_guard_user, foreignReference: id, onDelete: cascade }
+    created_at:     ~
+    last_login:     { type: timestamp }     
