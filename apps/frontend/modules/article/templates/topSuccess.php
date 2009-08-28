@@ -17,7 +17,7 @@
 	<?php echo __('Most rated articles for:') ?>
 	
 	<ul>
-	  <li><?php echo $sf_params->get('time') == '24-hours' ? '<strong class="selected">' . __('24 hours') . '</strong>' : link_to(__('24 hours'), '@article_top?time=24-hours') ?></li>
+	  <li><?php echo $sf_params->get('time') == '24-hours' ? '<strong class="selected">' . __('24 hours') . '</strong>' : link_to(__('24 hours'), '@homepage') ?></li>
 	  <li><?php echo $sf_params->get('time') == '1-week' ? '<strong class="selected">' . __('1 week') . '</strong>' : link_to(__('1 week'), '@article_top?time=1-week') ?></li>
 	  <li><?php echo $sf_params->get('time') == '1-month' ? '<strong class="selected">' . __('1 month') . '</strong>' : link_to(__('1 month'), '@article_top?time=1-month') ?></li>
 	  <li><?php echo $sf_params->get('time') == '1-year' ? '<strong class="selected">' . __('1 year') . '</strong>' : link_to(__('1 year'), '@article_top?time=1-year') ?></li>
