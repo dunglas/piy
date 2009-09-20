@@ -1,9 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
+
     <?php if (has_slot('atom')): ?>
       <?php include_slot('atom') ?>
     <?php endif ?>
@@ -15,39 +16,39 @@
   <body>
     <div id="container">
       <?php if ($sf_user->hasFlash('message')): ?>
-        <p class="message"><?php echo $sf_user->getFlash('message') ?></p>
+      <p class="message"><?php echo $sf_user->getFlash('message') ?></p>
       <?php endif ?>
 
-	    <div id="title">
-	      <strong><?php echo link_to(sfConfig::get('app_general_name'), '@homepage') ?></strong>
-	      <div class="baseline"><?php echo sfConfig::get('app_general_baseline') ?></div>
-	    </div>
-	    <?php if ($sf_user->hasFlash('message')): ?>
-	    <div id="message">
-	      <?php echo $sf_user->getFlash('message') ?>
-	    </div>
-	    <?php endif ?>
-	    
-	    <div id="content">
-	      <?php echo $sf_content ?>
-	    </div>
+      <header id="title">
+        <strong><?php echo link_to(sfConfig::get('app_general_name'), '@homepage') ?></strong>
+        <div class="baseline"><?php echo sfConfig::get('app_general_baseline') ?></div>
+      </header>
+      <?php if ($sf_user->hasFlash('message')): ?>
+      <section id="message">
+          <?php echo $sf_user->getFlash('message') ?>
+      </section>
+      <?php endif ?>
+
+      <div id="content">
+        <?php echo $sf_content ?>
+      </div>
 
       <div id="sidebar">
         <?php include_component_slot('sidebar') ?>
       </div>
 
-	    <div id="user">
-		    <?php if ($sf_user->isAuthenticated()): ?>
-		      <p><?php echo __('Welcome %1% !', array('%1%' => '<strong>'.link_to($sf_user, '@user_articles?username='.$sf_user->getGuardUser()->getUsername()).'</strong>')) ?></p>
-		      <ul>
-            <li><?php echo link_to(__('Edit your profile'), '@sf_guard_edit_profile') ?></li>
-		        <li><?php echo link_to(__('Sign out'), '@sf_guard_signout') ?></li>
-		      </ul>
-		    <?php else: ?>
-		      <h3><?php echo __('Sign in') ?></h3>
-		      <?php include_component('sfZendOpenIdAuth', 'signin') ?>
-				<?php endif ?>
-	    </div>
+      <section id="user">
+        <?php if ($sf_user->isAuthenticated()): ?>
+        <p><?php echo __('Welcome %1% !', array('%1%' => '<strong>'.link_to($sf_user, '@user_articles?username='.$sf_user->getGuardUser()->getUsername()).'</strong>')) ?></p>
+        <ul>
+          <li><?php echo link_to(__('Edit your profile'), '@sf_guard_edit_profile') ?></li>
+          <li><?php echo link_to(__('Sign out'), '@sf_guard_signout') ?></li>
+        </ul>
+        <?php else: ?>
+        <h3><?php echo __('Sign in') ?></h3>
+          <?php include_component('sfZendOpenIdAuth', 'signin') ?>
+        <?php endif ?>
+      </section>
     </div>
   </body>
 </html>
