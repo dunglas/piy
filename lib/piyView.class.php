@@ -9,22 +9,22 @@ class piyView extends sfPHPView
   {
     parent::configure();
 
-    $theme = sfConfig::get('app_theme', false);
+    $themes_directory = realpath(dirname(__FILE__).'/../themes');
+    $theme = sfConfig::get('app_theme_name', false);
 
     // If there is a theme and if the theme feature is enabled
     if($theme)
     {
-      // Look for templates in a $theme/ subdirectory of the usual template location
-      if (is_readable($this->getDirectory().'/'.$theme.'/'.$this->getTemplate()))
-      {
-        $this->setDirectory($this->getDirectory().'/'.$theme);
-      }
+      $template_directory = $themes_directory.'/'.$theme.'/'.$this->getModuleName();
+      $decorator_directory = $themes_directory.'/'.$theme.'/global';
 
-      // Look for a layout in a $theme/ subdirectory of the usual layout location
-      if (is_readable($this->getDecoratorDirectory().'/'.$theme.'/'.$this->getDecoratorTemplate()))
-      {
-        $this->setDecoratorDirectory($this->getDecoratorDirectory().'/'.$theme);
-      }
+      // Look for templates in a $theme/ subdirectory of the usual template location
+      if (is_readable($template_directory.'/'.$this->getTemplate()))
+        $this->setDirectory($template_directory);
+
+      // Look for a layout in a global/ subdirectory of the theme directory
+      if (is_readable($decorator_directory.'/'.$this->getDecoratorTemplate()))
+        $this->setDecoratorDirectory($decorator_directory);
     }
   }
 }

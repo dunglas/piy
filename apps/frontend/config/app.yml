@@ -3,6 +3,9 @@ all:
     name: Publish It Yourself
     baseline: A self-managed publication system
 
+  theme:
+    name: test
+
   email:
     address:  dunglas+piy@gmail.com
     name:     The Publish It Yourself Bot
