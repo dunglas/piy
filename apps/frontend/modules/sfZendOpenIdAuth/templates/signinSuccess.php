@@ -1,0 +1,1 @@
+<?php include_partial('sfZendOpenIdAuth/signin', array('form' => $form)) ?>

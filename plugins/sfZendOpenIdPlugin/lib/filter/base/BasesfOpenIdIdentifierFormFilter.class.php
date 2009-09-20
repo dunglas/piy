@@ -8,7 +8,7 @@ require_once(sfConfig::get('sf_lib_dir').'/filter/base/BaseFormFilterPropel.clas
  * @package    ##PROJECT_NAME##
  * @subpackage filter
  * @author     ##AUTHOR_NAME##
- * @version    SVN: $Id: sfPropelFormFilterGeneratedTemplate.php 15484 2009-02-13 13:13:51Z fabien $
+ * @version    SVN: $Id: sfPropelFormFilterGeneratedTemplate.php 11675 2008-09-19 15:21:38Z fabien $
  */
 class BasesfOpenIdIdentifierFormFilter extends BaseFormFilterPropel
 {
@@ -43,7 +43,7 @@ class BasesfOpenIdIdentifierFormFilter extends BaseFormFilterPropel
   public function getFields()
   {
     return array(
-      'id'         => 'Number',
+      'id'         => 'Text',
       'identifier' => 'Text',
       'user_id'    => 'ForeignKey',
       'created_at' => 'Date',

@@ -32,7 +32,7 @@ class sfZendSession extends Zend_Session_Namespace
   { 
     $this->session->setAttribute($name,$val); 
   } 
-  public function __get($name) 
+  public function & __get($name) 
   { 
     return $this->session->getAttribute($name); 
   } 

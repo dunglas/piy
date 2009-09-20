@@ -22,7 +22,7 @@ class Utils {
    * @param string $from an address
    */
   public static function sendMail($to, $subject, $body, $from = null) {
-    ProjectConfiguration::registerZend();
+    //ProjectConfiguration::registerZend();
     
     $mail = new Zend_Mail();
     $mail->setBodyText($body);

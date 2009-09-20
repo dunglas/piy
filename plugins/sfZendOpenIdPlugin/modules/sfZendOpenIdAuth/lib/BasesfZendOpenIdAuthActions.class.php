@@ -31,16 +31,28 @@ class BasesfZendOpenIdAuthActions extends sfActions
     if ($request->isMethod('post'))
     {
       $this->form->bind($request->getParameter('signin'));
+
       if ($this->form->isValid())
       {
         $values = $this->form->getValues();
-
-        $consumer = new Zend_OpenId_Consumer();
-        $consumer->setSession(new sfZendSession("sf_zend_openid"));
-
-        $consumer->login($values['openid_url'], $this->getController()->genUrl("@sf_zend_openid_verify", true));
         
-        $this->getResponse()->setStatusCode(401);
+        if(!empty($values['openid_url'])) {
+           $consumer = new Zend_OpenId_Consumer();
+           $consumer->setSession(new sfZendSession("sf_zend_openid"));
+   
+           $consumer->login($values['openid_url'], $this->getController()->genUrl("@sf_openid_verify", true));
+           
+           $this->getResponse()->setStatusCode(401);
+        } else {
+           $this->getUser()->signin($values['user'], array_key_exists('remember', $values) ? $values['remember'] : false);
+            
+           // always redirect to a URL set in app.yml
+           // or to the referer
+           // or to the homepage
+           $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer('@homepage'));
+   
+           return $this->redirect($signinUrl);
+        }
       }
     }
     else
@@ -55,16 +67,17 @@ class BasesfZendOpenIdAuthActions extends sfActions
 
       $user->setReferer($request->getReferer());
 
-      /** Enable both OpenID-login and username/password
       $module = sfConfig::get('sf_login_module');
       if ($this->getModuleName() != $module)
       {
         return $this->redirect($module.'/'.sfConfig::get('sf_login_action'));
-      }*/
+      }
 
       $this->getResponse()->setStatusCode(401);
     }
   }
+  
+  
   
   public function executeVerify($request)
   {
@@ -76,19 +89,20 @@ class BasesfZendOpenIdAuthActions extends sfActions
 
     $consumer = new Zend_OpenId_Consumer();
 
-    if ($consumer->verify($request->getParameterHolder()->getAll(), $opendid_identifier))
+    if ($consumer->verify($request->getParameterHolder()->getAll(), $openid_identifier))
     {
-      $this->verifiedCallback($request);
+      $this->verifiedCallback($request, $openid_identifier);
     } else {
-      $this->unverifiedCallback($request);
+      $this->unverifiedCallback($request, $openid_identifier);
     }
   }
   
-  public function verifiedCallback($request)
+  public function verifiedCallback($request, $openid_url)
   {
     $user = $this->getUser();
-   
-    if($user_link = sfOpenIdIdentifierPeer::retrieveByIdentifier($request->getParameter("openid_claimed_id"))) {
+
+    $user_link = sfOpenIdIdentifierPeer::retrieveByIdentifier($request->getParameter("openid_claimed_id"));
+    if($user_link) {
 
       // save last login
       $user_link->setLastLogin(time());
@@ -96,24 +110,83 @@ class BasesfZendOpenIdAuthActions extends sfActions
       
       $user->signin($user_link->getsfGuardUser());
       
-      $signinUrl = sfConfig::get('app_sf_zend_openid_plugin_success_signin_url'); //$user->getReferer($request->getReferer()));
-      $this->redirect($signinUrl != '' ? $signinUrl : '@homepage');
+      // always redirect to a URL set in app.yml
+      // or to the referer
+      // or to the homepage
+      $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer('@homepage'));
+
+      return $this->redirect($signinUrl);
+      /*$signinUrl = sfConfig::get('app_sf_zend_openid_plugin_success_signin_url'); //$user->getReferer($request->getReferer()));
+      $this->redirect($signinUrl != '' ? $signinUrl : '@homepage');*/
     } else {
-      $this->unknownIdentifierCallback($request);
+      $this->unknownIdentifierCallback($request, $openid_url);
     }
   }
 
-   public function unverifiedCallback($request)
-   {
-      $this->redirect("@sf_zend_openid_signin");
-   }
-   
-   public function unknownIdentifierCallback($request)
-   {
-     if(sfConfig::get("app_sf_zend_open_id_plugin_allow_linking", false)) {
-       throw new Exception("Not yet implemented");
-     } else {
-       throw new Exception("Although a valid OpenID, it is not linked. Enable linking in app.yml (sf_zend_open_id_plugin_allow_linking: true)");
-     }
-   }
+  public function unverifiedCallback($request, $openid_url)
+  {
+    $this->redirect("@sf_openid_signin");
+  }
+
+  public function unknownIdentifierCallback($request, $openid_url)
+  {
+    if(sfConfig::get("app_sf_zend_open_id_plugin_allow_linking", false)) {
+      $this->forward404If(sfGuardUserPeer::retrieveByUsername($openid_url, null));
+
+      $user = new sfGuardUser();
+      $user->setUsername($openid_url);
+      $user->save();
+
+      $user_link = new sfOpenIdIdentifier();
+      $user_link->setUserId($user->getId());
+      $user_link->setIdentifier($openid_url);
+      $user_link->save();
+
+      $this->getUser()->signIn($user);
+
+      $signinUrl = sfConfig::get("app_sf_guard_plugin_success_signin_url", $this->getUser()->getReferer("@homepage"));
+      return $this->redirect($signinUrl);
+    } else {
+      throw new Exception("Although a valid OpenID, it is not linked. Enable linking in app.yml (sf_zend_open_id_plugin_allow_linking: true)");
+    }
+  }
+
+  
+  
+  public function executeLinkUser($request)
+  {
+    $user = $this->getUser();
+    if ($user->isAuthenticated() || is_null($this->getUser()->getAttribute("temp_openid_url")))
+    {
+      return $this->redirect('@homepage');
+    }
+
+    $class = sfConfig::get('app_sf_openid_link_user_form', 'sfOpenIdLinkUserForm');
+    $this->linkUserForm = new $class();
+
+    if ($request->isMethod('post'))
+    {
+      $this->linkUserForm->bind($request->getParameter('link_user'));
+
+      if ($this->linkUserForm->isValid())
+      {
+        $values = $this->linkUserForm->getValues();
+        
+        $this->getUser()->signin($values['user'], false);
+        
+        $user_link = new sfOpenIdIdentifier();
+        $user_link->setUserId($values['user']->getId());
+        $user_link->setIdentifier($this->getUser()->getAttribute("temp_openid_url"));
+        $user_link->save();
+        
+        $this->getUser()->setAttribute("temp_openid_url", null);
+        
+        // always redirect to a URL set in app.yml
+        // or to the referer
+        // or to the homepage
+        $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer('@homepage'));
+        return $this->redirect($signinUrl);
+      }
+    }
+  }
 }

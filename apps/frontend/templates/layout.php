@@ -45,7 +45,7 @@
 		      </ul>
 		    <?php else: ?>
 		      <h3><?php echo __('Sign in') ?></h3>
-		      <?php include_component('sfGuardAuth', 'signin') ?>
+		      <?php include_component('sfZendOpenIdAuth', 'signin') ?>
 				<?php endif ?>
 	    </div>
     </div>

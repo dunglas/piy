@@ -29,8 +29,9 @@ class sfZendOpenIdRouting
     $r = $event->getSubject();
 
     // preprend our routes
-    $r->prependRoute('sf_zend_openid_signin', new sfRoute('/openid_login', array('module' => 'sfZendOpenIdAuth', 'action' => 'signin')));
-    $r->prependRoute('sf_zend_openid_verify', new sfRoute('/openid_verify', array('module' => 'sfZendOpenIdAuth', 'action' => 'verify')));
+    $r->prependRoute('sf_openid_signin', new sfRoute('/openid_login', array('module' => 'sfZendOpenIdAuth', 'action' => 'signin')));
+    $r->prependRoute('sf_openid_verify', new sfRoute('/openid_verify', array('module' => 'sfZendOpenIdAuth', 'action' => 'verify')));
+    $r->prependRoute('sf_openid_link_user', new sfRoute('/openid_link_user', array('module' => 'sfZendOpenIdAuth', 'action' => 'linkUser')));
   }
 
 

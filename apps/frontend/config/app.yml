@@ -113,3 +113,6 @@ all:
       toString:       __toString
       toEmail:        getEmail
       save_name:      false
+
+  sf_zend_open_id_plugin:
+    allow_linking: true

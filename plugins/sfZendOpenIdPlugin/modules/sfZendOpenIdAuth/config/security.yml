@@ -3,3 +3,6 @@ signin:
 
 verify:
   is_secure: off
+
+linkUser:
+  is_secure: off
