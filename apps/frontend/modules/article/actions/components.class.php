@@ -8,14 +8,14 @@
  */
 
 class articleComponents extends sfComponents {
-  /**
-   * Displays most recent articles
-   *
-   * @param sfWebRequest $request
-   */
-	public function executeMostRecent(sfWebRequest $request) {
-		$this->article_pager = ArticlePeer::getMostRecent();
-	}
+/**
+ * Displays most recent articles
+ *
+ * @param sfWebRequest $request
+ */
+  public function executeMostRecent(sfWebRequest $request) {
+    $this->article_pager = ArticlePeer::getMostRecent();
+  }
 
   /**
    * Displays a tags cloud
@@ -49,8 +49,8 @@ class articleComponents extends sfComponents {
    * @param sfWebRequest $request
    */
   public function executeMostRecentWithTags(sfWebRequest $request) {
-		$this->article_pager = ArticlePeer::getMostRecentTaggedWith($request->getParameter('tags'));
-	}
+    $this->article_pager = ArticlePeer::getMostRecentTaggedWith($request->getParameter('tags'));
+  }
 
   /**
    * Displays the sidebar for tags pages
