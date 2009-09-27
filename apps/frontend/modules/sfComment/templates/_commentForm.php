@@ -10,7 +10,7 @@
   <?php echo $form ?>
   </table>
   
-  <input type="submit" value="<?php echo __('Comment !') ?>" />
+  <input type="submit" value="<?php echo __('Comment!') ?>" />
 </form>
 
 <?php endif; ?>

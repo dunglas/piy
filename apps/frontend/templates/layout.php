@@ -39,7 +39,7 @@
 
       <section id="user">
         <?php if ($sf_user->isAuthenticated()): ?>
-        <p><?php echo __('Welcome %1% !', array('%1%' => '<strong>'.link_to($sf_user, '@user_articles?username='.$sf_user->getGuardUser()->getUsername()).'</strong>')) ?></p>
+        <p><?php echo __('Welcome %1%!', array('%1%' => '<strong>'.link_to($sf_user, '@user_articles?username='.$sf_user->getGuardUser()->getUsername()).'</strong>')) ?></p>
         <ul>
           <li><?php echo link_to(__('Edit your profile'), '@sf_guard_edit_profile') ?></li>
           <li><?php echo link_to(__('Sign out'), '@sf_guard_signout') ?></li>

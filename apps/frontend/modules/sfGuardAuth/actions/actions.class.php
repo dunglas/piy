@@ -22,7 +22,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         $sf_guard_user = $this->form->save();
 
         $this->getUser()->setFlash('message',
-          $this->getContext()->getI18N()->__('Welcome, you are registered. Please sign in !'));
+          $this->getContext()->getI18N()->__('Welcome, you are registered. Please sign in!'));
         $this->redirect('@homepage');
       }
     }
