@@ -49,6 +49,10 @@
           <?php include_component('sfZendOpenIdAuth', 'signin') ?>
         <?php endif ?>
       </section>
+
+      <footer>
+        Powered by <a href="http://github.com/dunglas/piy">Publish It Yourself</a>! A free software from <a href="http://lapin-blanc.net">Kévin Dunglas</a>.
+      </footer>
     </div>
   </body>
 </html>
