@@ -1,8 +1,7 @@
 TODO
 ====
 
-*	Users pages
-*	Calendar
-*	Javascript forms (tags selector, geo tags with Google Maps, ...)
-*	Search engine
-*	Theme management system
+# Switch to symfony 1.3
+# Create a search engine
+# Add geolocation features (using machine tags?)
+# Add calendar features (using machine tags?)

@@ -5,7 +5,7 @@ _Publish It Yourself_ is a self-managed CMS.
 It is designed to create autonomous communities where users can directly create and manage content.
 It is a mix between blogs and blogs platforms, digg-likes and open publishing websites such as (the Indymedia network)[http://www.indymedia.org].
 
-It allows to publish and promote rich text articles and news. It includes many features: tagging with (triple tags)[http://en.wikipedia.org/wiki/Triple_tag#Triple_tags] support, comments, spam protection, registration system, peronnal users pages, Atom feeds, microformats and more!
+It allows to publish and promote rich text articles and news. It includes many features: tagging with (triple tags)[http://en.wikipedia.org/wiki/Triple_tag#Triple_tags] support, comments, spam protection, themes, interface translation, registration system, peronnal users pages, Atom feeds, microformats,  and more!
 Every pages are optimized for search engines, including expressives URLs and uniques titles.
 
 It is wrote in PHP using the (symfony framework)[http://www.symfony-project.org]. It is modular and object oriented.
