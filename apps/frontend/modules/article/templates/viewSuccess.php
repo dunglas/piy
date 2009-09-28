@@ -25,7 +25,7 @@ use_helper('Date', 'Number', 'XssSafe')
 
 	<section id="vote">
     <?php if ($sf_user->isAuthenticated()): ?>
-		  <?php if ($vote = $sf_user->getGuardUser()->getVoteFor($article->getRawValue())): ?>
+		  <?php if ($vote = $sf_user->getGuardUser()->getVoteFor($article)): ?>
 		    <p><?php echo __('You voted this article.') ?></p>
 		    <p><?php echo link_to(__('Remove your vote'), '@article_unvote?slug='.$article->getSlug()) ?></p>
 	  <?php else: ?>
