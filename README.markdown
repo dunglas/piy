@@ -8,7 +8,7 @@ It is a mix between blogs and blogs platforms, digg-likes and open publishing we
 It allows to publish and promote rich text articles and news. It includes many features: tagging with (triple tags)[http://en.wikipedia.org/wiki/Triple_tag#Triple_tags] support, comments, spam protection, themes, interface translation, registration system, peronnal users pages, Atom feeds, microformats,  and more!
 Every pages are optimized for search engines, including expressives URLs and uniques titles.
 
-It is wrote in PHP using the (symfony framework)[http://www.symfony-project.org]. It is modular and object oriented.
+It is written in PHP using the (symfony framework)[http://www.symfony-project.org]. It is modular and object oriented.
 The Javascript part of the code uses (jQuery)[http://www.jquery.com], the built-in theme is (x)HTML 5 compliant.
 This software is still in an early stage of development.
 
