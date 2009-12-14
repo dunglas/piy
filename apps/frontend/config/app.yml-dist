@@ -1,0 +1,104 @@
+all:
+  general:
+    name: Publish It Yourself
+    baseline: A self-managed CMS
+
+  theme:
+    name: default
+
+  email:
+    address:  piy@example.com
+    name:     Publish It Yourself
+    
+  sf_guard_plugin:
+    routes_register:    false
+    profile_class:      SfGuardUserProfile
+    profile_field_name: user_id
+    
+  
+  recaptcha:
+    public_key:      6LdNgwQAAAAAALo8ttBSQKz114tR7mdEqyUlNm_F
+    private_key:     6LdNgwQAAAAAACJ1_yXhcb6Qanqbr-tVCKekBj1x
+  
+  sfXssSafePlugin:
+    definition:
+      Cache:
+        DefinitionImpl:         null
+      AutoFormat:
+        Linkify:                true
+        RemoveEmpty:
+          RemoveNbsp:           true
+        RemoveEmpty:            true
+
+      HTML:
+        TidyLevel:              heavy   # Values : "none", "light", "medium", "heavy"
+        Doctype:                null     # Accepts valid Doctypes, like 'XHTML 1.0 Transitional'
+        Trusted:                false
+      Core:
+        Encoding:               UTF-8    # This directive only accepts ISO-8859-1 if iconv is not enabled
+        RemoveInvalidImg:       true
+        EscapeInvalidChildren:  true
+        EscapeInvalidTags:      true
+      CSS:
+        AllowImportant:         false
+      Filter:
+        YouTube:                true    # Allow YouTube video embeded
+      AutoFormat:
+        AutoParagraph:          false
+      URI:
+        Disable:                false
+        DisableExternal:        false
+      Output:
+        TidyFormat:             false
+
+
+
+  sfPropelActAsCommentableBehaviorPlugin:
+    allowed_tags:
+      a:              <a>
+      blockquote:     <blockquote>
+      code:           <code>
+      em:             <em>
+      i:              <i>
+      p:              <p>
+      strong:         <strong>
+    anonymous:
+      enabled:        true
+      layout:
+        name:         required
+        email:        required
+        website:      optional
+        title:        optional
+        text:         required
+      name:           Anonymous User
+    count:
+      enabled:        true
+      method:         setSfCommentCount
+      namespace:      frontend
+    date_format:      words
+    max_tokens:       20
+    namespaces:
+      frontend:       
+      backend:        administrator
+    salt:             c0mm3nt4bl3
+    use_css:          true
+    use_gravatar:     true
+    use_routes:       true
+    user:
+      enabled:        true
+      layout:
+        title:        optional
+        text:         required
+      table:          sf_guard_user
+      id:             id
+      class:          sfGuardUser
+      id_method:      getId
+      toString:       __toString
+      toEmail:        getEmail
+      save_name:      false
+
+  sf_zend_open_id_plugin:
+    allow_linking: true
+
+  sfPropelActAsTaggableBehaviorPlugin:
+    limit:   5

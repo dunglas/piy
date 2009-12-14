@@ -1,3 +1,6 @@
+apps/frontend/config/*.yml
+themes/*
+web/css/themes/*
 cache/*
 log/*
 web/uploads/g_cache/*

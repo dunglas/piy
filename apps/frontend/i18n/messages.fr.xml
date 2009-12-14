@@ -77,7 +77,7 @@
       </trans-unit>
       <trans-unit id="19">
         <source>More...</source>
-        <target/>
+        <target>Plus...</target>
       </trans-unit>
       <trans-unit id="20">
         <source>%1% most recent articles</source>
@@ -113,7 +113,7 @@
       </trans-unit>
       <trans-unit id="28">
         <source>Most rated articles for:</source>
-        <target>Articles les plus votés pour :</target>
+        <target>Articles les plus votés depuis :</target>
       </trans-unit>
       <trans-unit id="29">
         <source>24 hours</source>
@@ -157,7 +157,7 @@
       </trans-unit>
       <trans-unit id="39">
         <source>Signin or &lt;a href="%1%"&gt;register&lt;/a&gt; to rate this article.</source>
-        <target>Connectez-vous ou &lt;a href="%1%"&gt;enregistrez-vous&lt;/a&gt; pour votés pour cet article.</target>
+        <target>Connectez-vous ou &lt;a href="%1%"&gt;enregistrez-vous&lt;/a&gt; pour promouvoir cet article.</target>
       </trans-unit>
       <trans-unit id="40">
         <source>Comment!</source>
@@ -298,6 +298,58 @@
       <trans-unit id="74">
         <source>1 year</source>
         <target>depuis 1 an</target>
+      </trans-unit>
+      <trans-unit id="75">
+        <source>Tags:</source>
+        <target>Étiquettes :</target>
+      </trans-unit>
+      <trans-unit id="76">
+        <source>By %1%.</source>
+        <target>Par %1%.</target>
+      </trans-unit>
+      <trans-unit id="77">
+        <source>There is no comment for the moment.</source>
+        <target>Il n'y a pas de commentaires pour l'instant.</target>
+      </trans-unit>
+      <trans-unit id="78">
+        <source>Title</source>
+        <target>Titre</target>
+      </trans-unit>
+      <trans-unit id="79">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="80">
+        <source>Website</source>
+        <target>Site internet</target>
+      </trans-unit>
+      <trans-unit id="81">
+        <source>Text</source>
+        <target>Commentaire</target>
+      </trans-unit>
+      <trans-unit id="82">
+        <source>Anonymous</source>
+        <target>Anonyme</target>
+      </trans-unit>
+      <trans-unit id="83">
+        <source>Body</source>
+        <target>Article</target>
+      </trans-unit>
+      <trans-unit id="84">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="85">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="86">
+        <source>Remember</source>
+        <target>Se souvenir de moi</target>
+      </trans-unit>
+      <trans-unit id="87">
+        <source>Password again</source>
+        <target>Confirmation du mot de passe</target>
       </trans-unit>
     </body>
   </file>

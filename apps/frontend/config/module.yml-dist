@@ -1,0 +1,3 @@
+all:
+  view_class: piy
+  partial_view_class: piy

@@ -35,7 +35,7 @@ class ArticleForm extends BaseArticleForm
   	$this->widgetSchema['body'] = new sfWidgetFormTextareaTinyMCE(array(
       'width'  => 550,
       'height' => 350,
-      'config' => 'theme_advanced_disable: "anchor,image,cleanup,help"',
+      'config' => 'theme_advanced_disable: "anchor,cleanup,help"',
       ),
       array('class' => 'article_body')
     );

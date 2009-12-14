@@ -9,4 +9,3 @@
 
 ?>
 <?php include_component('article', 'mostRecent') ?>
-<?php include_component('article', 'popularTags') ?>

@@ -90,4 +90,4 @@ all:
 #    logging_enabled:        on
 #
 #    # i18n
-#    default_culture:        en        # Default user culture
+    default_culture:        fr        # Default user culture

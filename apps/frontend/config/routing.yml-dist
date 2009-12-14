@@ -1,7 +1,7 @@
 # default rules
 homepage:
   url:          /
-  param:        { module: article, action: top, page: 1, time: 24-hours }
+  param:        { module: article, action: top, page: 1, time: 1-week }
 
 # User rules
 user_articles:
@@ -16,7 +16,6 @@ user_comments:
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
-user_edit_profile:
 # Article rules
 article_select_tag:
   url:          /select-tag
@@ -35,12 +34,6 @@ article_create:
   param:        { module: article, action: create }
   class:        sfRequestRoute
   requirements: { sf_method: post }
-  
-article_view:
-  url:          /articles/:slug.:sf_format
-  param:        { module: article, action: view, sf_format: html }
-  class:        sfRequestRoute
-  requirements: { sf_method: get, sf_format: (?:html|atom) }
 
 article_update:
   url:          /articles/:slug
@@ -50,13 +43,13 @@ article_update:
 
 article_top:
   url:          /top/:time/:page.:sf_format
-  param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
+  param:        { module: article, action: top, page: 1, time: 1-week, sf_format: html }
   class:        sfRequestRoute
   requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
 
 article_top_one_page:
   url:          /top/:time.:sf_format
-  param:        { module: article, action: top, page: 1, time: 24-hours, sf_format: html }
+  param:        { module: article, action: top, page: 1, time: 1-week, sf_format: html }
   class:        sfRequestRoute
   requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
 
@@ -74,13 +67,13 @@ article_most_recent_one_page:
 
 article_tags_top:
   url:          /tags/:tags/:time/:page.:sf_format
-  param:        { module: article, action: topWithTags, page: 1, time: 24-hours, sf_format: html }
+  param:        { module: article, action: topWithTags, page: 1, time: 1-week, sf_format: html }
   class:        sfRequestRoute
   requirements: { page: \d+, sf_method: get, sf_format: (?:html|atom) }
 
 article_tags_top_one_page:
   url:          /tags/:tags/:time.:sf_format
-  param:        { module: article, action: topWithTags, page: 1, time: 24-hours, sf_format: html }
+  param:        { module: article, action: topWithTags, page: 1, time: 1-week, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 
@@ -93,6 +86,12 @@ article_tags_most_recent:
 article_tags_most_recent_one_page:
   url:          /tags/:tags.:sf_format
   param:        { module: article, action: mostRecentWithTags, page: 1, sf_format: html }
+  class:        sfRequestRoute
+  requirements: { sf_method: get, sf_format: (?:html|atom) }
+
+article_view:
+  url:          /articles/:slug.:sf_format
+  param:        { module: article, action: view, sf_format: html }
   class:        sfRequestRoute
   requirements: { sf_method: get, sf_format: (?:html|atom) }
 

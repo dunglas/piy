@@ -25,8 +25,6 @@
 	</ul>
 </div>
 
-<h1>
-  <?php echo __('Most rated %1% %2%', array('%1%' => $sf_params->get('tags'), '%2%' => __($sf_params->get('time') == 'ever' ? __('ever') : __('for ' . str_replace('-', ' ', $sf_params->get('time')))))) ?>
-</h1>
+<h1><?php echo $sf_params->get('tags') ?></h1>
 
 <?php include_partial('article/list', array('article_pager' => $article_pager)) ?>

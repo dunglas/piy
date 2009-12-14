@@ -5,8 +5,8 @@ default:
   metas:
     title:        <?php echoln(sfConfig::get('app_general_name')) ?>
     description:  <?php echo sfConfig::get('app_general_name') ?>: <?php echoln(sfConfig::get('app_general_baseline')) ?>
-    keywords:     self publish, publication, self-management
-    language:     en
+    keywords:     "self publish, publication, self-management"
+    language:     fr
     robots:       index, follow
 
   stylesheets:    [main.css]
